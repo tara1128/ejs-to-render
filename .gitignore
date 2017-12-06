@@ -57,3 +57,29 @@ typings/
 # dotenv environment variables file
 .env
 
+
+.DS_STORE
+node_modules
+*~
+*.pyc
+.grunt
+_SpecRunner.html
+__benchmarks__
+.module-cache
+*.gem
+*.log*
+chrome-user-data
+*.sublime-project
+*.sublime-workspace
+.idea
+*.iml
+npm-debug.log
+
+dist/cache-uglified-js/
+images/
+fonts/
+!dist/images
+!dist/fonts
+
+
+package-lock.json
