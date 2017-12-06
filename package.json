@@ -1,0 +1,25 @@
+{
+  "name": "website-ejs-rendered",
+  "version": "1.0.0",
+  "description": "Website rendered by ejs",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "clean": "",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": ""
+  },
+  "keywords": [
+    "ejs",
+    "express"
+  ],
+  "author": "alex",
+  "license": "ISC",
+  "devDependencies": {
+    "ejs": "^2.5.7",
+    "express": "^4.16.2"
+  }
+}

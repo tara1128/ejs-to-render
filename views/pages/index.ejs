@@ -1,0 +1,30 @@
+<!-- views/pages/index.ejs -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <% include ../partials/head %>
+</head>
+<body class="container">
+
+  <header>
+    <% include ../partials/header %>
+  </header>
+
+  <main>
+    <h1>Slogan here</h1>
+    <h3>Sub slogan here...</h3>
+    <h3><%= title %></h3>
+    <ul>
+      <% data.forEach(function(_d) { %>
+        <li><%= _d.name %> - <%= _d.age %> years old.</li>
+      <% }); %>
+    </ul>
+  </main>
+
+  <footer>
+    <% include ../partials/footer %>
+  </footer>
+
+
+</body>
+</html>
