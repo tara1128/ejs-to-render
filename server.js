@@ -11,7 +11,10 @@ var about = require('./routes/about');
 
 app.set('view engine', 'ejs');
 app.use(express.static(path.join(__dirname, 'public')));
-app.use('/', index);
+
+for (var lang in index) {
+  app.use('/' + lang + '/', index[lang]);
+};
 app.use('/about', index);
 
 app.listen(8027);
