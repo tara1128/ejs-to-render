@@ -1,7 +1,7 @@
 /*
   Webpack configuration file.
   Author: Alexandra
-  Latest modified: 2017-12-06 20:06
+  Latest modified: 2017-12-07 17:26
 */
 
 const path = require('path');
@@ -14,8 +14,8 @@ var extractStyle = new ExtractTextPlugin('index.min.css');
 module.exports = {
   entry: './index.js',
   output: {
-    path: path.resolve(__dirname, 'dist'),
-    publicPath: '/dist/',
+    path: path.resolve(__dirname, 'public/dist'),
+    publicPath: 'public',
     filename: 'index.min.js'
   },
   module: {
@@ -25,7 +25,7 @@ module.exports = {
       {test:/\.css$/, loader:ExtractTextPlugin.extract({
         fallback: 'style-loader',
         use: 'css-loader',
-        publicPath: '/dist/'
+        publicPath: '/public'
       })},
       */
       {test:/\.css$/, loader:extractStyle.extract(['css-loader'])},
@@ -37,14 +37,14 @@ module.exports = {
   plugins: [
     extractStyle,
     new WebpackUglifyJsPlugin({
-      cacheFolder: path.join('./dist/cache-uglified-js'),
+      cacheFolder: path.join('./public/dist/cache-uglified-js'),
       minimize: true,
       sourceMap: true,
       output: {comments:false},
       compress: {warnings:true, properties:false}
     }),
     new CopyWebpackPlugin([
-      { from: './images', to: path.join( './images') }
+      { from: './public/static/images', to: path.join( './images') }
     ])
   ]
 };

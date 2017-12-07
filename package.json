@@ -5,8 +5,8 @@
   "main": "server.js",
   "scripts": {
     "run": "node server.js",
-    "start": "rm -rf dist/ && webpack --config webpack.config.js",
-    "clean": "rm -rf dist/",
+    "start": "rm -rf public/dist/ && webpack --config webpack.config.js",
+    "clean": "rm -rf public/dist/",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {

@@ -1,26 +1,18 @@
+/*
+  server.js
+  2017-12-07 16:43
+*/
+
+var path = require('path');
 var express = require('express');
 var app = express();
+var index = require('./routes/index');
+var about = require('./routes/about');
 
 app.set('view engine', 'ejs');
-
-// Note that 'res.render()' will look in a views folder for the view,
-// so 'pages/index' is actually the full path 'views/pages/index'.
-app.get('/', function(req, res) {
-  var datas = [
-    {name: 'Alex', age: 10},
-    {name: 'Tara', age: 20},
-    {name: 'Jack', age: 30},
-  ];
-  var text = 'This is just a normal sentence!';
-  res.render('pages/index', {
-    data: datas,
-    title: text
-  });
-});
-
-app.get('/about', function(req, res) {
-  res.render('pages/about');
-});
+app.use(express.static(path.join(__dirname, 'public')));
+app.use('/', index);
+app.use('/about', index);
 
 app.listen(8027);
-console.log('8027 is the running port !');
+console.log('Port 8027 is now running !');
