@@ -1,27 +1,15 @@
 <!-- views/pages/about.ejs -->
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <% include ../partials/head %>
-</head>
-<body class="container">
+<% include ../partials/head %>
+<body class="<%= lang %> sub-page" data-lang="<%= lang %>">
 
-  <header>
-    <% include ../partials/header %>
-  </header>
-
-  <main>
-    <h1>The about page</h1>
-    <p>About 1</p>
-    <p>About 2</p>
-    <p>About 3</p>
-    <p>About 4</p>
-  </main>
-
-  <footer>
+  <div class="cmcm-wrapper">
+    <section class="first-screen" id="CMCM_FirstScreen">
+      <% include ../partials/header %>
+    </section>
+    <h1><%= title %></h1>
     <% include ../partials/footer %>
-  </footer>
 
-
+  </div><!-- .cmcm-wrapper -->
+  <script src="/dist/index.min.js?v=1302"></script>
 </body>
 </html>
