@@ -1,6 +1,6 @@
 /*
   routes/index.js
-  2017-12-08 18:55
+  2017-12-11 17:32
 */
 
 var express = require('express');
@@ -9,55 +9,36 @@ var topbar = require('../data/menu');
 var footer = require('../data/footer');
 var intros = require('../data/intro');
 var product = require('../data/product');
+var PublicNav = new Object;
 
-/*
-for (var lang in nav) {
-  router.get('/' + lang, function(req, res) {
-    res.render('index', {
-      lang: lang,
-      title: nav[lang].title,
-      keywords: nav[lang].keywords,
-      description: nav[lang].description,
-      topbarContents: 'Top bar contents, in header.ejs',
-      footerContents: 'Footer contents here'
-    });
-  });
-};
-*/
 Object.keys(topbar.CMCM_PublicNav).forEach(function(lang, i) {
   var datas = topbar.CMCM_PublicNav[lang];
-  console.log( 'datas =====> ', datas );
+  PublicNav[lang] = datas;
 });
-
-
 
 
 router.get('/en-us', function(req, res) {
   res.render('index', {
-    lang: 'EN',
-    name: 'nameee',
-    pubNavList: '000',
-    title: 'ENENENEN Cheetah Mobile',
-    keywords: 'Keywords ...',
-    description: 'Description',
-    topbarContents: 'Top bar contents, in header.ejs',
+    lang: 'en-us',
+    name: PublicNav['en-us'].name,
+    pubNavList: PublicNav['en-us'].data,
+    title: PublicNav['en-us'].title,
+    keywords: PublicNav['en-us'].keywords,
+    description: PublicNav['en-us'].description,
     footerContents: 'Footer contents here'
   });
 });
 
-
-/*
 router.get('/zh-cn', function(req, res) {
   res.render('index', {
+    lang: 'zh-cn',
+    name: PublicNav['zh-cn'].name,
+    pubNavList: PublicNav['zh-cn'].data,
+    title: PublicNav['zh-cn'].title,
+    keywords: PublicNav['zh-cn'].keywords,
+    description: PublicNav['zh-cn'].description,
+    footerContents: '页脚内容'
   });
 });
-
-router.get('/ru-ru', function(req, res) {
-  res.render('index', {
-  });
-});
-*/
-
-
 
 module.exports = router;

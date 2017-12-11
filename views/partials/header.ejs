@@ -7,7 +7,19 @@
     </h1>
     <div class="top-burger" id="CMCM_TopBurger"></div>
     <ul class="top-nav" id="CMCM_TopNav">
-      <%= pubNavList %>
+      <% pubNavList.forEach(function(item){ %>
+        <li class="top-nav-li has-trans CMCM_TopNavLi">
+          <a class="top-nav-a has-trans <%= item.curr %>" href="<%= item.linkTo %>" target="<%= item.target %>" onclick="ga('send', 'event', '<%= item.gaTag %>', 'click');"><%= item.displayName %><s class="has-trans"></s><b class="has-trans"></b></a>
+          <div class="top-nav-sub">
+            <% if (item.subNavs.length > 0) { %>
+              <% item.subNavs.forEach(function(subNav) { %>
+                <a class="one-sub has-trans" href="<%= (subNav.outLink)?(subNav.subNavLink):(item.linkTo + '#' + subNav.subNavLink) %>" target="<%= item.target %>"><%= subNav.subNavName %></a>
+              <% }); %>
+            <% } %>
+          </div>
+        </li>
+      <% }); %>
+
       <li class="top-nav-li has-trans top-langs" id="CMCM_TopLangSwitch">
         <div class="langs clearfix">
           <a class="lang-a has-trans '+ cnCls +'" href="/zh-cn/">简<s class="has-trans">&nbsp;</s></a>
