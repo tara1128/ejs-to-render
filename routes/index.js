@@ -1,43 +1,52 @@
 /*
   routes/index.js
-  2017-12-11 17:32
+  2017-12-13 20:00
 */
 
 var express = require('express');
 var router = express.Router();
-var topbar = require('../data/menu');
-var footer = require('../data/footer');
-var intros = require('../data/intro');
-var product = require('../data/product');
-var PublicNav = new Object;
 
-Object.keys(topbar.CMCM_PublicNav).forEach(function(lang, i) {
-  var datas = topbar.CMCM_PublicNav[lang];
-  PublicNav[lang] = datas;
-});
+/* Datas performed as Json: */
+var langs = require('../data/langs');
+var topbar = require('../data/menu');
+var intros = require('../data/intro');
+var company = require('../data/company');
+var product = require('../data/product');
+var contact = require('../data/contact');
+var footer = require('../data/footer');
 
 
 router.get('/en-us', function(req, res) {
+  var lang = 'en-us';
   res.render('index', {
-    lang: 'en-us',
-    name: PublicNav['en-us'].name,
-    pubNavList: PublicNav['en-us'].data,
-    title: PublicNav['en-us'].title,
-    keywords: PublicNav['en-us'].keywords,
-    description: PublicNav['en-us'].description,
-    footerContents: 'Footer contents here'
+    Lang: lang,
+    langsCollection: langs.CMCM_Langs,
+    name: topbar.CMCM_PublicNav[lang].name,
+    pubNavList: topbar.CMCM_PublicNav[lang].data,
+    title: topbar.CMCM_PublicNav[lang].title,
+    keywords: topbar.CMCM_PublicNav[lang].keywords,
+    description: topbar.CMCM_PublicNav[lang].description,
+    companyInfos: company.CMCM_CompanyInfoList[lang],
+    productInfos: product.CMCM_ProductList[lang],
+    contactInfos: contact.CMCM_ContactList[lang],
+    pubFooter: footer.CMCM_PublicFooter[lang]
   });
 });
 
 router.get('/zh-cn', function(req, res) {
+  var lang = 'zh-cn';
   res.render('index', {
-    lang: 'zh-cn',
-    name: PublicNav['zh-cn'].name,
-    pubNavList: PublicNav['zh-cn'].data,
-    title: PublicNav['zh-cn'].title,
-    keywords: PublicNav['zh-cn'].keywords,
-    description: PublicNav['zh-cn'].description,
-    footerContents: '页脚内容'
+    Lang: lang,
+    langsCollection: langs.CMCM_Langs,
+    name: topbar.CMCM_PublicNav[lang].name,
+    pubNavList: topbar.CMCM_PublicNav[lang].data,
+    title: topbar.CMCM_PublicNav[lang].title,
+    keywords: topbar.CMCM_PublicNav[lang].keywords,
+    description: topbar.CMCM_PublicNav[lang].description,
+    companyInfos: company.CMCM_CompanyInfoList[lang],
+    productInfos: product.CMCM_ProductList[lang],
+    contactInfos: contact.CMCM_ContactList[lang],
+    pubFooter: footer.CMCM_PublicFooter[lang]
   });
 });
 

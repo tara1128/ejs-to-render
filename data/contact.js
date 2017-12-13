@@ -6,7 +6,7 @@ exports.CMCM_ContactList = {
     category: {
       mediaContact: {
         categoryName: '媒体联系',
-        categoryLink: 'Contact_Media',
+        categoryLink: 'media',
         categoryData: {
           classAnchor: 'category-of-media',
           datas: [
@@ -27,7 +27,7 @@ exports.CMCM_ContactList = {
       },
       socialMedia: {
         categoryName: '社交媒体',
-        categoryLink: 'Contact_Social',
+        categoryLink: 'social',
         categoryData: {
           classAnchor: 'category-of-socialmedia',
           wechatTitle: '扫一扫关注公众号',
@@ -57,7 +57,7 @@ exports.CMCM_ContactList = {
       },
       businessContact: {
         categoryName: '业务联系',
-        categoryLink: 'Contact_Business',
+        categoryLink: 'business',
         categoryData: {
           classAnchor: 'category-of-business',
           datas: [
@@ -86,7 +86,7 @@ exports.CMCM_ContactList = {
       },
       globalOffice: {
         categoryName: '全球办公室',
-        categoryLink: 'Contact_GlobalOffice',
+        categoryLink: 'offices',
         categoryData: {
           classAnchor: 'category-of-office',
           datas: [
@@ -155,7 +155,7 @@ exports.CMCM_ContactList = {
       },
       customerSupport: {
         categoryName: '客户联系',
-        categoryLink: 'Contact_Customer',
+        categoryLink: 'customer',
         categoryData: {
           classAnchor: 'category-of-clients',
           datas: [
@@ -184,7 +184,7 @@ exports.CMCM_ContactList = {
     category: {
       mediaContact: {
         categoryName: 'Media',
-        categoryLink: 'Contact_Media',
+        categoryLink: 'media',
         categoryData: {
           classAnchor: 'category-of-media',
           datas: [
@@ -205,7 +205,7 @@ exports.CMCM_ContactList = {
       },
       socialMedia: {
         categoryName: 'Social Media',
-        categoryLink: 'Contact_Social',
+        categoryLink: 'social',
         categoryData: {
           classAnchor: 'category-of-socialmedia',
           wechatTitle: 'Scan to follow us',
@@ -235,7 +235,7 @@ exports.CMCM_ContactList = {
       },
       businessContact: {
         categoryName: 'Business',
-        categoryLink: 'Contact_Business',
+        categoryLink: 'business',
         categoryData: {
           classAnchor: 'category-of-business',
           datas: [
@@ -252,7 +252,7 @@ exports.CMCM_ContactList = {
       },
       globalOffice: {
         categoryName: 'Offices',
-        categoryLink: 'Contact_GlobalOffice',
+        categoryLink: 'offices',
         categoryData: {
           classAnchor: 'category-of-office',
           datas: [
@@ -321,7 +321,7 @@ exports.CMCM_ContactList = {
       },
       customerSupport: {
         categoryName: 'Customer Support',
-        categoryLink: 'Contact_Customer',
+        categoryLink: 'customer',
         categoryData: {
           classAnchor: 'category-of-clients',
           datas: [

@@ -6,13 +6,13 @@ exports.CMCM_ProductList = {
     category: {
       mobileApps: {
         categoryName: '移动端',
-        categoryLink: 'Product_Tools',/* For target, make its hash the same as its first son. */
+        categoryLink: 'tools',/* For target, make its hash the same as its first son. */
         categoryData: {
           onMenu: true, /* To show sub categories on menu, make it true. */
           unfold: true, /* To unfold sub categories by default, make it true. */
           tool: {
             name: '工具',
-            hash: 'Product_Tools',
+            hash: 'tools',
             anch: 'category-of-tool',
             desc: ['全球领先的工具应用开发商，覆盖PC、移动端，构建安全、清理、图片编辑等多元化的产品矩阵；', '高居Google Play同品类榜首，开创猎豹移动出海浪潮'],
             data: [
@@ -117,7 +117,7 @@ exports.CMCM_ProductList = {
           },
           socl: {
             name: '社交',
-            hash: 'Product_Social',
+            hash: 'social',
             anch: 'category-of-social',
             desc: ['成功出海欧美的社交产品，跨越文化壁垒，连接全球用户，', '布局海外直播市场，建立内容生态体系'],
             data: [
@@ -138,7 +138,7 @@ exports.CMCM_ProductList = {
           },
           game: {
             name: '游戏',
-            hash: 'Product_Games',
+            hash: 'games',
             anch: 'category-of-game',
             desc: ['猎豹移动手游产品在全球月活跃用户超过1亿，', '是iOS和Google Play月度手游下载榜Top10频繁上榜的国内厂商'],
             data: [
@@ -231,12 +231,12 @@ exports.CMCM_ProductList = {
       },
       pc: {
         categoryName: 'PC端',
-        categoryLink: 'Product_forPC',
+        categoryLink: 'forpc',
         categoryData: {
           onMenu: false, /* NOT to show sub categories on menu, make it false. */
           pc: {/* When no sub category, using the same name & hash as its father!*/
             name: 'PC端',
-            hash: 'Product_forPC',
+            hash: 'forpc',
             anch: 'category-of-pc',
             desc: '',
             data: [
@@ -285,12 +285,12 @@ exports.CMCM_ProductList = {
       },
       ai: {
         categoryName: '人工智能',
-        categoryLink: 'Product_AI',
+        categoryLink: 'ai',
         categoryData: {
           onMenu: false, /* NOT to show sub categories on menu, make it false. */
           ai: {/* When no sub category, using the same name & hash as its father!*/
             name: '人工智能',
-            hash: 'Product_AI',
+            hash: 'ai',
             anch: 'category-of-ai',
             desc: ['旗下人工智能公司猎户星空在远场语音交互系统、图像识别、视觉导航等领域，', '拥有完全自主开发、领先行业的技术'],
             data: [
@@ -330,12 +330,12 @@ exports.CMCM_ProductList = {
       },
       bigData: {
         categoryName: '大数据',
-        categoryLink: 'Product_bigData',
+        categoryLink: 'bigdata',
         categoryData: {
           onMenu: false, /* NOT to show sub categories on menu, make it false. */
           bigData: {
             name: '大数据',
-            hash: 'Product_bigData',
+            hash: 'bigdata',
             anch: 'category-of-bigdata',
             desc: '',
             data: [
@@ -358,12 +358,12 @@ exports.CMCM_ProductList = {
       },
       business: {
         categoryName: '商业',
-        categoryLink: 'Product_Business',
+        categoryLink: 'business',
         categoryData: {
           onMenu: false, /* NOT to show sub categories on menu, make it false. */
           business: {/* When no sub category, using the same name & hash as its father!*/
             name: '商业',
-            hash: 'Product_Business',
+            hash: 'business',
             anch: 'category-of-business',
             desc: '',
             data: [
@@ -386,12 +386,12 @@ exports.CMCM_ProductList = {
       },
       hardware: {
         categoryName: '硬件',
-        categoryLink: 'Product_Hardware',
+        categoryLink: 'hardware',
         categoryData: {
           onMenu: false, /* NOT to show sub categories on menu, make it false. */
           hardware: {/* When no sub category, using the same name & hash as its father!*/
             name: '硬件',
-            hash: 'Product_Hardware',
+            hash: 'hardware',
             anch: 'category-of-hardware',
             desc: '',
             data: [
@@ -421,13 +421,13 @@ exports.CMCM_ProductList = {
     category: {
       mobileApps: {
         categoryName: 'Mobile',
-        categoryLink: 'Product_Tools', /* For target, make its hash the same as its first son. */
+        categoryLink: 'tools', /* For target, make its hash the same as its first son. */
         categoryData: {
           onMenu: true, /* To show sub categories on menu, make it true. */
           unfold: true, /* To unfold sub categories by default, make it true. */
           tool: {
             name: 'Utility',
-            hash: 'Product_Tools',
+            hash: 'tools',
             anch: 'category-of-tool',
             desc: ['As the #1 developer in Google Play\'s tool app category, Cheetah Mobile offers ', 'the world\'s leading security, cleaning, personalization and safe browser software.'],
             data: [
@@ -532,7 +532,7 @@ exports.CMCM_ProductList = {
           },
           socl: {
             name: 'Social',
-            hash: 'Product_Social',
+            hash: 'social',
             anch: 'category-of-social',
             desc: ['Crossing cultural barriers, connecting global users ', 'leading the global live broadcasting market'],
             data: [
@@ -553,7 +553,7 @@ exports.CMCM_ProductList = {
           },
           game: {
             name: 'Games',
-            hash: 'Product_Games',
+            hash: 'games',
             anch: 'category-of-game',
             desc: ['With combined MAUs surpassing 1 billion globally ', 'Cheetah Games is one of the largest casual game developers in the world'],
             data: [
@@ -646,12 +646,12 @@ exports.CMCM_ProductList = {
       },
       pc: {
         categoryName: 'PC',
-        categoryLink: 'Product_forPC',
+        categoryLink: 'forpc',
         categoryData: {
           onMenu: false, /* NOT to show sub categories on menu, make it false. */
           pc: {/* When no sub category, using the same name & hash as its father!*/
             name: 'PC',
-            hash: 'Product_forPC',
+            hash: 'forpc',
             anch: 'category-of-pc',
             desc: '',
             data: [
@@ -713,12 +713,12 @@ exports.CMCM_ProductList = {
       },
       ai: {
         categoryName: 'AI',
-        categoryLink: 'Product_AI',
+        categoryLink: 'ai',
         categoryData: {
           onMenu: false, /* NOT to show sub categories on menu, make it false. */
           ai: {/* When no sub category, using the same name & hash as its father!*/
             name: 'AI',
-            hash: 'Product_AI',
+            hash: 'ai',
             anch: 'category-of-ai',
             desc: ['Cheetah Mobile-invested artificial intelligence company OrionStar possesses completely self-developed, ', 'industry-leading technology, including far-field voice interaction, image recognition and visual navigation systems.'],
             data: [
@@ -758,12 +758,12 @@ exports.CMCM_ProductList = {
       },
       bigData: {
         categoryName: 'Big Data',
-        categoryLink: 'Product_bigData',
+        categoryLink: 'bigdata',
         categoryData: {
           onMenu: false, /* NOT to show sub categories on menu, make it false. */
           bigData: {
             name: 'Big Data',
-            hash: 'Product_bigData',
+            hash: 'bigdata',
             anch: 'category-of-bigdata',
             desc: '',
             data: [
@@ -786,12 +786,12 @@ exports.CMCM_ProductList = {
       },
       business: {
         categoryName: 'Commercial',
-        categoryLink: 'Product_Business',
+        categoryLink: 'business',
         categoryData: {
           onMenu: false, /* NOT to show sub categories on menu, make it false. */
           business: {/* When no sub category, using the same name & hash as its father!*/
             name: 'Commercial',
-            hash: 'Product_Business',
+            hash: 'business',
             anch: 'category-of-business',
             desc: '',
             data: [

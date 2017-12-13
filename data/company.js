@@ -6,7 +6,7 @@ exports.CMCM_CompanyInfoList = {
     category: {
       missionVisions: {
         categoryName: '使命与愿景',
-        categoryLink: 'Company_Vision',
+        categoryLink: 'mission',
         categoryData: {
           classAnchor: 'category-of-vision',
           slogan: 'Make the world smarter',
@@ -15,7 +15,7 @@ exports.CMCM_CompanyInfoList = {
       },
       introduction: {
         categoryName: '公司简介',
-        categoryLink: 'Company_Intro',
+        categoryLink: 'intro',
         categoryData: {
           classAnchor: 'category-of-company',
           introTexts: ['猎豹移动是一家全球领先的移动互联网公司，致力于为全球用户提供卓越的应用。公司于2010年11月，由金山安全和可牛影像合并而成，继承了金山18年的安全技术积累和可牛影像的互联网基因。2014年5月8日，猎豹移动在纽交所正式挂牌上市，交易代码CMCM。猎豹移动是中国移动互联网公司出海的领军者。截至2017年3月，公司产品在全球移动端月度活跃用户约为6亿，用户分布覆盖全球200多个国家及地区。其中，77%来自以欧美为主的海外市场。', '公司核心产品包括一系列工具及安全应用，如猎豹清理大师、猎豹安全大师、猎豹3D桌面、金山毒霸、Cheetah Keyboard等，为全球移动用户提供更快速、更易用、更安全的移动互联网体验。在工具应用之外，猎豹移动还拥有直播社交类应用Live.me、游戏应用钢琴块2、弓箭手大作战等产品。2016年4月，正式进军人工智能领域，旗下人工智能公司猎户星空在远场语音交互系统、图像识别、视觉导航等领域，拥有完全自主开发并领先行业的技术。'],
@@ -24,7 +24,7 @@ exports.CMCM_CompanyInfoList = {
       },
       devHistory: {
         categoryName: '发展历程',
-        categoryLink: 'Company_History',
+        categoryLink: 'history',
         categoryData: {
           classAnchor: 'category-of-history',
           companyHistory: [
@@ -92,7 +92,7 @@ exports.CMCM_CompanyInfoList = {
       },
       leaderTeam: {
         categoryName: '管理团队',
-        categoryLink: 'Company_Leaders',
+        categoryLink: 'leaders',
         categoryData: {
           classAnchor: 'category-of-leaders',
           leaderDetails: [
@@ -109,9 +109,9 @@ exports.CMCM_CompanyInfoList = {
               avatar: '/dist/images/leaders-xuming.jpg'
             },
             {
-              name: '姜振宇',
+              name: '姜震宇',
               title: '猎豹移动<br>首席财务官',
-              detail: ['他在企业财务管理、资本市场运作、兼并收购交易及合规性管理领域从业十余年，积累了丰富的实战经验。同时，在互联网、移动互联网行业有着资深的背景和经验。在加盟猎豹移动之前，姜振宇曾在北京创办过一家科技公司。2014年至2015年，他曾担任北京玖富时代投资顾问有限公司首席财务官。'],
+              detail: ['他在企业财务管理、资本市场运作、兼并收购交易及合规性管理领域从业十余年，积累了丰富的实战经验。同时，在互联网、移动互联网行业有着资深的背景和经验。在加盟猎豹移动之前，姜震宇曾在北京创办过一家科技公司。2014年至2015年，他曾担任北京玖富时代投资顾问有限公司首席财务官。'],
               avatar: '/dist/images/leaders-jiangzhenyu.jpg'
             },
             {
@@ -125,7 +125,7 @@ exports.CMCM_CompanyInfoList = {
       },
       corCulture: {
         categoryName: '企业文化',
-        categoryLink: 'Company_Culture',
+        categoryLink: 'culture',
         categoryData: {
           classAnchor: 'category-of-culture',
           cultureValues: [
@@ -169,7 +169,7 @@ exports.CMCM_CompanyInfoList = {
       },
       empWelfare: {
         categoryName: '员工福利',
-        categoryLink: 'Company_Welfare',
+        categoryLink: 'welfare',
         categoryData: {
           classAnchor: 'category-of-welfare',
           welfareIntros: ['在猎豹移动，有着丰富多彩的员工福利。创意无限的社团和节日活动：篮球社、羽毛球社、登山社、公益社……总有一款适合你；每年还有各类体育赛事，家庭日、中西方节日等文化主题派对，努力工作、快乐生活就是这么简单。层出不穷的学习和生活方式：猎豹学院、黑客马拉松、高管周例会，让大家可以随时给自己“充电”；图书馆、咖啡厅、健身房、电影院、KTV尽在“东半球最有硅谷范儿的中国公司。”除此之外，还有免费班车、加班打车报销、年度健康体检、生日礼物、海归落户、新婚礼金、节日关怀、消费贷款、补充商业保险等等福利制度。'],
@@ -203,7 +203,7 @@ exports.CMCM_CompanyInfoList = {
     category: {
       missionVisions: {
         categoryName: 'Mission',
-        categoryLink: 'Company_Vision',
+        categoryLink: 'mission',
         categoryData: {
           classAnchor: 'category-of-vision',
           slogan: 'Make the world smarter',
@@ -212,7 +212,7 @@ exports.CMCM_CompanyInfoList = {
       },
       introduction: {
         categoryName: 'Company',
-        categoryLink: 'Company_Intro',
+        categoryLink: 'intro',
         categoryData: {
           classAnchor: 'category-of-company',
           introTexts: ['Cheetah Mobile is a leading mobile internet company dedicated to making the world smarter. It aims to provide leading apps for mobile users worldwide and connect users with personalized content powered by artificial intelligence. Cheetah Mobile was formed in November 2010 as a merger between Kingsoft Security and Conew Image, bringing together Kingsoft Security\'s 18 years of security technology experience and Conew\'s internet DNA. The Company has attracted approximately 600 million global MAUs in more than 200 countries and regions, of which approximately 77% are located in Europe and the U.S. ', 'Cheetah Mobile\'s products, including its popular utility applications Clean Master, Security Master, CM Launcher, Duba Anti-Virus and Cheetah Keyboard help make users\' mobile internet experience smarter, speedier and safer. In addition to utility applications, Cheetah Mobile also has social live broadcasting app Live.me and popular casual games such as Piano Tiles 2, Rolling Sky and Arrow.io. Cheetah Mobile is also an investor in OrionStar, an artificial intelligence company dedicated to developing the next generation of ground-breaking technology products.'],
@@ -221,7 +221,7 @@ exports.CMCM_CompanyInfoList = {
       },
       devHistory: {
         categoryName: 'History',
-        categoryLink: 'Company_History',
+        categoryLink: 'history',
         categoryData: {
           classAnchor: 'category-of-history',
           companyHistory: [
@@ -289,7 +289,7 @@ exports.CMCM_CompanyInfoList = {
       },
       leaderTeam: {
         categoryName: 'Executives',
-        categoryLink: 'Company_Leaders',
+        categoryLink: 'leaders',
         categoryData: {
           classAnchor: 'category-of-leaders',
           leaderDetails: [
@@ -322,7 +322,7 @@ exports.CMCM_CompanyInfoList = {
       },
       corCulture: {
         categoryName: 'Culture',
-        categoryLink: 'Company_Culture',
+        categoryLink: 'culture',
         categoryData: {
           classAnchor: 'category-of-culture',
           cultureValues: [
@@ -366,7 +366,7 @@ exports.CMCM_CompanyInfoList = {
       },
       empWelfare: {
         categoryName: 'Benefits',
-        categoryLink: 'Company_Welfare',
+        categoryLink: 'welfare',
         categoryData: {
           classAnchor: 'category-of-welfare',
           welfareIntros: ['At Cheetah Mobile, we have many different types of employee benefits. We offer a wide range of team building activities such basketball, badminton, mountain climbing and charity work. We also host a number of employee competitions and themed cultural events throughout the year to bring people together outside of work hours. Cheetah Mobile promotes employee training and knowledge sharing with our Cheetah College lectures, a yearly Hackathon event and live access to weekly management meetings. Cheetah Mobile also prides itself on being the most Silicon Valley-style internet company in the eastern hemisphere with a library, coffee shop, gym, movie theatre and karaoke room. In addition to the benefits listed above, Cheetah Mobile also offers a bunch of other perquisites, including free shuttle buses, overtime taxi reimbursement, yearly health checks, birthday presents, bonuses for newlyweds, holiday gifts, gift bags for new mothers and fathers, internal recruitment bonuses and consumer loans.'],

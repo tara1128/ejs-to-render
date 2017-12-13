@@ -13,12 +13,12 @@ exports.CMCM_PublicNav = {
         active: 'company',
         gaTag: 'brandnew.nav.company',
         subNavs: [
-          {subNavName: '使命与愿景',  subNavLink: 'Company_Vision'  },
-          {subNavName: '公司简介',    subNavLink: 'Company_Intro'   },
-          {subNavName: '发展历程',    subNavLink: 'Company_History' },
-          {subNavName: '管理团队',    subNavLink: 'Company_Leaders' },
-          {subNavName: '企业文化',    subNavLink: 'Company_Culture' },
-          {subNavName: '员工福利',    subNavLink: 'Company_Welfare' }
+          {subNavName: '使命与愿景',  subNavLink: 'mission' },
+          {subNavName: '公司简介',    subNavLink: 'intro'   },
+          {subNavName: '发展历程',    subNavLink: 'history' },
+          {subNavName: '管理团队',    subNavLink: 'leaders' },
+          {subNavName: '企业文化',    subNavLink: 'culture' },
+          {subNavName: '员工福利',    subNavLink: 'welfare' }
         ]
       },
       {
@@ -28,12 +28,12 @@ exports.CMCM_PublicNav = {
         active: 'product',
         gaTag: 'brandnew.nav.product',
         subNavs: [
-          {subNavName: '移动端',      subNavLink: 'Product_Tools'},
-          {subNavName: 'PC端',        subNavLink: 'Product_forPC'     },
-          {subNavName: '人工智能',    subNavLink: 'Product_AI'        },
-          {subNavName: '大数据',      subNavLink: 'Product_bigData'   },
-          {subNavName: '商业',        subNavLink: 'Product_Business'  },
-          {subNavName: '硬件',        subNavLink: 'Product_Hardware'  }
+          {subNavName: '移动端',      subNavLink: 'tools'     },
+          {subNavName: 'PC端',        subNavLink: 'forpc'     },
+          {subNavName: '人工智能',    subNavLink: 'ai'        },
+          {subNavName: '大数据',      subNavLink: 'bigdata'   },
+          {subNavName: '商业',        subNavLink: 'business'  },
+          {subNavName: '硬件',        subNavLink: 'hardware'  }
         ]
       },
       {
@@ -81,11 +81,11 @@ exports.CMCM_PublicNav = {
         active: 'contact',
         gaTag: 'brandnew.nav.contact',
         subNavs: [
-          {subNavName: '媒体联系',    subNavLink: 'Contact_Media'       },
-          {subNavName: '社交媒体',    subNavLink: 'Contact_Social'      },
-          {subNavName: '业务联系',    subNavLink: 'Contact_Business'    },
-          {subNavName: '全球办公室',  subNavLink: 'Contact_GlobalOffice'},
-          {subNavName: '客户联系',    subNavLink: 'Contact_Customer'    }
+          {subNavName: '媒体联系',    subNavLink: 'media'       },
+          {subNavName: '社交媒体',    subNavLink: 'social'      },
+          {subNavName: '业务联系',    subNavLink: 'business'    },
+          {subNavName: '全球办公室',  subNavLink: 'offices'     },
+          {subNavName: '客户联系',    subNavLink: 'customer'    }
         ]
       }
     ]
@@ -104,12 +104,12 @@ exports.CMCM_PublicNav = {
         active: 'company',
         gaTag: 'brandnew.nav.company',
         subNavs: [
-          {subNavName: 'Mission',     subNavLink: 'Company_Vision'  },
-          {subNavName: 'Company',     subNavLink: 'Company_Intro'   },
-          {subNavName: 'History',     subNavLink: 'Company_History' },
-          {subNavName: 'Executives',  subNavLink: 'Company_Leaders' },
-          {subNavName: 'Culture',     subNavLink: 'Company_Culture' },
-          {subNavName: 'Benefits',    subNavLink: 'Company_Welfare' }
+          {subNavName: 'Mission',     subNavLink: 'mission' },
+          {subNavName: 'Company',     subNavLink: 'intro'   },
+          {subNavName: 'History',     subNavLink: 'history' },
+          {subNavName: 'Executives',  subNavLink: 'leaders' },
+          {subNavName: 'Culture',     subNavLink: 'culture' },
+          {subNavName: 'Benefits',    subNavLink: 'welfare' }
         ]
       },
       {
@@ -119,11 +119,11 @@ exports.CMCM_PublicNav = {
         active: 'product',
         gaTag: 'brandnew.nav.product',
         subNavs: [
-          {subNavName: 'Mobile',      subNavLink: 'Product_Tools'},
-          {subNavName: 'PC',          subNavLink: 'Product_forPC'     },
-          {subNavName: 'AI',          subNavLink: 'Product_AI'        },
-          {subNavName: 'Big Data',    subNavLink: 'Product_bigData'   },
-          {subNavName: 'Commercial',  subNavLink: 'Product_Business'  }
+          {subNavName: 'Mobile',      subNavLink: 'tools'     },
+          {subNavName: 'PC',          subNavLink: 'forpc'     },
+          {subNavName: 'AI',          subNavLink: 'ai'        },
+          {subNavName: 'Big Data',    subNavLink: 'bigdata'   },
+          {subNavName: 'Commercial',  subNavLink: 'business'  }
         ]
       },
       {
@@ -134,12 +134,12 @@ exports.CMCM_PublicNav = {
         gaTag: 'brandnew.nav.ir',
         subNavs: [
           {
-            subNavName: 'Quarterly<br>Results',
+            subNavName: 'Quarterly \n Results',
             subNavLink: 'http://ir.cmcm.com/index.php?s=123',
             outlink: true
           },
           {
-            subNavName: 'Investor<br>News',
+            subNavName: 'Investor \n News',
             subNavLink: 'http://ir.cmcm.com/index.php?s=43',
             outlink: true
           }
@@ -153,12 +153,12 @@ exports.CMCM_PublicNav = {
         gaTag: 'brandnew.nav.hr',
         subNavs: [
           {
-            subNavName: 'Social<br>Recruitment',
+            subNavName: 'Social \n Recruitment',
             subNavLink: 'http://hr.cmcm.com/social',
             outlink: true
           },
           {
-            subNavName: 'Campus<br>Recruitment',
+            subNavName: 'Campus \n Recruitment',
             subNavLink: 'http://hr.cmcm.com/campus',
             outlink: true
           }
@@ -171,11 +171,11 @@ exports.CMCM_PublicNav = {
         active: 'contact',
         gaTag: 'brandnew.nav.contact',
         subNavs: [
-          {subNavName: 'Media',           subNavLink: 'Contact_Media'       },
-          {subNavName: 'Social Media',    subNavLink: 'Contact_Social'      },
-          {subNavName: 'Business',        subNavLink: 'Contact_Business'    },
-          {subNavName: 'Offices',         subNavLink: 'Contact_GlobalOffice'},
-          {subNavName: 'Customer Support',subNavLink: 'Contact_Customer'    }
+          {subNavName: 'Media',           subNavLink: 'media'       },
+          {subNavName: 'Social Media',    subNavLink: 'social'      },
+          {subNavName: 'Business',        subNavLink: 'business'    },
+          {subNavName: 'Offices',         subNavLink: 'offices'     },
+          {subNavName: 'Customer Support',subNavLink: 'customer'    }
         ]
       }
     ]

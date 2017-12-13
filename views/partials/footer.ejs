@@ -1,5 +1,89 @@
 <!-- views/partials/footer.ejs -->
 
 <div class="the-footer">
-  <div class="manage-width clearfix" id="CMCM_Footer"><%= footerContents %></div>
+  <div class="manage-width clearfix" id="CMCM_Footer">
+  
+    <div class="footer-left">
+      <h4 class="footer-logo">
+        <a class="has-trans" href="<%= Lang %>"><%= pubFooter.name %></a>
+      </h4>
+      <div class="social-sharings clearfix">
+        <a class="social-icon fb has-trans" href="https://www.facebook.com/cmcmglobal/" target="_blank">Facebook</a>
+        <a class="social-icon tw has-trans" href="https://twitter.com/CheetahMobile" target="_blank">Twitter</a>
+        <a class="social-icon wb has-trans" href="http://weibo.com/u/5096795969?topnav=1&wvr=6&topsug=1" target="_blank">Weibo</a>
+        <a class="social-icon li has-trans" href="https://www.linkedin.com/company/3214653/" target="_blank">LinkIn</a>
+      </div>
+    </div><!-- footer left -->
+    
+    <div class="footer-right clearfix rel">
+      <div class="clearfix" id="CMCM_FooterRight">
+      
+        <div class="ft-column for-company">
+          <h4 class="column-title clearfix">
+            <a href="<%= companyInfos.link %>"><%= companyInfos.name %></a>
+          </h4>
+          <div class="column-links clearfix">
+            <% Object.keys(companyInfos.category).forEach(function(item, i){ %>
+              <a href="<%= companyInfos.link %>#<%= companyInfos.category[item].categoryLink %>"><%= companyInfos.category[item].categoryName %></a>
+            <% }); %>
+          </div>
+        </div><!-- one ft column -->
+
+        <div class="ft-column for-product">
+          <h4 class="column-title clearfix">
+            <a href="<%= productInfos.link %>"><%= productInfos.name %></a>
+          </h4>
+          <div class="column-links clearfix">
+            <% Object.keys(productInfos.category).forEach(function(item, i){ %>
+              <a href="<%= productInfos.link %>#<%= productInfos.category[item].categoryLink %>"><%= productInfos.category[item].categoryName %></a>
+            <% }); %>
+          </div>
+        </div><!-- one ft column -->
+
+        <% pubFooter.data.outLinks.forEach(function(item){ %>
+          <div class="ft-column">
+            <h4 class="column-title clearfix">
+              <a href="<%= item.linkUrl %>"><%= item.linkName %></a>
+            </h4>
+            <div class="column-links clearfix">
+              <% item.sublink.forEach(function(subitem){ %>
+                <a href="<%= subitem.url %>"><%= subitem.name %></a>
+              <% }); %>
+            </div>
+          </div><!-- one ft column of ourlinks -->
+          
+        <% }); %>
+
+        <div class="ft-column for-contact">
+          <h4 class="column-title clearfix">
+            <a href="<%= contactInfos.link %>"><%= contactInfos.name %></a>
+          </h4>
+          <div class="column-links clearfix">
+            <% Object.keys(contactInfos.category).forEach(function(item, i){ %>
+              <a href="<%= contactInfos.link %>#<%= contactInfos.category[item].categoryLink %>"><%= contactInfos.category[item].categoryName %></a>
+            <% }); %>
+          </div>
+        </div><!-- one ft column -->
+
+      </div><!-- Footer Right -->
+      <div class="bottom-right abs clearfix">
+        <ul class="clearfix">
+          <li><a class="has-trans" href="<%= pubFooter.data.copyRight.pvyLink %>"><%= pubFooter.data.copyRight.privacy %></a></li>
+          <li><a class="has-trans" href="<%= pubFooter.data.copyRight.tosLink %>"><%= pubFooter.data.copyRight.tos %></a></li>
+          <li class="copyright"><span><%= pubFooter.data.copyRight.cptext %></span></li>
+          <li class="switch-langs" id="CMCM_ContainLangs">
+            <a class="langs-trigger has-trans" id="CMCM_FootLangsTrigger"><%= pubFooter.data.copyRight.curLang %></a>
+            <div class="langs-list has-trans">
+              <% Object.keys(langsCollection).forEach(function(lang, i){ %>
+                <% if ( lang != Lang ) { %>
+                  <a class="one-lang has-trans" href="<%= langsCollection[lang].homeLink %>"><%= langsCollection[lang].displayName %></a>
+                <% } %>
+              <% }); %>
+            </div>
+          </li>
+        </ul>
+      </div><!-- bottom right of copyright -->
+    </div><!-- footer right -->
+
+  </div>
 </div><!-- the-footer -->

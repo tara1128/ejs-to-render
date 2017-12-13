@@ -3,7 +3,7 @@
 <!DOCTYPE html>
 <!--[if IE 8 ]><html class="ie ie8"><![endif]-->
 <!--[if IE 9 ]><html class="ie ie9"><![endif]-->
-<html lang="<%= lang %>">
+<html lang="<%= langsCollection[Lang].simpleName %>">
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=0" />
@@ -14,9 +14,9 @@
   <title><%= title %></title>
   <meta name="keywords" content="<%= keywords %>" />
   <meta name="description" content="<%= description %>" />
-  <link rel="Shortcut Icon" href="/images/favicon.ico">
+  <link rel="Shortcut Icon" href="/dist/images/favicon.ico">
   <link rel="stylesheet" href="/static/lib/swiper.min.css" type="text/css" />
-  <link rel="stylesheet" href="/dist/index.min.css?0812" type="text/css" />
+  <link rel="stylesheet" href="/dist/index.min.css?1213" type="text/css" />
   <script src="/static/lib/jquery-1.9.1.min.js"></script>
   <!--[if (gte IE 9)|!(IE)]><!-->
   <script src="/static/lib/swiper.min.js"></script>
@@ -31,12 +31,11 @@
       ga('create', 'UA-40488675-1', 'auto');
       ga('send', 'pageview');
   </script>
-  <link rel="alternate" href="http://www.cmcm.com/en-us/" hreflang="en-US" />
-  <link rel="alternate" href="http://www.cmcm.com/es-es/" hreflang="es-ES" />
-  <link rel="alternate" href="http://www.cmcm.com/fr-fr/" hreflang="fr-FR" />
-  <link rel="alternate" href="http://www.cmcm.com/ja-jp/" hreflang="ja-JP" />
-  <link rel="alternate" href="http://www.cmcm.com/ko-kr/" hreflang="ko-KR" />
-  <link rel="alternate" href="http://www.cmcm.com/pt-pt/" hreflang="pt-PT" />
-  <link rel="alternate" href="http://www.cmcm.com/ru-ru/" hreflang="ru-RU" />
-  <link rel="alternate" href="http://www.cmcm.com/zh-tw/" hreflang="zh-TW" />
+
+  <% Object.keys(langsCollection).forEach(function(lang, i){ %>
+    <% if ( lang != Lang ) { %>
+      <link rel="alternate" href="http://www.cmcm.com/<%= lang %>/" hreflang="<%= langsCollection[lang].hreflang %>" />
+    <% } %>
+  <% }); %>
+
 </head>
