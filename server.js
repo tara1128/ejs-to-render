@@ -19,4 +19,4 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', [index, about, product, contact]);
 
 app.listen(8027);
-console.log('Port 8027 is now running !!');
+console.log('Port 8027 is now running ... .');
