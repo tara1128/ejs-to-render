@@ -281,7 +281,7 @@ exports.CMCM_CompanyInfoList = {
             {
               year: 2010,
               events: {
-                '11': 'Kingsoft Security merges with Conew Image to create Kingsoft (later renamed Cheetah Mobile)'
+                '11': 'Kingsoft Security merges with Conew Image to create Kingsoft Network (later renamed Cheetah Mobile)'
               }
             }
           ]
