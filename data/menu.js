@@ -2,9 +2,6 @@ exports.CMCM_PublicNav = {
   'zh-cn': {
     page: 'all',
     name: '猎豹移动',
-    title: '猎豹移动 - Make the world smarter',
-    keywords: 'CM,Cheetah Mobile, Clean Master, Live.me, Piano tiles, News Republic, CM Security, Battery Doctor, CM Browser, Photo Grid',
-    description: '猎豹移动（NYSE: CMCM），全球领先的移动互联网公司，中国移动互联网公司出海领军者；致力于用AI+大数据为全球用户提供卓越的移动互联网产品，构建了横跨工具、安全、直播、游戏等多元化的产品矩阵；布局人工智能领域，在语音交互、图像识别、视觉导航等领域拥有完全自主开发、领先行业的技术。',
     data: [
       {
         displayName: '关于公司',
@@ -93,9 +90,6 @@ exports.CMCM_PublicNav = {
   'en-us': {
     page: 'all',
     name: 'Cheetah Mobile',
-    title: 'Cheetah Mobile - Make the world smarter',
-    keywords: 'CM,Cheetah Mobile, Clean Master, Live.me, Piano tiles, News Republic, CM Security, Battery Doctor, CM Browser, Photo Grid',
-    description: 'Cheetah Mobile is a leading mobile internet company dedicated to making the world smarter. It aims to provide leading apps for mobile users worldwide and connect users with personalized content powered by artificial intelligence.',
     data: [
       {
         displayName: 'About Us',
