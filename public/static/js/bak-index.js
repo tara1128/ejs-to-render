@@ -1,8 +1,8 @@
-/* ==================================
-  Script runs on clients!
+/*
+  Script of Cheetah official website.
   Author: Alexandra
-  Latest modified: 2017-12-18 18:03
-  =================================== */
+  Latest modified: 2017-12-18 16:35
+*/
 
 (function(win, doc, $) {
 	var CMCMWebsite = {
@@ -20,14 +20,13 @@
       me.DetectLanguage();
       me.DetectCurrentPage();
       me.DealWithDatas();
-      // me.RenderPublicModules();
-      // me.RenderIndexPage();
-      // me.RenderSubPages();
-      me.SwiperInit();
+      me.RenderPublicModules();
+      me.RenderIndexPage();
+      me.RenderSubPages();
       me.AutoWidth();
-      // me.BindAllEvents();
+      me.BindAllEvents();
       me.BindScrolling();
-      console.log('2017, Dec.18th 18:03 !');
+      console.log('2017, Dec.18th 16:35');
     },
 
     DetectLanguage: function() {
@@ -981,7 +980,7 @@
     /* After renderings, bind events to elements: */
     BindAllEvents: function() {
       var me = this;
-      /* Unfold burger nav on mobiles:
+      /* Unfold burger nav on mobiles: */
       me.page.topBurger.click(function(){
         var cls = 'unfold';
         if ( !me.page.topNav.hasClass(cls) ) {
@@ -990,8 +989,7 @@
           me.page.topNav.removeClass(cls);
         }
       });
-      */
-      /* Click to switch langs on footer area:
+      /* Click to switch langs on footer area: */
       me.page.footerLangsTrigger.click(function(e){
         var _p = me.page.footerLangsContain;
         //e.stopPropagation();
@@ -1002,7 +1000,6 @@
           _p.removeClass(me.clsn);
         }
       });
-      */
       me._body.click(function(){
         var _p = me.page.footerLangsContain;
         if (_p.hasClass(me.clsn)) _p.removeClass(me.clsn);
