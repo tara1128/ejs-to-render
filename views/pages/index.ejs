@@ -21,7 +21,11 @@
               </div>
               <div class="bb-vmask"></div>
               <div class="bb-texts manage-width" id="CMCM_BillBoardTexts">
-                <h1 class="slogan" id="CMCM_Slogan"><%= indexSlogan %></h1>
+                <h1 class="slogan" id="CMCM_Slogan">
+                  <% indexSlogan.forEach(function(text){ %>
+                    <span><%= text %></span>
+                  <% }); %>
+                </h1>
                 <h2 class="sub-slogan" id="CMCM_SubSlogan"><%= indexSubslogan %></h2>
               </div>
             </div><!-- End of one slider -->
@@ -57,11 +61,43 @@
     <section class="sections section-1" id="CMCM_Section_Product_AI">
       <div class="manage-width clearfix">
         <div class="sec-head clearfix">
-          <h1 class="sec-title CMCM_SecTitle"></h1>
-          <h2 class="sec-descr CMCM_SecDescr"></h2>
+          <h1 class="sec-title CMCM_SecTitle"><%= secTitleAI %></h1>
+          <h2 class="sec-descr CMCM_SecDescr">
+            <% secDescrAI.forEach(function(text){ %>
+              <span><%= text %></span>
+            <% }); %>
+          </h2>
         </div><!-- sec-head -->
         <div class="sec-body">
-          <div class="ai-container clearfix" id="CMCM_AIContainer"></div><!-- ai container -->
+          <div class="ai-container clearfix" id="CMCM_AIContainer">
+
+            <div class="ai-left-content">
+              <h3 class="app-name">
+                <a class="app-namelink has-trans" href="<%= aiProLink %>" target="<%= aiProTarg %>"><%= aiProName %></a>
+              </h3>
+              <div class="app-desc">
+                <% aiProDesc.forEach(function(text){ %>
+                  <span><%= text %></span>
+                <% }); %>
+              </div>
+            </div><!-- ai leftcontent -->
+            
+            <div class="ai-right-content">
+              <div class="ai-chips abs ai-wave has-anim"></div>
+              <div class="ai-chips abs ai-voice-box has-anim">
+                <% aiProTags.forEach(function(tag, i){ %>
+                <div class="ai-chips abs ai-bubbles ai-bubble-<%= i+1 %>' has-trans has-anim">
+                  <span class="ai-bbl-top has-trans"><b><%= tag.num %></b><%= tag.adj %></span>
+                  <span class="ai-bbl-mid has-trans"><%= tag.noun %></span>
+                  <span class="ai-bbl-btm has-trans"><%= tag.sentence %></span>
+                </div><!-- bubble <%= i+1 %> -->
+                <% }); %>
+                <img class="ai-voicebox-on-mobile-only" src="/dist/images/ai-voice-box.png" alt="AI" />
+              </div>
+              <div class="ai-chips abs ai-voice-wakeup has-anim"></div>
+            </div><!-- ai rightcontent -->
+
+          </div><!-- ai container -->
         </div><!-- sec-body -->
       </div><!-- manage-width -->
     </section><!-- .section-1, AI -->
@@ -69,8 +105,12 @@
     <section class="sections section-2" id="CMCM_Section_Product_Tools">
       <div class="manage-width clearfix">
         <div class="sec-head clearfix">
-          <h1 class="sec-title CMCM_SecTitle"></h1>
-          <h2 class="sec-descr CMCM_SecDescr"></h2>
+          <h1 class="sec-title CMCM_SecTitle"><%= secTitleTools %></h1>
+          <h2 class="sec-descr CMCM_SecDescr">
+            <% secDescrTools.forEach(function(text){ %>
+              <span><%= text %></span>
+            <% }); %>
+          </h2>
         </div><!-- sec-head -->
         <div class="sec-body">
           <div class="tools-container clearfix" id="CMCM_ToolsContainer"></div>
@@ -82,8 +122,12 @@
     <section class="sections section-3" id="CMCM_Section_Product_Social">
       <div class="manage-width clearfix">
         <div class="sec-head clearfix">
-          <h1 class="sec-title CMCM_SecTitle"></h1>
-          <h2 class="sec-descr CMCM_SecDescr"></h2>
+          <h1 class="sec-title CMCM_SecTitle"><%= secTitleSocial %></h1>
+          <h2 class="sec-descr CMCM_SecDescr">
+            <% secDescrSocial.forEach(function(text){ %>
+              <span><%= text %></span>
+            <% }); %>
+          </h2>
         </div><!-- sec-head -->
         <div class="sec-body clearfix">
           <div class="live-intros left clearfix" id="CMCM_LiveMeTexts"></div>
@@ -111,12 +155,15 @@
     </section><!-- .section-3, live -->
 
 
-
     <section class="sections section-4" id="CMCM_Section_Product_Games">
       <div class="manage-width clearfix">
         <div class="sec-head clearfix">
-          <h1 class="sec-title CMCM_SecTitle"></h1>
-          <h2 class="sec-descr CMCM_SecDescr"></h2>
+          <h1 class="sec-title CMCM_SecTitle"><%= secTitleGames %></h1>
+          <h2 class="sec-descr CMCM_SecDescr">
+            <% secDescrGames.forEach(function(text){ %>
+              <span><%= text %></span>
+            <% }); %>
+          </h2>
         </div><!-- sec-head -->
       </div><!-- manage-width -->
       <div class="cross-width clearfix">
@@ -157,6 +204,6 @@
     <% include ../partials/footer %>
 
   </div><!-- .cmcm-wrapper -->
-  <script src="/dist/index.min.js?v=1229"></script>
+  <script src="/dist/index.min.js?v=1427"></script>
 </body>
 </html>

@@ -1,18 +1,23 @@
 /*
   routes/index.js
-  2017-12-14 12:16
+  2017-12-18 16:05
 */
 
 var express = require('express');
 var router = express.Router();
-var dataObject = require('./dataObject');
+var mergeObjects = require('merge');
+var publicData = require('./publicData');
+var frontpageData = require('./frontpageData');
+
 
 router.get('/en-us', function(req, res) {
-  res.render('index', dataObject('en-us'));
+  var lang = 'en-us';
+  res.render('index', mergeObjects(frontpageData(lang), publicData(lang)));
 });
 
 router.get('/zh-cn', function(req, res) {
-  res.render('index', dataObject('zh-cn'));
+  var lang = 'zh-cn';
+  res.render('index', mergeObjects(frontpageData(lang), publicData(lang)));
 });
 
 module.exports = router;

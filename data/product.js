@@ -127,7 +127,7 @@ exports.CMCM_ProductList = {
                 slog: '',
                 icon: '/dist/images/brandnew-logo-liveme-103.png',
                 descForIndex: ['一款风靡全球的直播类社交应用，继工具产品之后，Live.me成为猎豹移动出海的新标杆。内含礼物打赏、主播连线、游戏直播等功能，并在后台监测系统中引入人工智能技术，不仅为用户提供个性化的直播和社交内容，也确保了平台的“绿色”与健康。将中国的直播打赏模式复制到海外，已经成为全球年轻人最喜爱的社交产品之一。目前已在85个国家和地区发行，覆盖8种不同语言。登顶全球42个国家Google Play社交畅销榜'],
-                descForProd: ['一款风靡全球的直播类社交应用。将中国的直播打赏模式复制到海外，吸引了众多明星及大牌网红入驻，已经成为美国轻人最喜爱的社交产品之一。覆盖85个国家，8种语言，登顶全球42个国家Google Play社交畅销榜。'],
+                descForProd: ['一款风靡全球的直播类社交应用。将中国的直播打赏模式复制到海外，吸引了众多明星及大牌网红入驻，已经成为美国年轻人最喜爱的社交产品之一。覆盖85个国家，8种语言，登顶全球42个国家Google Play社交畅销榜。'],
                 star: 0,
                 tags: ['85个市场|覆盖多元文化', '8种语言|融合本地需求', '42个国家|登顶社交畅销榜'],
                 link: 'http://www.liveme.com/',
@@ -740,7 +740,7 @@ exports.CMCM_ProductList = {
                 name: 'Smart Voice OS',
                 slog: '',
                 icon: '',
-                descForIndex: ['OrionStar\'s self-developed, fully-linked far-field voice interaction system possesses industry leading software and hardware, including microphone array, voice activation and semantic recognition technology. Its immersive voice controls and pioneering personification technology, combined with a rich content matrix brings users the most personalized voice interaction experience. <b>(Only available in China)</b>'],
+                descForIndex: ['OrionStar\'s self-developed, fully-linked far-field voice interaction system possesses industry leading software and hardware, including microphone array, voice activation and semantic recognition technology. Its immersive voice controls and pioneering personification technology, combined with a rich content matrix brings users the most personalized voice interaction experience.', '(Only available in China)'],
                 descForProd: [], // This product shows on index only!
                 star: 0,
                 tags: [

@@ -1,7 +1,7 @@
 /*
   Script of Cheetah official website.
   Author: Alexandra
-  Latest modified: 2017-12-13 14:16
+  Latest modified: 2017-12-18 16:35
 */
 
 (function(win, doc, $) {
@@ -26,7 +26,7 @@
       me.AutoWidth();
       me.BindAllEvents();
       me.BindScrolling();
-      console.log('2017, Dec.14th 22:34');
+      console.log('2017, Dec.18th 16:35');
     },
 
     DetectLanguage: function() {

@@ -1,6 +1,6 @@
 /*
-  routes/dataObject.js
-  2017-12-14 12:20
+  routes/publicData.js
+  2017-12-18 12:20
 */
 
 /* Datas performed as Json: */

@@ -1,18 +1,18 @@
 /*
   routes/about.js
-  2017-12-14 11:28
+  2017-12-18 14:33
 */
 
 var express = require('express');
 var router = express.Router();
-var dataObject = require('./dataObject');
+var publicData = require('./publicData');
 
 router.get('/en-us/about', function(req, res) {
-  res.render('about', dataObject('en-us'));
+  res.render('about', publicData('en-us'));
 });
 
 router.get('/zh-cn/about', function(req, res) {
-  res.render('about', dataObject('zh-cn'));
+  res.render('about', publicData('zh-cn'));
 });
 
 module.exports = router;
