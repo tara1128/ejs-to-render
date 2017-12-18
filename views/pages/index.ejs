@@ -50,8 +50,12 @@
           </div><!-- End of swiper-wrapper -->
           <div class="bb-vmask"></div>
           <div class="bb-texts manage-width">
-            <h1 class="slogan font-bold" id="CMCM_SloganForMobile"></h1>
-            <h2 class="sub-slogan" id="CMCM_SubSloganForMobile"></h2>
+            <h1 class="slogan font-bold" id="CMCM_SloganForMobile">
+              <% indexSlogan.forEach(function(text){ %>
+                <span><%= text %></span>
+              <% }); %>
+            </h1>
+            <h2 class="sub-slogan" id="CMCM_SubSloganForMobile"><%= indexSubslogan %></h2>
           </div>
         </div><!-- End of Swiper, for mobile -->
 
@@ -113,7 +117,42 @@
           </h2>
         </div><!-- sec-head -->
         <div class="sec-body">
-          <div class="tools-container clearfix" id="CMCM_ToolsContainer"></div>
+          <div class="tools-container clearfix" id="CMCM_ToolsContainer">
+          
+            <div class="tool-unit proportion-100 rel">
+              <div class="tool-inner clearfix">
+                <div class="big-pic abs has-anim">
+                  <img src="<%= CleanMasterBigPic %>" alt="<%= CleanMasterName %>" />
+                </div>
+                <a class="app-icon CMCM_AutoWidthSibling" href="<%= CleanMasterLink %>" target="_blank">
+                  <img src="<%= CleanMasterIcon %>" alt="<%= CleanMasterName %>" />
+                </a>
+                <div class="tool-info CMCM_AutoWidth" data-padding="10">
+                  <h3 class="app-name">
+                    <a class="app-namelink tool-appname-0 has-trans" href="<%= CleanMasterLink %>" target="_blank"><%= CleanMasterName %></a>
+                  </h3>
+                  <div class="app-desc"><%= CleanMasterDescForIndex %></div>
+                  <div class="tool-rank clearfix has-anim CMCM_Rank" data="<%= CleanMasterStar %>"></div>
+                  <div class="tool-tags clearfix has-anim">
+                    <% _tagContent.forEach(function(j){ %>
+                      <a class="has-trans"><%= _tag[j] %></a>
+                    <% }); %>
+                  </div>
+                </div><!-- End of tool-info -->
+              </div><!-- End of tool-inner -->
+            </div><!-- End of tool-unit -->
+
+
+
+
+
+
+
+
+
+
+          
+          </div><!-- tools container -->
         </div><!-- sec-body -->
       </div><!-- manage-width -->
     </section><!-- .section-2, tools -->
