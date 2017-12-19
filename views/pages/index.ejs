@@ -131,11 +131,13 @@
                   <h3 class="app-name">
                     <a class="app-namelink tool-appname-0 has-trans" href="<%= CleanMasterLink %>" target="_blank"><%= CleanMasterName %></a>
                   </h3>
-                  <div class="app-desc"><%= CleanMasterDescForIndex %></div>
+                  <div class="app-desc">
+                    <span><%= CleanMasterDescForIndex %></span>
+                  </div>
                   <div class="tool-rank clearfix has-anim CMCM_Rank" data="<%= CleanMasterStar %>"></div>
                   <div class="tool-tags clearfix has-anim">
-                    <% _tagContent.forEach(function(j){ %>
-                      <a class="has-trans"><%= _tag[j] %></a>
+                    <% CleanMasterTags.forEach(function(tag){ %>
+                      <a class="has-trans"><%= tag %></a>
                     <% }); %>
                   </div>
                 </div><!-- End of tool-info -->
@@ -143,15 +145,102 @@
             </div><!-- End of tool-unit -->
 
 
+            <div class="tool-unit proportion-50 rel">
+              <div class="tool-inner clearfix">
+                <a class="app-icon CMCM_AutoWidthSibling" href="<%= SecurityMasterLink %>" target="_blank">
+                  <img src="<%= SecurityMasterIcon %>" alt="<%= SecurityMasterName %>" />
+                </a>
+                <div class="tool-info CMCM_AutoWidth" data-padding="10">
+                  <h3 class="app-name">
+                    <a class="app-namelink tool-appname-1 has-trans" href="<%= SecurityMasterLink %>" target="_blank"><%= SecurityMasterName %></a>
+                  </h3>
+                  <div class="app-desc">
+                    <span><%= SecurityMasterDescForIndex %></span>
+                  </div>
+                  <div class="tool-rank clearfix has-anim CMCM_Rank" data="<%= SecurityMasterStar %>"></div>
+                  <div class="tool-tags clearfix has-anim">
+                    <% SecurityMasterTags.forEach(function(tag){ %>
+                      <a class="has-trans"><%= tag %></a>
+                    <% }); %>
+                  </div>
+                </div><!-- End of tool-info -->
+              </div><!-- End of tool-inner -->
+            </div><!-- End of tool-unit -->
 
 
+            <div class="tool-unit proportion-50 rel">
+              <div class="tool-inner clearfix">
+                <a class="app-icon CMCM_AutoWidthSibling" href="<%= CMLauncherLink %>" target="_blank">
+                  <img src="<%= CMLauncherIcon %>" alt="<%= CMLauncherName %>" />
+                </a>
+                <div class="tool-info CMCM_AutoWidth" data-padding="10">
+                  <h3 class="app-name">
+                    <a class="app-namelink tool-appname-2 has-trans" href="<%= CMLauncherLink %>" target="_blank"><%= CMLauncherName %></a>
+                  </h3>
+                  <div class="app-desc">
+                    <span><%= CMLauncherDescForIndex %></span>
+                  </div>
+                  <div class="tool-rank clearfix has-anim CMCM_Rank" data="<%= CMLauncherStar %>"></div>
+                  <div class="tool-tags clearfix has-anim">
+                    <% CMLauncherTags.forEach(function(tag){ %>
+                      <a class="has-trans"><%= tag %></a>
+                    <% }); %>
+                  </div>
+                </div><!-- End of tool-info -->
+              </div><!-- End of tool-inner -->
+            </div><!-- End of tool-unit -->
 
 
+            <div class="tool-unit proportion-33 rel">
+              <div class="tool-inner clearfix">
+                <a class="app-icon CMCM_AutoWidthSibling" href="<%= KeyboardLink %>" target="_blank">
+                  <img src="<%= KeyboardIcon %>" alt="<%= KeyboardName %>" />
+                </a>
+                <div class="tool-info CMCM_AutoWidth" data-padding="10">
+                  <h3 class="app-name">
+                    <a class="app-namelink tool-appname-3 has-trans" href="<%= KeyboardLink %>" target="_blank"><%= KeyboardName %></a>
+                  </h3>
+                  <div class="app-desc">
+                    <span><%= KeyboardDescForIndex %></span>
+                  </div>
+                </div><!-- End of tool-info -->
+              </div><!-- End of tool-inner -->
+            </div><!-- End of tool-unit -->
 
 
+            <div class="tool-unit proportion-33 rel">
+              <div class="tool-inner clearfix">
+                <a class="app-icon CMCM_AutoWidthSibling" href="<%= PhotoGridLink %>" target="_blank">
+                  <img src="<%= PhotoGridIcon %>" alt="<%= PhotoGridName %>" />
+                </a>
+                <div class="tool-info CMCM_AutoWidth" data-padding="10">
+                  <h3 class="app-name">
+                    <a class="app-namelink tool-appname-4 has-trans" href="<%= PhotoGridLink %>" target="_blank"><%= PhotoGridName %></a>
+                  </h3>
+                  <div class="app-desc">
+                    <span><%= PhotoGridDescForIndex %></span>
+                  </div>
+                </div><!-- End of tool-info -->
+              </div><!-- End of tool-inner -->
+            </div><!-- End of tool-unit -->
 
 
-          
+            <div class="tool-unit proportion-33 rel">
+              <div class="tool-inner clearfix">
+                <a class="app-icon CMCM_AutoWidthSibling" href="<%= CMBrowserLink %>" target="_blank">
+                  <img src="<%= CMBrowserIcon %>" alt="<%= CMBrowserName %>" />
+                </a>
+                <div class="tool-info CMCM_AutoWidth" data-padding="10">
+                  <h3 class="app-name">
+                    <a class="app-namelink tool-appname-5 has-trans" href="<%= CMBrowserLink %>" target="_blank"><%= CMBrowserName %></a>
+                  </h3>
+                  <div class="app-desc">
+                    <span><%= CMBrowserDescForIndex %></span>
+                  </div>
+                </div><!-- End of tool-info -->
+              </div><!-- End of tool-inner -->
+            </div><!-- End of tool-unit -->
+
           </div><!-- tools container -->
         </div><!-- sec-body -->
       </div><!-- manage-width -->

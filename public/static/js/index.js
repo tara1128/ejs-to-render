@@ -26,7 +26,7 @@
       me.AutoWidth();
       // me.BindAllEvents();
       me.BindScrolling();
-      console.log('2017, Dec.18th 18:03 !');
+      console.log('2017, Dec.19th 10:37 !');
     },
 
     DetectLanguage: function() {
