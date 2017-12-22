@@ -1,6 +1,6 @@
 /*
   routes/frontpageData.js
-  2017-12-19 11:31
+  2017-12-22 16:50
 */
 
 var intros = require('../data/intro');
@@ -56,29 +56,27 @@ module.exports = function(lang) {
     SecurityMasterStar: SecurityMaster.star,
     SecurityMasterTags: SecurityMaster.tags,
 
-    CMLauncherName: '',
-    CMLauncherLink: '',
-    CMLauncherIcon: '',
-    CMLauncherDescForIndex: '',
-    CMLauncherStar: '',
-    CMLauncherTags: '',
+    CMLauncherName: CMLauncher.name,
+    CMLauncherLink: CMLauncher.link,
+    CMLauncherIcon: CMLauncher.icon,
+    CMLauncherDescForIndex: CMLauncher.descForIndex,
+    CMLauncherStar: CMLauncher.star,
+    CMLauncherTags: CMLauncher.tags,
 
-    KeyboardName: '',
-    KeyboardLink: '',
-    KeyboardIcon: '',
-    KeyboardDescForIndex: '',
-    KeyboardStar: '',
+    KeyboardName: Keyboard.name,
+    KeyboardLink: Keyboard.link,
+    KeyboardIcon: Keyboard.icon,
+    KeyboardDescForIndex: Keyboard.descForIndex,
 
-    PhotoGridName: '',
-    PhotoGridLink: '',
-    PhotoGridIcon: '',
-    PhotoGridDescForIndex: '',
-    PhotoGridStar: '',
+    PhotoGridName: PhotoGrid.name,
+    PhotoGridLink: PhotoGrid.link,
+    PhotoGridIcon: PhotoGrid.icon,
+    PhotoGridDescForIndex: PhotoGrid.descForIndex,
 
-    CMBrowserName: '',
-    CMBrowserLink: '',
-    CMBrowserIcon: '',
-    CMBrowserDescForIndex: '',
-    CMBrowserStar: '',
+    CMBrowserName: CMBrowser.name,
+    CMBrowserLink: CMBrowser.link,
+    CMBrowserIcon: CMBrowser.icon,
+    CMBrowserDescForIndex: CMBrowser.descForIndex
+
   };
 };

@@ -1,8 +1,8 @@
-/* ==================================
-  Script runs on clients!
+/*
+  Script of Cheetah official website.
   Author: Alexandra
-  Latest modified: 2017-12-18 18:03
-  =================================== */
+  Latest modified: 2017-12-21 15:20
+*/
 
 (function(win, doc, $) {
 	var CMCMWebsite = {
@@ -20,13 +20,13 @@
       me.DetectLanguage();
       me.DetectCurrentPage();
       me.DealWithDatas();
-      // me.RenderIndexPage();
-      // me.RenderSubPages();
-      me.SwiperInit();
+      me.RenderPublicModules();
+      me.RenderIndexPage();
+      me.RenderSubPages();
       me.AutoWidth();
-      // me.BindAllEvents();
+      me.BindAllEvents();
       me.BindScrolling();
-      console.log('2017, Dec.19th 10:37 !');
+      console.log('2017, Dec.21st 15:20, update cmpr@cmcm.com');
     },
 
     DetectLanguage: function() {
@@ -124,6 +124,33 @@
       return _html;
     },
 
+    /* Render top bar to the first screen for all pages: */
+    RenderTopBar: function(pubNav) {
+      var me = this;
+      var name = pubNav.name;
+      var cnCls = (me.lang == 'zh-cn')?(me.clsn):('');
+      var enCls = (me.lang == 'en-us')?(me.clsn):('');
+      var pubNv = me.PublicNav(me.publicNav.data);
+      var _html = '<div class="manage-width clearfix">\
+                    <h1 class="top-logo has-trans">\
+                      <a class="has-trans" href="/'+ me.lang +'/">'+ name +'</a>\
+                    </h1>\
+                    <div class="top-burger" id="CMCM_TopBurger"></div>\
+                    <ul class="top-nav" id="CMCM_TopNav">\
+                      '+ pubNv +'\
+                      <li class="top-nav-li has-trans top-langs" id="CMCM_TopLangSwitch">\
+                        <div class="langs clearfix">\
+                          <a class="lang-a has-trans '+ cnCls +'" href="/zh-cn/">简<s class="has-trans">&nbsp;</s></a>\
+                          <a class="lang-a strip"> | </a>\
+                          <a class="lang-a has-trans '+ enCls +'" href="/en-us/">EN<s class="has-trans">&nbsp;</s></a>\
+                        </div>\
+                      </li>\
+                    </ul>\
+                  </div><!-- End manage-width -->';
+      me.page.topBar.html(_html);
+      me.page.topNav = $('#CMCM_TopNav');
+      me.page.topBurger = $('#CMCM_TopBurger');
+    },
 
     /* Index first screen slider: */
     SwiperInit: function() {
@@ -151,6 +178,42 @@
       }
     },
 
+    /* Render AI content on index: */
+    RenderAIContentOnIndex: function(proList) {
+      var me = this, threeBubbles = '', ifHide = '';
+          ai = proList.category.ai.categoryData.ai,
+          cateName = ai.name,
+          cateDesc = me.ArrayOutput(ai.desc),
+          aiProductShown = ai.data[1],
+          aiProName = aiProductShown.name,
+          aiProDesc = me.ArrayOutput(aiProductShown.descForIndex),
+          aiProTags = aiProductShown.tags,
+          aiProLink = aiProductShown.link,
+          aiProTarg = aiProductShown.target;
+      if (me.lang != 'zh-cn') ifHide = 'hide';
+      jQuery.map(aiProTags, function(tag, i){
+        threeBubbles += '<div class="ai-chips abs ai-bubbles ai-bubble-'+ (i+1) +' has-trans has-anim">\
+                          <span class="ai-bbl-top has-trans"><b>'+ tag.num +'</b>'+ tag.adj +'</span>\
+                          <span class="ai-bbl-mid has-trans">'+ tag.noun +'</span>\
+                          <span class="ai-bbl-btm has-trans '+ ifHide +'">'+ tag.sentence +'</span>\
+                         </div><!-- bubble '+ (i+1) +' -->';
+      }); //End map
+      var _rightHtm = '<div class="ai-right-content">\
+                        <div class="ai-chips abs ai-wave has-anim"></div>\
+                        <div class="ai-chips abs ai-voice-box has-anim">\
+                          '+ threeBubbles +'\
+                          <img class="ai-voicebox-on-mobile-only" src="/dist/images/ai-voice-box.png" alt="AI" />\
+                        </div>\
+                        <div class="ai-chips abs ai-voice-wakeup has-anim"></div>\
+                      </div><!-- ai right -->';
+      var _leftHtml = '<div class="ai-left-content">\
+                        <h3 class="app-name">\
+                          <a class="app-namelink has-trans" href="'+ aiProLink +'" target="'+ aiProTarg +'">'+ aiProName +'</a>\
+                        </h3>\
+                        <div class="app-desc">'+ aiProDesc +'</div>\
+                      </div><!-- ai left -->';
+      me.page.inxAIContainer.append(_leftHtml).append(_rightHtm);
+    },
 
     /* Render recommanded apps on index page: */
     RenderToolsOnIndex: function(proList) {
@@ -228,6 +291,14 @@
       });
     },
 
+    /* Render slogans on index billboard: */
+    RenderSlogansOnIndex: function(intros) {
+      var me = this;
+      me.page.inxSloganEle.html(me.ArrayOutput(intros.slogan));
+      me.page.inxSubSloganEle.html(intros.subslogan);
+      me.page.inxSloganEleForMb.html(me.ArrayOutput(intros.slogan));
+      me.page.inxSubSloganEleForMb.html(intros.subslogan);
+    },
 
     /* Render product category introductions on index: */
     RenderCategoryIntrosOnIndex: function(proList) {
@@ -310,11 +381,20 @@
       pg.inxGamesGJSName.html(gjsData.name);
     },
     
+    /* Render public modules like top nav and footer: */
+    RenderPublicModules: function() {
+      var me = this;
+      me.RenderTopBar(me.publicNav);
+      me.RenderPublicFooter(me.publicFooter);
+    },
 
     /* Render index page, including slogan, intros, ai, tool, liveme, games, nr: */
     RenderIndexPage: function() {
       var me = this;
       if (me.curr != 'index') return;
+      me.SwiperInit();
+      me.RenderSlogansOnIndex(me.introsToIndex);
+      me.RenderAIContentOnIndex(me.productList);
       me.RenderToolsOnIndex(me.productList);
       me.RenderStarsForAppRank();
       me.RenderCategoryIntrosOnIndex(me.productList);
@@ -694,6 +774,97 @@
       me.page.contactContainer.html(_html);
     },
     
+    /* Render public footer for all pages: */
+    RenderPublicFooter: function(pubFooter) {
+      var me = this, langsListHtml = '',
+          outLinksArray = pubFooter.data.outLinks,
+          copyrightObj = pubFooter.data.copyRight,
+          langsCol = me.LanguageCollection();
+      for (var _l in langsCol) {
+        if (_l != me.lang) langsListHtml += '<a class="one-lang has-trans" href="'+ langsCol[_l].homeLink +'">'+ langsCol[_l].name +'</a>';
+      }
+      var ftRHtml = '<div class="footer-right clearfix rel">\
+                      <div class="clearfix" id="CMCM_FooterRight"></div>\
+                      <div class="bottom-right abs clearfix">\
+                        <ul class="clearfix">\
+                          <li><a class="has-trans" href="'+ copyrightObj.pvyLink +'">'+ copyrightObj.privacy +'</a></li>\
+                          <li><a class="has-trans" href="'+ copyrightObj.tosLink +'">'+ copyrightObj.tos +'</a></li>\
+                          <li class="copyright"><span>'+ copyrightObj.cptext +'</span></li>\
+                          <li class="switch-langs" id="CMCM_ContainLangs">\
+                            <a class="langs-trigger has-trans" id="CMCM_FootLangsTrigger">'+ copyrightObj.curLang +'</a>\
+                            <div class="langs-list has-trans">'+ langsListHtml +'</div>\
+                          </li>\
+                        </ul>\
+                      </div><!-- bottom right of copyright -->\
+                    </div><!-- footer right -->';
+      var ftLHtml = '<div class="footer-left">\
+                        <h4 class="footer-logo"><a class="has-trans" href="'+ copyrightObj.curHome +'">Cheetah Mobile</a></h4>\
+                        <div class="social-sharings clearfix">\
+                          <a class="social-icon fb has-trans" href="https://www.facebook.com/cmcmglobal/" target="_blank">Facebook</a>\
+                          <a class="social-icon tw has-trans" href="https://twitter.com/CheetahMobile" target="_blank">Twitter</a>\
+                          <a class="social-icon wb has-trans" href="http://weibo.com/u/5096795969?topnav=1&wvr=6&topsug=1" target="_blank">Weibo</a>\
+                          <a class="social-icon li has-trans" href="https://www.linkedin.com/company/3214653/" target="_blank">LinkIn</a>\
+                        </div>\
+                     </div><!-- footer left -->';
+      me.page.footerContainer.append(ftLHtml).append(ftRHtml);
+      me.RenderFooterLinks(outLinksArray);
+      me.page.footerLangsTrigger = $('#CMCM_FootLangsTrigger');
+      me.page.footerLangsContain = $('#CMCM_ContainLangs');
+    },
+    
+    /* Render footer links in footer area: */
+    RenderFooterLinks: function(outlinks) {
+      var me = this, outLinksHtml = '';
+      var footRightContainer = $('#CMCM_FooterRight');
+      var columnDataForFooter = function(jsonData) {
+        if (typeof jsonData != 'undefined') {
+          var footerColumnTitle = jsonData.name,
+              footerColumnLink = jsonData.link,
+              footerColumnItems = jsonData.category,
+              colLinksHtml = '';
+          for (var p in footerColumnItems) {
+            var _linkName = footerColumnItems[p].categoryName,
+                _linkHash = footerColumnItems[p].categoryLink;
+            colLinksHtml += '<a href="'+ footerColumnLink + '#'+ _linkHash +'">'+ _linkName +'</a>';
+          }
+          var oneCol = '<div class="ft-column">\
+                          <h4 class="column-title clearfix">\
+                            <a href="'+ footerColumnLink +'">'+ footerColumnTitle +'</a>\
+                          </h4>\
+                          <div class="column-links clearfix">'+ colLinksHtml +'</div>\
+                        </div><!-- column -->';
+          return oneCol;
+        } else {
+          return '';
+        }
+      };
+      /* Fetch company, product, contact infos for footer: */
+      var col_company = columnDataForFooter(me.companyInfoList);
+      var col_product = columnDataForFooter(me.productList);
+      var col_contact = columnDataForFooter(me.contactList);
+      /* Fetch outer links for footer, like ir and hr: */
+      jQuery.map(outlinks, function(link, i){
+        var _name = link.linkName,
+            _url = link.linkUrl,
+            _subs = link.sublink,
+            _sublinkHtml = '';
+        jQuery.map(_subs, function(lnk, i){
+          var _n = lnk.name, _u = lnk.url;
+          _sublinkHtml += '<a href="'+ _u +'" target="_blank">'+ _n +'</a>';
+        });
+        outLinksHtml += '<div class="ft-column">\
+                          <h4 class="column-title clearfix">\
+                            <a href="'+ _url +'" target="_blank">'+ _name +'</a>\
+                          </h4>\
+                          <div class="column-links clearfix">'+ _sublinkHtml +'</div>\
+                         </div><!-- column -->';
+      });
+      footRightContainer
+        .append(col_company)
+        .append(col_product)
+        .append(outLinksHtml)
+        .append(col_contact);
+    },
 
     /* Add animations to elements with class 'has-anim': */
     AddAnimateToElement: function(_top) {
@@ -809,7 +980,7 @@
     /* After renderings, bind events to elements: */
     BindAllEvents: function() {
       var me = this;
-      /* Unfold burger nav on mobiles:
+      /* Unfold burger nav on mobiles: */
       me.page.topBurger.click(function(){
         var cls = 'unfold';
         if ( !me.page.topNav.hasClass(cls) ) {
@@ -818,8 +989,7 @@
           me.page.topNav.removeClass(cls);
         }
       });
-      */
-      /* Click to switch langs on footer area:
+      /* Click to switch langs on footer area: */
       me.page.footerLangsTrigger.click(function(e){
         var _p = me.page.footerLangsContain;
         //e.stopPropagation();
@@ -830,7 +1000,6 @@
           _p.removeClass(me.clsn);
         }
       });
-      */
       me._body.click(function(){
         var _p = me.page.footerLangsContain;
         if (_p.hasClass(me.clsn)) _p.removeClass(me.clsn);
@@ -907,8 +1076,6 @@
   var realPage = {
     firstScreen: $('#CMCM_FirstScreen'),
     topBar: $('#CMCM_TopBar'),
-    topNav: $('#CMCM_TopNav'),
-    topBurger: $('#CMCM_TopBurger'),
     mobileSwiper: $('#CMCM_SwiperInMobile'),
     inxAIContainer: $('#CMCM_AIContainer'),
     inxToolsContainer: $('#CMCM_ToolsContainer'),
@@ -929,8 +1096,6 @@
     contactContainer: $('#CMCM_ContactContents'),
     subPageMenu: $('.CMCM_SubMenus'),
     footerContainer: $('#CMCM_Footer'),
-    footerLangsTrigger: $('#CMCM_FootLangsTrigger'),
-    footerLangsContain: $('#CMCM_ContainLangs'),
     subPageCtBottom: $('#CMCM_SubPageContentBottom')
   };
   CMCMWebsite.init(realPage);
