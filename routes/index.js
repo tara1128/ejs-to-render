@@ -10,6 +10,11 @@ var publicData = require('./publicData');
 var frontpageData = require('./frontpageData');
 
 
+router.get('/', function(req, res) {
+  var lang = 'en-us';
+  res.render('pre-index', publicData(lang));
+});
+
 router.get('/en-us', function(req, res) {
   var lang = 'en-us';
   res.render('index', mergeObjects(frontpageData(lang), publicData(lang)));
