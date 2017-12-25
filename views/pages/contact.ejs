@@ -1,15 +1,24 @@
-<!-- views/pages/about.ejs -->
+<!-- views/pages/contact.ejs -->
 <% include ../partials/head %>
-<body class="<%= Lang %> sub-page" data-lang="<%= Lang %>">
+<body class="<%= Lang %> subpage" data-subpage="contact" data-lang="<%= Lang %>">
 
   <div class="cmcm-wrapper">
     <section class="first-screen" id="CMCM_FirstScreen">
       <% include ../partials/header %>
     </section>
-    <h1><%= title %></h1>
-    <% include ../partials/footer %>
 
+    <section class="subpage-content CMCM_SubpageContent">
+      <div class="manage-width clearfix">
+        <div class="submenu-nav left has-trans CMCM_SubMenus" id="CMCM_SubPageMenu_contact">
+        </div>
+        <div class="sublist-container right" id="CMCM_ContactContents"></div>
+      </div><!-- manage width -->
+      <b id="CMCM_SubPageContentBottom"></b>
+    </section><!-- subpage content -->
+
+
+    <% include ../partials/footer %>
   </div><!-- .cmcm-wrapper -->
-  <script src="/dist/index.min.js?v=1302"></script>
+  <script src="/dist/index.min.js?v=1737"></script>
 </body>
 </html>

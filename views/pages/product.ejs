@@ -1,15 +1,34 @@
-<!-- views/pages/about.ejs -->
+<!-- views/pages/product.ejs -->
 <% include ../partials/head %>
-<body class="<%= Lang %> sub-page" data-lang="<%= Lang %>">
+<body class="<%= Lang %> subpage" data-subpage="product" data-lang="<%= Lang %>">
 
   <div class="cmcm-wrapper">
     <section class="first-screen" id="CMCM_FirstScreen">
       <% include ../partials/header %>
     </section>
-    <h1><%= title %></h1>
-    <% include ../partials/footer %>
 
+    <section class="subpage-content CMCM_SubpageContent">
+      <div class="manage-width clearfix">
+        <div class="submenu-nav left has-trans CMCM_SubMenus" id="CMCM_SubPageMenu_product">
+        
+          <b id="CMCM_SubMenuHeadAnchor"></b>
+          <div class="category-unit">
+            <a class="category-name has-trans CMCM_SubMenuItem active" href="<%=  %>"><%=  %></a>
+            <div class="category-details CMCM_SubMenuDetails">
+              <a class="category-detail-one has-trans CMCM_SMD_A active" href=""></a>
+            </div><!-- details -->
+          </div><!-- category unit -->
+          <b id="CMCM_SubMenuBottomAnchor"></b>
+
+        </div>
+        <div class="sublist-container right" id="CMCM_ProductContents"></div>
+      </div><!-- manage width -->
+      <b id="CMCM_SubPageContentBottom"></b>
+    </section><!-- subpage content -->
+
+
+    <% include ../partials/footer %>
   </div><!-- .cmcm-wrapper -->
-  <script src="/dist/index.min.js?v=1302"></script>
+  <script src="/dist/index.min.js?v=1737"></script>
 </body>
 </html>

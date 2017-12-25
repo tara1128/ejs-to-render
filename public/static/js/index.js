@@ -106,9 +106,6 @@
       var me = this, dataList = null;
       if (me.curr == 'company') {
         dataList = me.companyInfoList;
-        me.RenderCompanyMission(dataList);
-        me.RenderCompanyIntros(dataList);
-        me.RenderCompanyHistory(dataList);
         me.RenderCompanyLeaders(dataList);
         me.RenderCompanyCulture(dataList);
         me.RenderCompanyWelfare(dataList);
@@ -132,10 +129,7 @@
     RenderSubPageMenu: function(dataList) {
       var me = this;
       var menuItems = dataList.category,
-          menuContainer = $('#CMCM_SubPageMenu_' + me.curr),
-          anchorHead = '<b id="CMCM_SubMenuHeadAnchor"></b>',
-          anchorBott = '<b id="CMCM_SubMenuBottomAnchor"></b>';
-          _cateHtml = '';
+          menuContainer = $('#CMCM_SubPageMenu_' + me.curr);
       for (var item in menuItems) {
         var _cateName = menuItems[item].categoryName,
             _cateHref = menuItems[item].categoryLink,
@@ -147,127 +141,20 @@
             if (_cateData[__subCate].name) {
               var __name = _cateData[__subCate].name,
                   __hash = _cateData[__subCate].hash;
-              _subHtml += '<a class="category-detail-one has-trans CMCM_SMD_A " href="#'+ __hash +'">'+ __name +'</a>';
             }
           }
           // if (_cateData.unfold) {_ifUnfold = me.clsn;}
-          _subHtml = ('<div class="category-details CMCM_SubMenuDetails '+ _ifUnfold +'">' + _subHtml + '</div><!-- details -->');
         }
-        _cateHtml += '<div class="category-unit">\
-                        <a class="category-name has-trans CMCM_SubMenuItem '+ _ifUnfold +'" href="#'+ _cateHref +'">'+ _cateName +'</a>\
-                        '+ _subHtml +'\
-                      </div><!-- category unit -->';
       } // End for-in
       menuContainer.append(anchorHead).append(_cateHtml).append(anchorBott);
       me.page.subMenuItems = $('.CMCM_SubMenuItem');
       me.page.subMenuSubAs = $('.CMCM_SMD_A');
-      me.page.subPageMenuHead = $('#CMCM_SubMenuHeadAnchor');
+      // me.page.subPageMenuHead = $('#CMCM_SubMenuHeadAnchor');
       me.page.subPageMenuFoot = $('#CMCM_SubMenuBottomAnchor');
     },
     
-    /* Render company mission & vision: */
-    RenderCompanyMission: function(comInfoList) {
-      var me = this;
-      var mission = comInfoList.category.missionVisions;
-      var _name = mission.categoryName,
-          _hash = mission.categoryLink,
-          _data = mission.categoryData,
-          _csan = _data.classAnchor,
-          _slog = _data.slogan,
-          _desc = _data.descrp,
-          _html = '<div class="category-container CMCM_CategoryContainer '+ _csan +'" id="'+ _hash +'">\
-                    <h2 class="category-title">'+ _name +'</h2>\
-                    <div class="one-app-introduction clearfix">\
-                      <h1 class="cmcm-slogan">'+ _slog +'</h1>\
-                      <p class="under-slogan">'+ _desc +'</p>\
-                    </div><!-- one app introduction -->\
-                   </div><!-- category container of mission and visions -->';
-      me.page.companyContainer.append(_html);
-    },
     
-    /* Render company introductions: */
-    RenderCompanyIntros: function(comInfoList) {
-      var me = this;
-      var intro = comInfoList.category.introduction;
-      var _name = intro.categoryName,
-          _hash = intro.categoryLink,
-          _data = intro.categoryData,
-          _csan = _data.classAnchor,
-          _arry = _data.introTexts,
-          _imge = _data.introImage,
-          _text = me.ArrayOutput(_arry, '<p class="company-intros">', '</p>'),
-          _html = '<div class="category-container CMCM_CategoryContainer '+ _csan +'" id="'+ _hash +'">\
-                     <h2 class="category-title">'+ _name +'</h2>\
-                     <div class="one-app-introduction clearfix">\
-                       <img class="company-view" src="'+ _imge +'" alt="'+ _name +'" />\
-                       '+ _text +'</div><!-- one app introduction -->\
-                   </div><!-- category container of company intro -->';
-      me.page.companyContainer.append(_html);
-    },
     
-    /* Render company history: */
-    RenderCompanyHistory: function(comInfoList) {
-      var me = this;
-      var devHistory = comInfoList.category.devHistory;
-      var _name = devHistory.categoryName,
-          _hash = devHistory.categoryLink,
-          _data = devHistory.categoryData,
-          _csan = _data.classAnchor,
-          _historyArray = _data.companyHistory,
-          allHistories = '';
-      jQuery.map(_historyArray, function(oneYearEvents){
-        var _year = oneYearEvents.year;
-        var _events = oneYearEvents.events;
-        var _evtHtm = '';
-        for (var month in _events) {
-          _evtHtm += '<div class="history-item clearfix">\
-                        <span class="font-book">'+ month +'</span><b>'+ _events[month] +'</b>\
-                      </div><!-- item -->';
-        } // End for-in
-        allHistories += '<div class="history-one-year clearfix">\
-                            <h3 class="year-number font-book">'+ _year +'</h3>'+ _evtHtm +'<s>Dots</s>\
-                         </div><!-- history-one-year -->';
-      }); // End map
-      var _html = '<div class="category-container CMCM_CategoryContainer '+ _csan +'" id="'+ _hash +'">\
-                     <h2 class="category-title">'+ _name +'</h2>\
-                     <div class="one-app-introduction clearfix">'+ allHistories +'</div>\
-                   </div><!-- category container of history -->';
-      me.page.companyContainer.append(_html);
-    },
-    
-    /* Render company executives: */
-    RenderCompanyLeaders: function(comInfoList) {
-      var me = this;
-      var leaders = comInfoList.category.leaderTeam;
-      var _name = leaders.categoryName,
-          _hash = leaders.categoryLink,
-          _data = leaders.categoryData,
-          _csan = _data.classAnchor,
-          _detl = _data.leaderDetails,
-          _allLeaders = '';
-      jQuery.map(_detl, function(leader, i){
-        var _leaderName = leader.name,
-            _leaderTitle = leader.title,
-            _leaderIntro = me.ArrayOutput(leader.detail, '<p>', '</p>'),
-            _leaderAvatar = leader.avatar,
-            _isReverse = (i % 2 > 0) ? 'reverse' : '';
-        _allLeaders += '<div class="one-app-introduction clearfix '+ _isReverse +'">\
-                          <div class="leader-pic">\
-                            <img src="'+ _leaderAvatar +'" alt="'+ _leaderName +'" />\
-                            <div class="leader-inf-in-mobile-only">\
-                              <h2>'+ _leaderName +'</h2><h3>'+ _leaderTitle +'</h3>\
-                            </div>\
-                          </div>\
-                          <div class="leader-inf">\
-                            <h2>'+ _leaderName +'</h2><h3>'+ _leaderTitle +'</h3>'+ _leaderIntro +'\
-                          </div>\
-                        </div><!-- one app introduction -->';
-      }); // End map
-      var _html = '<div class="category-container CMCM_CategoryContainer '+ _csan +'" id="'+ _hash +'">\
-                      <h2 class="category-title">'+ _name +'</h2>'+ _allLeaders +'\
-                   </div><!-- category container of executive team -->';
-      me.page.companyContainer.append(_html);
-    },
 
     /* Render company culture & values: */
     RenderCompanyCulture: function(comInfoList) {
@@ -696,7 +583,8 @@
     mobileSwiper: $('#CMCM_SwiperInMobile'),
     inxGameUnits: $('.CMCM_GameUnit'),
     inxGameIntros: $('.CMCM_GameIntros'),
-    subPageContent: $('.CMCM_SubpageContent'),
+
+    subPageMenuHead: $('#CMCM_SubMenuHeadAnchor'),
     companyContainer: $('#CMCM_CompanyContents'),
     productContainer: $('#CMCM_ProductsContents'),
     contactContainer: $('#CMCM_ContactContents'),

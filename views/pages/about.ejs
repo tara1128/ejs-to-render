@@ -1,15 +1,107 @@
 <!-- views/pages/about.ejs -->
 <% include ../partials/head %>
-<body class="<%= Lang %> sub-page" data-lang="<%= Lang %>">
+<body class="<%= Lang %> subpage" data-subpage="company" data-lang="<%= Lang %>">
 
   <div class="cmcm-wrapper">
     <section class="first-screen" id="CMCM_FirstScreen">
       <% include ../partials/header %>
     </section>
-    <h1><%= title %></h1>
-    <% include ../partials/footer %>
 
+    <section class="subpage-content CMCM_SubpageContent">
+      <div class="manage-width clearfix">
+        <div class="submenu-nav left has-trans CMCM_SubMenus" id="CMCM_SubPageMenu_company">
+          <b id="CMCM_SubMenuHeadAnchor"></b>
+          <div class="category-unit">
+            <a class="category-name has-trans CMCM_SubMenuItem active" href="#<%= missionLink %>"><%= missionName %></a>
+          </div><!-- category unit -->
+          <div class="category-unit">
+            <a class="category-name has-trans CMCM_SubMenuItem" href="#<%= introductionLink %>"><%= introductionName %></a>
+          </div><!-- category unit -->
+          <div class="category-unit">
+            <a class="category-name has-trans CMCM_SubMenuItem" href="#<%= historyLink %>"><%= historyName %></a>
+          </div><!-- category unit -->
+          <div class="category-unit">
+            <a class="category-name has-trans CMCM_SubMenuItem" href="#<%= executiveLink %>"><%= executiveName %></a>
+          </div><!-- category unit -->
+          <div class="category-unit">
+            <a class="category-name has-trans CMCM_SubMenuItem" href="#<%= cultureLink %>"><%= cultureName %></a>
+          </div><!-- category unit -->
+          <div class="category-unit">
+            <a class="category-name has-trans CMCM_SubMenuItem" href="#<%= welfareLink %>"><%= welfareName %></a>
+          </div><!-- category unit -->
+          <b id="CMCM_SubMenuBottomAnchor"></b>
+        </div>
+        <div class="sublist-container right" id="CMCM_CompanyContents">
+        
+          <div class="category-container CMCM_CategoryContainer <%= missionData.classAnchor %>" id="<%= missionLink %>">
+            <h2 class="category-title"><%= missionName %></h2>
+            <div class="one-app-introduction clearfix">
+              <h1 class="cmcm-slogan"><%= missionData.slogan %></h1>
+              <p class="under-slogan"><%= missionData.descrp %></p>
+            </div><!-- one app introduction -->
+          </div><!-- category container of mission and visions -->
+          
+          <div class="category-container CMCM_CategoryContainer <%= introductionData.classAnchor %>" id="<%= introductionLink %>">
+            <h2 class="category-title"><%= introductionName %></h2>
+            <div class="one-app-introduction clearfix">
+              <img class="company-view" src="<%= introductionData.introImage %>" alt="<%= introductionName %>" />
+              <% introductionData.introTexts.forEach(function(text){ %>
+                <p class="company-intros"><%= text %></p>
+              <% }); %>
+            </div><!-- one app introduction -->
+          </div><!-- category container of company intro -->
+          
+          <div class="category-container CMCM_CategoryContainer <%= historyData.classAnchor %>" id="<%= historyLink %>">
+            <h2 class="category-title"><%= historyName %></h2>
+            <div class="one-app-introduction clearfix">
+            <% historyData.companyHistory.forEach(function(oneYearEvents){ %>
+              <div class="history-one-year clearfix">
+                <h3 class="year-number font-book"><%= oneYearEvents.year %></h3>
+                <% for ( var month in oneYearEvents.events) { %>
+                  <div class="history-item clearfix">
+                    <span class="font-book"><%= month %></span>
+                    <b><%- oneYearEvents.events[month] %></b>
+                  </div><!-- item -->
+                <% }; %>
+                <s>Dots</s>
+              </div><!-- history-one-year -->
+            <% }); %>
+            </div>
+          </div><!-- category container of history -->
+          
+          <div class="category-container CMCM_CategoryContainer <%= executiveData.classAnchor %>" id="<%= executiveLink %>">
+            <h2 class="category-title"><%= executiveName %></h2>
+            <% executiveData.leaderDetails.forEach(function(leader, i){ %>
+              <% if (i%2>0) {var rev = 'reverse'; } else {var rev = '';} %>
+              <div class="one-app-introduction clearfix <%= rev %>">
+                <div class="leader-pic">
+                  <img src="<%= leader.avatar %>" alt="<%= leader.name %>" />
+                  <div class="leader-inf-in-mobile-only">
+                    <h2><%= leader.name %></h2>
+                    <h3><%= leader.title %></h3>
+                  </div>
+                </div>
+                <div class="leader-inf">
+                  <h2><%= leader.name %></h2>
+                  <h3><%= leader.title %></h3>
+                  <% leader.detail.forEach(function(text){ %>
+                    <p><%= text %></p>
+                  <% }); %>
+                </div>
+              </div><!-- one leader -->
+            <% }); %>
+          </div><!-- category container of executive team -->
+        
+        
+        
+        </div>
+      </div><!-- manage width -->
+      <b id="CMCM_SubPageContentBottom"></b>
+    </section><!-- subpage content -->
+
+
+    <% include ../partials/footer %>
   </div><!-- .cmcm-wrapper -->
-  <script src="/dist/index.min.js?v=1302"></script>
+  <script src="/dist/index.min.js?v=1737"></script>
 </body>
 </html>
