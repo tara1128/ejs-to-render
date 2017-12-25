@@ -1,6 +1,6 @@
 /*
   routes/frontpageData.js
-  2017-12-22 16:50
+  2017-12-25 17:10
 */
 
 var intros = require('../data/intro');
@@ -23,7 +23,13 @@ module.exports = function(lang) {
       CMLauncher = toolsOnIndex[2],
       Keyboard = toolsOnIndex[3],
       PhotoGrid = toolsOnIndex[4],
-      CMBrowser = toolsOnIndex[5];
+      CMBrowser = toolsOnIndex[5],
+      LiveMe = socialOnIndex[0],
+      PianoTiles = gamesOnIndex[0],
+      RollingSky = gamesOnIndex[1],
+      DancingLine = gamesOnIndex[2],
+      ArrowIO = gamesOnIndex[3];
+
   return {
     indexSlogan: introData.slogan,
     indexSubslogan: introData.subslogan,
@@ -76,7 +82,34 @@ module.exports = function(lang) {
     CMBrowserName: CMBrowser.name,
     CMBrowserLink: CMBrowser.link,
     CMBrowserIcon: CMBrowser.icon,
-    CMBrowserDescForIndex: CMBrowser.descForIndex
+    CMBrowserDescForIndex: CMBrowser.descForIndex,
+
+    LiveMeName: LiveMe.name,
+    LiveMeLink: LiveMe.link,
+    LiveMeIcon: LiveMe.icon,
+    LiveMeTags_Earth1: LiveMe.tags[0].split('|')[0],
+    LiveMeTags_Earth2: LiveMe.tags[0].split('|')[1],
+    LiveMeTags_Tongu1: LiveMe.tags[1].split('|')[0],
+    LiveMeTags_Tongu2: LiveMe.tags[1].split('|')[1],
+    LiveMeTags_Award1: LiveMe.tags[2].split('|')[0],
+    LiveMeTags_Award2: LiveMe.tags[2].split('|')[1],
+    LiveMeDescForIndex: LiveMe.descForIndex,
+
+    PianoTilesName: PianoTiles.name,
+    PianoTilesLink: PianoTiles.link,
+    PianoTilesDesc: PianoTiles.descForIndex,
+
+    RollingSkyName: RollingSky.name,
+    RollingSkyLink: RollingSky.link,
+    RollingSkyDesc: RollingSky.descForIndex,
+
+    DancingLineName: DancingLine.name,
+    DancingLineLink: DancingLine.link,
+    DancingLineDesc: DancingLine.descForIndex,
+
+    ArrowIOName: ArrowIO.name,
+    ArrowIOLink: ArrowIO.link,
+    ArrowIODesc: ArrowIO.descForIndex
 
   };
 };

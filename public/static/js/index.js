@@ -1,7 +1,7 @@
 /*
   Script of Cheetah official website.
   Author: Alexandra
-  Latest modified: 2017-12-21 15:20
+  Latest modified: 2017-12-25 17:23
 */
 
 (function(win, doc, $) {
@@ -17,44 +17,13 @@
       var me = this;
       me._body.css('min-height', window.innerHeight);
       me.page = pageObj;
-      me.DetectLanguage();
-      me.DetectCurrentPage();
-      me.DealWithDatas();
-      me.RenderPublicModules();
-      me.RenderIndexPage();
-      me.RenderSubPages();
+      // me.RenderSubPages();
       me.AutoWidth();
       me.BindAllEvents();
       me.BindScrolling();
-      console.log('2017, Dec.21st 15:20, update cmpr@cmcm.com');
+      console.log('2017, Dec.25th 17:23, update cmpr@cmcm.com');
     },
 
-    DetectLanguage: function() {
-      var me = this;
-      var curLang = me._body.attr('data-lang');
-      if (curLang && curLang.length > 0) me.lang = curLang;
-    },
-    DetectCurrentPage: function() {
-      var me = this;
-      var cr = me._body.attr('data-subpage');
-      if (typeof cr != 'undefined') me.curr = cr;
-    },
-    DealWithDatas: function() {
-      var me = this;
-      if (typeof window.CMCM_PublicNav != 'undefined') me.publicNav = window.CMCM_PublicNav[me.lang];
-      if (typeof window.CMCM_IntrosToIndex != 'undefined') me.introsToIndex = window.CMCM_IntrosToIndex[me.lang];
-      if (typeof window.CMCM_CompanyInfoList != 'undefined') me.companyInfoList = window.CMCM_CompanyInfoList[me.lang];
-      if (typeof window.CMCM_ProductList != 'undefined') me.productList = window.CMCM_ProductList[me.lang];
-      if (typeof window.CMCM_ContactList != 'undefined') me.contactList = window.CMCM_ContactList[me.lang];
-      if (typeof window.CMCM_PublicFooter != 'undefined') me.publicFooter = window.CMCM_PublicFooter[me.lang];
-    },
-
-    LanguageCollection: function() {
-      return {
-        'en-us': {name: 'English', homeLink: '/en-us/'},
-        'zh-cn': {name: '简体中文', homeLink: '/zh-cn/'}
-      };
-    },
 
     /* Global function, output paragraph by paragraph from an array: */
     ArrayOutput: function(array, htmlTag, htmlCloseTag) {
@@ -98,59 +67,6 @@
       me.page.mobileSwiper.height(devHeight);
     },
     
-    /* Get the public navigator for all pages: */
-    PublicNav: function(navData) {
-      var me = this, _html = '';
-      jQuery.map(navData, function(item, index){
-        var _name = item.displayName,
-            _target = item.target,
-            _linkTo = item.linkTo,
-            _active = item.active,
-            _gaTags = item.gaTag,
-            _subNvs = item.subNavs,
-            _actCls = (_active == me.curr)?(me.clsn):(''),
-            _subNavHtml = '';
-        jQuery.map(_subNvs, function(subNav){
-          var _subNavName = subNav.subNavName,
-              _subNavHash = subNav.subNavLink,
-              _subLinkTo = (subNav.outlink)?(subNav.subNavLink):(_linkTo + '#' + _subNavHash);
-          _subNavHtml += '<a class="one-sub has-trans" href="'+_subLinkTo+'" target="'+_target+'">'+_subNavName+'</a>';
-        });
-        _html += '<li class="top-nav-li has-trans CMCM_TopNavLi">\
-                      <a class="top-nav-a has-trans '+_actCls+'" href="'+_linkTo+'" target="'+_target+'" onclick="ga(\'send\', \'event\', \''+_gaTags+'\', \'click\');">'+_name+'<s class="has-trans"></s><b class="has-trans"></b></a>\
-                      <div class="top-nav-sub">'+_subNavHtml+'</div>\
-                     </li>';
-      });
-      return _html;
-    },
-
-    /* Render top bar to the first screen for all pages: */
-    RenderTopBar: function(pubNav) {
-      var me = this;
-      var name = pubNav.name;
-      var cnCls = (me.lang == 'zh-cn')?(me.clsn):('');
-      var enCls = (me.lang == 'en-us')?(me.clsn):('');
-      var pubNv = me.PublicNav(me.publicNav.data);
-      var _html = '<div class="manage-width clearfix">\
-                    <h1 class="top-logo has-trans">\
-                      <a class="has-trans" href="/'+ me.lang +'/">'+ name +'</a>\
-                    </h1>\
-                    <div class="top-burger" id="CMCM_TopBurger"></div>\
-                    <ul class="top-nav" id="CMCM_TopNav">\
-                      '+ pubNv +'\
-                      <li class="top-nav-li has-trans top-langs" id="CMCM_TopLangSwitch">\
-                        <div class="langs clearfix">\
-                          <a class="lang-a has-trans '+ cnCls +'" href="/zh-cn/">简<s class="has-trans">&nbsp;</s></a>\
-                          <a class="lang-a strip"> | </a>\
-                          <a class="lang-a has-trans '+ enCls +'" href="/en-us/">EN<s class="has-trans">&nbsp;</s></a>\
-                        </div>\
-                      </li>\
-                    </ul>\
-                  </div><!-- End manage-width -->';
-      me.page.topBar.html(_html);
-      me.page.topNav = $('#CMCM_TopNav');
-      me.page.topBurger = $('#CMCM_TopBurger');
-    },
 
     /* Index first screen slider: */
     SwiperInit: function() {
@@ -178,228 +94,11 @@
       }
     },
 
-    /* Render AI content on index: */
-    RenderAIContentOnIndex: function(proList) {
-      var me = this, threeBubbles = '', ifHide = '';
-          ai = proList.category.ai.categoryData.ai,
-          cateName = ai.name,
-          cateDesc = me.ArrayOutput(ai.desc),
-          aiProductShown = ai.data[1],
-          aiProName = aiProductShown.name,
-          aiProDesc = me.ArrayOutput(aiProductShown.descForIndex),
-          aiProTags = aiProductShown.tags,
-          aiProLink = aiProductShown.link,
-          aiProTarg = aiProductShown.target;
-      if (me.lang != 'zh-cn') ifHide = 'hide';
-      jQuery.map(aiProTags, function(tag, i){
-        threeBubbles += '<div class="ai-chips abs ai-bubbles ai-bubble-'+ (i+1) +' has-trans has-anim">\
-                          <span class="ai-bbl-top has-trans"><b>'+ tag.num +'</b>'+ tag.adj +'</span>\
-                          <span class="ai-bbl-mid has-trans">'+ tag.noun +'</span>\
-                          <span class="ai-bbl-btm has-trans '+ ifHide +'">'+ tag.sentence +'</span>\
-                         </div><!-- bubble '+ (i+1) +' -->';
-      }); //End map
-      var _rightHtm = '<div class="ai-right-content">\
-                        <div class="ai-chips abs ai-wave has-anim"></div>\
-                        <div class="ai-chips abs ai-voice-box has-anim">\
-                          '+ threeBubbles +'\
-                          <img class="ai-voicebox-on-mobile-only" src="/dist/images/ai-voice-box.png" alt="AI" />\
-                        </div>\
-                        <div class="ai-chips abs ai-voice-wakeup has-anim"></div>\
-                      </div><!-- ai right -->';
-      var _leftHtml = '<div class="ai-left-content">\
-                        <h3 class="app-name">\
-                          <a class="app-namelink has-trans" href="'+ aiProLink +'" target="'+ aiProTarg +'">'+ aiProName +'</a>\
-                        </h3>\
-                        <div class="app-desc">'+ aiProDesc +'</div>\
-                      </div><!-- ai left -->';
-      me.page.inxAIContainer.append(_leftHtml).append(_rightHtm);
-    },
-
-    /* Render recommanded apps on index page: */
-    RenderToolsOnIndex: function(proList) {
-      var me = this;
-      var ToolsData = proList.category.mobileApps.categoryData.tool.data;
-      jQuery.map(ToolsData, function(tData, i){
-        var _priority = tData.priority,
-            _descForIndex = me.ArrayOutput(tData.descForIndex),
-            _target = tData.target,
-            _name = tData.name,
-            _icon = tData.icon,
-            _star = tData.star,
-            _tags = tData.tags,
-            _link = tData.link,
-            _pict = tData.pict,
-            _proportion = 'proportion-100',
-            _ifShowPict = 'display:none;',
-            _ifDisplayOnIndex = 'display:none;',
-            _tagContent = '',
-            _ifHasBorderRight = '';
-        switch (_priority) {
-          case '100':
-            _proportion = 'proportion-100';
-            _ifShowPict = 'display:block;';
-            break;
-          case '50':
-            _proportion = 'proportion-50';
-            break;
-          case '33':
-            _proportion = 'proportion-33';
-            break;
-        }; // End switch
-        if (_tags.length > 0) {
-          for (var j = 0; j < _tags.length; j++) {
-            if (_tags[j].length > 1) _tagContent += ('<a class="has-trans">' + _tags[j] + '</a>');
-          }
-        }; // End of dealing with tags
-        if (i == 1 || i == 3 || i == 4) _ifHasBorderRight = 'has-right-border';
-        if (_descForIndex && _descForIndex.length > 1) _ifDisplayOnIndex = 'display:block;';
-        var _toolUnit = '<div class="tool-unit '+ _proportion +' rel '+ _ifHasBorderRight +'" style="'+ _ifDisplayOnIndex +'">\
-                          <div class="tool-inner clearfix">\
-                            <div class="big-pic abs has-anim" style="'+ _ifShowPict +'">\
-                              <img src="'+ _pict + '" alt="'+ _name +'" />\
-                            </div>\
-                            <a class="app-icon CMCM_AutoWidthSibling" href="'+ _link +'" target="'+ _target +'">\
-                              <img src="'+ _icon +'" alt="'+ _name +'" />\
-                            </a>\
-                            <div class="tool-info CMCM_AutoWidth" data-padding="10">\
-                              <h3 class="app-name">\
-                                <a class="app-namelink tool-appname-'+ i +' has-trans" href="'+ _link +'" target="'+ _target +'">'+ _name +'</a>\
-                              </h3>\
-                              <div class="app-desc">'+ _descForIndex +'</div>\
-                              <div class="tool-rank clearfix has-anim CMCM_Rank" data="'+ _star +'"></div>\
-                              <div class="tool-tags clearfix has-anim">'+ _tagContent +'</div>\
-                            </div><!-- End of tool-info -->\
-                          </div><!-- End of tool-inner -->\
-                        </div><!-- End of tool-unit -->';
-        me.page.inxToolsContainer.append(_toolUnit);      
-      });
-    },
-
-    /* Render app rank stars, must after tools being rendered: */
-    RenderStarsForAppRank: function() {
-      $('.CMCM_Rank').each(function(index, ele){
-        var item = $(ele),
-            rank = item.attr('data'),
-            text = '<b>' + rank + '</b>',
-            fullStars = Math.floor(rank),
-            fullStarHTML = '<s class="full-star"></s>',
-            halfStarHTML = '<s class="half-star"></s>';
-        if (rank == 0 || rank == '0') return;
-        for (var i = 1; i <= fullStars; i++) {item.append(fullStarHTML);}
-        if (rank > fullStars) {item.append(halfStarHTML);}
-        item.append(text);       
-      });
-    },
-
-    /* Render slogans on index billboard: */
-    RenderSlogansOnIndex: function(intros) {
-      var me = this;
-      me.page.inxSloganEle.html(me.ArrayOutput(intros.slogan));
-      me.page.inxSubSloganEle.html(intros.subslogan);
-      me.page.inxSloganEleForMb.html(me.ArrayOutput(intros.slogan));
-      me.page.inxSubSloganEleForMb.html(intros.subslogan);
-    },
-
-    /* Render product category introductions on index: */
-    RenderCategoryIntrosOnIndex: function(proList) {
-      var me = this;
-      var categoriesCollect = proList.category.mobileApps.categoryData,
-          cateForIndex_Tool = categoriesCollect.tool,
-          cateForIndex_Socl = categoriesCollect.socl,
-          cateForIndex_Game = categoriesCollect.game,
-          cateForIndex_ai = proList.category.ai.categoryData.ai,
-          cateForIndex_all = [cateForIndex_ai, cateForIndex_Tool, cateForIndex_Socl, cateForIndex_Game];
-      jQuery.map(cateForIndex_all, function(Obj){
-        $('#CMCM_Section_' + Obj.hash).find('.CMCM_SecTitle').html(Obj.name);
-        $('#CMCM_Section_' + Obj.hash).find('.CMCM_SecDescr').html(me.ArrayOutput(Obj.desc));
-      });
-    },
     
-    /* Render live.me on index, in a particular style: */
-    RenderLiveMeOnIndex: function(proList) {
-      var me = this;
-      var livemeData = proList.category.mobileApps.categoryData.socl.data[0];
-      var _name = livemeData.name,
-          _icon = livemeData.icon,
-          _descForIndex = me.ArrayOutput(livemeData.descForIndex),
-          _tags = livemeData.tags,
-          _link = livemeData.link,
-          _target = livemeData.target,
-          _earth1 = _tags[0].split('|')[0],
-          _earth2 = _tags[0].split('|')[1],
-          _tongu1 = _tags[1].split('|')[0],
-          _tongu2 = _tags[1].split('|')[1],
-          _award1 = _tags[2].split('|')[0],
-          _award2 = _tags[2].split('|')[1],
-          _html = '<a class="app-icon has-trans CMCM_AutoWidthSibling" href="'+ _link +'" target="'+ _target +'">\
-                    <img src="'+ _icon +'" alt="'+ _name +'" />\
-                  </a>\
-                  <div class="live-info CMCM_AutoWidth" data-padding="10">\
-                    <h3 class="app-name">\
-                      <a class="app-namelink liveme-appname has-trans" href="'+ _link +'" target="'+ _target +'">'+ _name +'</a>\
-                    </h3>\
-                    <div class="app-desc">'+ _descForIndex +'</div>\
-                  </div><!-- live info -->\
-                  <ul class="live-datas clearfix">\
-                    <li class="live-data">\
-                      <strong class="earth">'+ _earth1 +'</strong>\
-                      <b>'+ _earth2 +'</b><s class="line"></s>\
-                    </li>\
-                    <li class="live-data">\
-                      <strong class="tongue">'+ _tongu1 +'</strong>\
-                      <b>'+ _tongu2 +'</b><s class="line"></s>\
-                    </li>\
-                    <li class="live-data">\
-                      <strong class="award">'+ _award1 +'</strong>\
-                      <b>'+ _award2 +'</b>\
-                    </li>\
-                  </ul>';
-      me.page.inxLivemeTextContainer.html(_html);
-    },
-    
-    /* Render games on index: */
-    RenderGamesOnIndex: function(proList) {
-      var me = this, pg = me.page;
-      var GamesData = proList.category.mobileApps.categoryData.game.data;
-      var ptData = GamesData[0], rsData = GamesData[1],
-          dlData = GamesData[2], gjsData = GamesData[3],
-          ptHtml = '<h4>'+ ptData.name +'</h4>' + me.ArrayOutput(ptData.descForIndex, '<p>', '</p>'),
-          rsHtml = '<h4>'+ rsData.name +'</h4>' + me.ArrayOutput(rsData.descForIndex, '<p>', '</p>'),
-          dlHtml = '<h4>'+ dlData.name +'</h4>' + me.ArrayOutput(dlData.descForIndex, '<p>', '</p>'),
-          gjsHtml = '<h4>'+ gjsData.name +'</h4>' + me.ArrayOutput(gjsData.descForIndex, '<p>', '</p>');
-      if (window.innerWidth > 768) {/* Full area as hotzone for desktop */
-        pg.inxGamesPTCont.html(ptHtml).parent().attr('href', ptData.link).attr('target', ptData.target);
-        pg.inxGamesRSCont.html(rsHtml).parent().attr('href', rsData.link).attr('target', rsData.target);
-        pg.inxGamesDLCont.html(dlHtml).parent().attr('href', dlData.link).attr('target', dlData.target);
-        pg.inxGamesGJSCont.html(gjsHtml).parent().attr('href', gjsData.link).attr('target', gjsData.target);
-      } else {/* Only popping area as hotzone for mobile */
-        pg.inxGamesPTCont.html(ptHtml).click(function(){window.open(ptData.link, ptData.target)});
-        pg.inxGamesRSCont.html(rsHtml).click(function(){window.open(rsData.link, rsData.target)});
-        pg.inxGamesDLCont.html(dlHtml).click(function(){window.open(dlData.link, dlData.target)});
-        pg.inxGamesGJSCont.html(gjsHtml).click(function(){window.open(gjsData.link, gjsData.target)});
-      }
-      pg.inxGamesGJSName.html(gjsData.name);
-    },
-    
-    /* Render public modules like top nav and footer: */
-    RenderPublicModules: function() {
-      var me = this;
-      me.RenderTopBar(me.publicNav);
-      me.RenderPublicFooter(me.publicFooter);
-    },
-
     /* Render index page, including slogan, intros, ai, tool, liveme, games, nr: */
     RenderIndexPage: function() {
       var me = this;
-      if (me.curr != 'index') return;
       me.SwiperInit();
-      me.RenderSlogansOnIndex(me.introsToIndex);
-      me.RenderAIContentOnIndex(me.productList);
-      me.RenderToolsOnIndex(me.productList);
-      me.RenderStarsForAppRank();
-      me.RenderCategoryIntrosOnIndex(me.productList);
-      me.RenderLiveMeOnIndex(me.productList);
-      me.RenderGamesOnIndex(me.productList);
     },
 
     /* Render sub page, including left menu and main contents: */
@@ -774,97 +473,6 @@
       me.page.contactContainer.html(_html);
     },
     
-    /* Render public footer for all pages: */
-    RenderPublicFooter: function(pubFooter) {
-      var me = this, langsListHtml = '',
-          outLinksArray = pubFooter.data.outLinks,
-          copyrightObj = pubFooter.data.copyRight,
-          langsCol = me.LanguageCollection();
-      for (var _l in langsCol) {
-        if (_l != me.lang) langsListHtml += '<a class="one-lang has-trans" href="'+ langsCol[_l].homeLink +'">'+ langsCol[_l].name +'</a>';
-      }
-      var ftRHtml = '<div class="footer-right clearfix rel">\
-                      <div class="clearfix" id="CMCM_FooterRight"></div>\
-                      <div class="bottom-right abs clearfix">\
-                        <ul class="clearfix">\
-                          <li><a class="has-trans" href="'+ copyrightObj.pvyLink +'">'+ copyrightObj.privacy +'</a></li>\
-                          <li><a class="has-trans" href="'+ copyrightObj.tosLink +'">'+ copyrightObj.tos +'</a></li>\
-                          <li class="copyright"><span>'+ copyrightObj.cptext +'</span></li>\
-                          <li class="switch-langs" id="CMCM_ContainLangs">\
-                            <a class="langs-trigger has-trans" id="CMCM_FootLangsTrigger">'+ copyrightObj.curLang +'</a>\
-                            <div class="langs-list has-trans">'+ langsListHtml +'</div>\
-                          </li>\
-                        </ul>\
-                      </div><!-- bottom right of copyright -->\
-                    </div><!-- footer right -->';
-      var ftLHtml = '<div class="footer-left">\
-                        <h4 class="footer-logo"><a class="has-trans" href="'+ copyrightObj.curHome +'">Cheetah Mobile</a></h4>\
-                        <div class="social-sharings clearfix">\
-                          <a class="social-icon fb has-trans" href="https://www.facebook.com/cmcmglobal/" target="_blank">Facebook</a>\
-                          <a class="social-icon tw has-trans" href="https://twitter.com/CheetahMobile" target="_blank">Twitter</a>\
-                          <a class="social-icon wb has-trans" href="http://weibo.com/u/5096795969?topnav=1&wvr=6&topsug=1" target="_blank">Weibo</a>\
-                          <a class="social-icon li has-trans" href="https://www.linkedin.com/company/3214653/" target="_blank">LinkIn</a>\
-                        </div>\
-                     </div><!-- footer left -->';
-      me.page.footerContainer.append(ftLHtml).append(ftRHtml);
-      me.RenderFooterLinks(outLinksArray);
-      me.page.footerLangsTrigger = $('#CMCM_FootLangsTrigger');
-      me.page.footerLangsContain = $('#CMCM_ContainLangs');
-    },
-    
-    /* Render footer links in footer area: */
-    RenderFooterLinks: function(outlinks) {
-      var me = this, outLinksHtml = '';
-      var footRightContainer = $('#CMCM_FooterRight');
-      var columnDataForFooter = function(jsonData) {
-        if (typeof jsonData != 'undefined') {
-          var footerColumnTitle = jsonData.name,
-              footerColumnLink = jsonData.link,
-              footerColumnItems = jsonData.category,
-              colLinksHtml = '';
-          for (var p in footerColumnItems) {
-            var _linkName = footerColumnItems[p].categoryName,
-                _linkHash = footerColumnItems[p].categoryLink;
-            colLinksHtml += '<a href="'+ footerColumnLink + '#'+ _linkHash +'">'+ _linkName +'</a>';
-          }
-          var oneCol = '<div class="ft-column">\
-                          <h4 class="column-title clearfix">\
-                            <a href="'+ footerColumnLink +'">'+ footerColumnTitle +'</a>\
-                          </h4>\
-                          <div class="column-links clearfix">'+ colLinksHtml +'</div>\
-                        </div><!-- column -->';
-          return oneCol;
-        } else {
-          return '';
-        }
-      };
-      /* Fetch company, product, contact infos for footer: */
-      var col_company = columnDataForFooter(me.companyInfoList);
-      var col_product = columnDataForFooter(me.productList);
-      var col_contact = columnDataForFooter(me.contactList);
-      /* Fetch outer links for footer, like ir and hr: */
-      jQuery.map(outlinks, function(link, i){
-        var _name = link.linkName,
-            _url = link.linkUrl,
-            _subs = link.sublink,
-            _sublinkHtml = '';
-        jQuery.map(_subs, function(lnk, i){
-          var _n = lnk.name, _u = lnk.url;
-          _sublinkHtml += '<a href="'+ _u +'" target="_blank">'+ _n +'</a>';
-        });
-        outLinksHtml += '<div class="ft-column">\
-                          <h4 class="column-title clearfix">\
-                            <a href="'+ _url +'" target="_blank">'+ _name +'</a>\
-                          </h4>\
-                          <div class="column-links clearfix">'+ _sublinkHtml +'</div>\
-                         </div><!-- column -->';
-      });
-      footRightContainer
-        .append(col_company)
-        .append(col_product)
-        .append(outLinksHtml)
-        .append(col_contact);
-    },
 
     /* Add animations to elements with class 'has-anim': */
     AddAnimateToElement: function(_top) {
@@ -989,6 +597,13 @@
           me.page.topNav.removeClass(cls);
         }
       });
+      /* Click game units on mobiles: */
+      if (window.innerWidth <= 768) {/* Only popping area as hotzone for mobile */
+        pg.inxGameIntros.click(function(){
+          var _url = $(this).attr('data-href');
+          window.open(_url, '_blank');
+        });
+      };
       /* Click to switch langs on footer area: */
       me.page.footerLangsTrigger.click(function(e){
         var _p = me.page.footerLangsContain;
@@ -1076,26 +691,19 @@
   var realPage = {
     firstScreen: $('#CMCM_FirstScreen'),
     topBar: $('#CMCM_TopBar'),
+    topNav: $('#CMCM_TopNav'),
+    topBurger: $('#CMCM_TopBurger'),
     mobileSwiper: $('#CMCM_SwiperInMobile'),
-    inxAIContainer: $('#CMCM_AIContainer'),
-    inxToolsContainer: $('#CMCM_ToolsContainer'),
-    inxSloganEle: $('#CMCM_Slogan'),
-    inxSubSloganEle: $('#CMCM_SubSlogan'),
-    inxSloganEleForMb: $('#CMCM_SloganForMobile'),
-    inxSubSloganEleForMb: $('#CMCM_SubSloganForMobile'),
-    inxLivemeTextContainer: $('#CMCM_LiveMeTexts'),
     inxGameUnits: $('.CMCM_GameUnit'),
-    inxGamesPTCont: $('#CMCM_GameOfPT'),
-    inxGamesRSCont: $('#CMCM_GameOfRS'),
-    inxGamesDLCont: $('#CMCM_GameOfDL'),
-    inxGamesGJSCont: $('#CMCM_GameOfGJS'),
-    inxGamesGJSName: $('#GJSName'),
+    inxGameIntros: $('.CMCM_GameIntros'),
     subPageContent: $('.CMCM_SubpageContent'),
     companyContainer: $('#CMCM_CompanyContents'),
     productContainer: $('#CMCM_ProductsContents'),
     contactContainer: $('#CMCM_ContactContents'),
     subPageMenu: $('.CMCM_SubMenus'),
     footerContainer: $('#CMCM_Footer'),
+    footerLangsContain: $('#CMCM_ContainLangs'),
+    footerLangsTrigger: $('#CMCM_FootLangsTrigger'),
     subPageCtBottom: $('#CMCM_SubPageContentBottom')
   };
   CMCMWebsite.init(realPage);

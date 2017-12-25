@@ -145,7 +145,7 @@
             </div><!-- End of tool-unit -->
 
 
-            <div class="tool-unit proportion-50 rel">
+            <div class="tool-unit proportion-50 rel has-right-border">
               <div class="tool-inner clearfix">
                 <a class="app-icon CMCM_AutoWidthSibling" href="<%= SecurityMasterLink %>" target="_blank">
                   <img src="<%= SecurityMasterIcon %>" alt="<%= SecurityMasterName %>" />
@@ -191,7 +191,7 @@
             </div><!-- End of tool-unit -->
 
 
-            <div class="tool-unit proportion-33 rel">
+            <div class="tool-unit proportion-33 rel has-right-border">
               <div class="tool-inner clearfix">
                 <a class="app-icon CMCM_AutoWidthSibling" href="<%= KeyboardLink %>" target="_blank">
                   <img src="<%= KeyboardIcon %>" alt="<%= KeyboardName %>" />
@@ -208,7 +208,7 @@
             </div><!-- End of tool-unit -->
 
 
-            <div class="tool-unit proportion-33 rel">
+            <div class="tool-unit proportion-33 rel has-right-border">
               <div class="tool-inner clearfix">
                 <a class="app-icon CMCM_AutoWidthSibling" href="<%= PhotoGridLink %>" target="_blank">
                   <img src="<%= PhotoGridIcon %>" alt="<%= PhotoGridName %>" />
@@ -258,7 +258,35 @@
           </h2>
         </div><!-- sec-head -->
         <div class="sec-body clearfix">
-          <div class="live-intros left clearfix" id="CMCM_LiveMeTexts"></div>
+          <div class="live-intros left clearfix" id="CMCM_LiveMeTexts">
+
+            <a class="app-icon has-trans CMCM_AutoWidthSibling" href="<%= LiveMeLink %>" target="_blank">
+              <img src="<%= LiveMeIcon %>" alt="<%= LiveMeName %>" />
+            </a>
+            <div class="live-info CMCM_AutoWidth" data-padding="10">
+              <h3 class="app-name">
+                <a class="app-namelink liveme-appname has-trans" href="<%= LiveMeLink %>" target="_blank"><%= LiveMeName %></a>
+              </h3>
+              <div class="app-desc"><%= LiveMeDescForIndex %></div>
+            </div><!-- live info -->
+            <ul class="live-datas clearfix">
+              <li class="live-data">
+                <strong class="earth"><%= LiveMeTags_Earth1 %></strong>
+                <b><%= LiveMeTags_Earth2 %></b>
+                <s class="line"></s>
+              </li>
+              <li class="live-data">
+                <strong class="tongue"><%= LiveMeTags_Tongu1 %></strong>
+                <b><%= LiveMeTags_Tongu2 %></b>
+                <s class="line"></s>
+              </li>
+              <li class="live-data">
+                <strong class="award"><%= LiveMeTags_Award1 %></strong>
+                <b><%= LiveMeTags_Award2 %></b>
+              </li>
+            </ul>
+
+          </div><!-- live intros -->
           <div class="live-displays right">
             <div class="live-pink"></div>
             <div class="live-dots"></div>
@@ -295,35 +323,55 @@
         </div><!-- sec-head -->
       </div><!-- manage-width -->
       <div class="cross-width clearfix">
-        <a class="game-unit CMCM_GameUnit proportion-50-100 has-right-border">
-          <img src="/dist/images/brandnew-game-bg-pt2.jpg" alt="Piano Tiles2" />
+        <a class="game-unit CMCM_GameUnit proportion-50-100 has-right-border" href="<%= PianoTilesLink %>" target="_blank">
+          <img src="/dist/images/brandnew-game-bg-pt2.jpg" alt="<%= PianoTilesName %>" />
           <div class="abs pt-crumb"></div>
           <div class="abs pt-block has-anim"></div>
-          <h3 class="abs pt-name has-anim">Piano Tiles 2</h3>
-          <div class="abs pt-intro CMCM_GameIntros has-trans" id="CMCM_GameOfPT"></div>
+          <h3 class="abs pt-name has-anim"><%= PianoTilesName %></h3>
+          <div class="abs pt-intro CMCM_GameIntros has-trans" data-href="<%= PianoTilesLink %>">
+            <h4><%= PianoTilesName %></h4>
+            <% PianoTilesDesc.forEach(function(text){ %>
+              <p><%= text %></p>
+            <% }); %>
+          </div>
         </a><!-- game unit -->
 
-        <a class="game-unit CMCM_GameUnit proportion-50-50">
-          <img src="/dist/images/brandnew-game-bg-rs-bd.jpg" alt="RollingSky" />
-          <div class="abs rs-intro CMCM_GameIntros has-trans" id="CMCM_GameOfRS"></div>
+        <a class="game-unit CMCM_GameUnit proportion-50-50" href="<%= RollingSkyLink %>" target="_blank">
+          <img src="/dist/images/brandnew-game-bg-rs-bd.jpg" alt="<%= RollingSkyName %>" />
+          <div class="abs rs-intro CMCM_GameIntros has-trans" data-href="<%= RollingSkyLink %>">
+            <h4><%= RollingSkyName %></h4>
+            <% RollingSkyDesc.forEach(function(text){ %>
+              <p><%= text %></p>
+            <% }); %>
+          </div>
         </a><!-- game unit -->
 
-        <a class="game-unit CMCM_GameUnit proportion-28-50 has-right-border">
-          <img src="/dist/images/brandnew-game-bg-dl.jpg" alt="Dancing Line" />
+        <a class="game-unit CMCM_GameUnit proportion-28-50 has-right-border" href="<%= DancingLineLink %>" target="_blank">
+          <img src="/dist/images/brandnew-game-bg-dl.jpg" alt="<%= DancingLineName %>" />
           <div class="abs dl-stick-intro">
-            <img class="abs dl-name" src="/dist/images/brandnew-game-bg-dl-name.png" alt="Dancing Line" />
+            <img class="abs dl-name" src="/dist/images/brandnew-game-bg-dl-name.png" alt="<%= DancingLineName %>" />
             <s class="abs dl-icon"></s>
           </div>
-          <div class="abs dl-intro CMCM_GameIntros has-trans" id="CMCM_GameOfDL"></div>
+          <div class="abs dl-intro CMCM_GameIntros has-trans" data-href="<%= DancingLineLink %>">
+            <h4><%= DancingLineName %></h4>
+            <% DancingLineDesc.forEach(function(text){ %>
+              <p><%= text %></p>
+            <% }); %>
+          </div>
         </a><!-- game unit -->
 
-        <a class="game-unit CMCM_GameUnit proportion-22-50">
-          <img src="/dist/images/brandnew-game-bg-arr-io.jpg" alt="Arrow.io" />
+        <a class="game-unit CMCM_GameUnit proportion-22-50" href="<%= ArrowIOLink %>" target="_blank">
+          <img src="/dist/images/brandnew-game-bg-arr-io.jpg" alt="<%= ArrowIOName %>" />
           <div class="abs gjs-stick-intro">
-            <h4 class="abs gjs-name" id="GJSName"></h4>
+            <h4 class="abs gjs-name"><%= ArrowIOName %></h4>
             <s class="abs gjs-icon"></s>
           </div>
-          <div class="abs gjs-intro CMCM_GameIntros has-trans" id="CMCM_GameOfGJS"></div>
+          <div class="abs gjs-intro CMCM_GameIntros has-trans" data-href="<%= ArrowIOLink %>">
+            <h4><%= ArrowIOName %></h4>
+            <% ArrowIODesc.forEach(function(text){ %>
+              <p><%= text %></p>
+            <% }); %>
+          </div>
         </a><!-- game unit -->
 
       </div><!-- cross-width -->

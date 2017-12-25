@@ -1,65 +1,48 @@
-/* New reset */
-.section:after, ul.nav:after {
-  content: ".";
-  display: block;
-  height: 0;
-  clear: both;
-  visibility: hidden;
-}
+/*
+  Reset CSS for Cheetah official website.
+  Author: Alexandra
+  Latest modified: 2017-12-25 17:21
+*/
+.section:after, ul.nav:after{content:".";display:block;height:0;clear:both;visibility:hidden;}
 /* 设置全局文字被选中时的背景色和字体色 */
 ::-moz-selection {background:#f29c49;color:#fff;} 
 ::selection {background:#f29c49;color:#fff;}
-
 /* http://meyerweb.com/eric/tools/css/reset/ */
-html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,font,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td {
-  margin:0;
-  padding:0;
-  border:0;
-  outline:0;
-  font-size:100%;
-  vertical-align:baseline;
-  background:transparent;
-}
-body { line-height:1; }
-ol,ul { list-style:none; }
-blockquote,q { quotes:none; }
-blockquote:before,blockquote:after,q:before,q:after { content:'';content:none; }
-ins, a, a:hover, s { text-decoration:none; }
-del { text-decoration:line-through; }
-table { border-collapse:collapse;border-spacing:0; }
+html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,font,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td {margin:0;padding:0;border:0;outline:0;font-size:100%;vertical-align:baseline;background:transparent;}
+body {line-height:1;}
+ol,ul {list-style:none;}
+blockquote,q {quotes:none;}
+blockquote:before,blockquote:after,q:before,q:after {content:'';content:none;}
+ins, a, a:hover, s {text-decoration:none;}
+del {text-decoration:line-through;}
+table {border-collapse:collapse;border-spacing:0;}
 /* Clearing floats */
-.clearfix:after {
-  content: "\0020";
-  display: block;
-  visibility: hidden;
-  clear: both;
-  height: 0;
-  overflow: hidden;
-}
+.clearfix:after {content:"\0020";display:block;visibility:hidden;clear:both;height:0;overflow:hidden;}
+
 /* Fonts setting */
 @font-face {
 	font-family:'Gotham-Book';
-	src:url('/fonts/Gotham-Book.eot');
-	src:url('/fonts/Gotham-Book.eot') format('embedded-opentype'),
-      url('/fonts/Gotham-Book.woff') format('woff'),
-      url('/fonts/Gotham-Book.ttf') format('truetype'),
-      url('/fonts/Gotham-Book.svg#Gotham-Book') format('svg')
+	src:url('/static/fonts/Gotham-Book.eot');
+	src:url('/static/fonts/Gotham-Book.eot') format('embedded-opentype'),
+      url('/static/fonts/Gotham-Book.woff') format('woff'),
+      url('/static/fonts/Gotham-Book.ttf') format('truetype'),
+      url('/static/fonts/Gotham-Book.svg#Gotham-Book') format('svg')
 }
 @font-face {
 	font-family:'Gotham-Light';
-	src:url('/fonts/Gotham-Light.eot');
-	src:url('/fonts/Gotham-Light.eot') format('embedded-opentype'),
-      url('/fonts/Gotham-Light.woff') format('woff'),
-      url('/fonts/Gotham-Light.ttf') format('truetype'),
-      url('/fonts/Gotham-Light.svg#Gotham-Book') format('svg')
+	src:url('/static/fonts/Gotham-Light.eot');
+	src:url('/static/fonts/Gotham-Light.eot') format('embedded-opentype'),
+      url('/static/fonts/Gotham-Light.woff') format('woff'),
+      url('/static/fonts/Gotham-Light.ttf') format('truetype'),
+      url('/static/fonts/Gotham-Light.svg#Gotham-Book') format('svg')
 }
 @font-face {
 	font-family:'Gotham-Bold';
-	src:url('/fonts/Gotham-Bold.eot');
-	src:url('/fonts/Gotham-Bold.eot') format('embedded-opentype'),
-      url('/fonts/Gotham-Bold.woff') format('woff'),
-      url('/fonts/Gotham-Bold.ttf') format('truetype'),
-      url('/fonts/Gotham-Bold.svg#Gotham-Bold') format('svg')
+	src:url('/static/fonts/Gotham-Bold.eot');
+	src:url('/static/fonts/Gotham-Bold.eot') format('embedded-opentype'),
+      url('/static/fonts/Gotham-Bold.woff') format('woff'),
+      url('/static/fonts/Gotham-Bold.ttf') format('truetype'),
+      url('/static/fonts/Gotham-Bold.svg#Gotham-Bold') format('svg')
 }
 body, body .font-book {
   font-family:'Gotham-Book', 'HelveticaRegular', Helvetica, Verdana, Arial, 'Microsoft YaHei';
