@@ -1,7 +1,7 @@
 /*
   Script of Cheetah official website.
   Author: Alexandra
-  Latest modified: 2017-12-25 17:23
+  Latest modified: 2017-12-26 15:25
 */
 
 (function(win, doc, $) {
@@ -17,11 +17,10 @@
       var me = this;
       me._body.css('min-height', window.innerHeight);
       me.page = pageObj;
-      // me.RenderSubPages();
       me.AutoWidth();
       me.BindAllEvents();
       me.BindScrolling();
-      console.log('2017, Dec.25th 17:23, update cmpr@cmcm.com');
+      console.log('2017, Dec.26th 15:25, update cmpr@cmcm.com');
     },
 
 
@@ -105,9 +104,6 @@
     RenderSubPages: function() {
       var me = this, dataList = null;
       if (me.curr == 'company') {
-        dataList = me.companyInfoList;
-        me.RenderCompanyLeaders(dataList);
-        me.RenderCompanyCulture(dataList);
         me.RenderCompanyWelfare(dataList);
         setTimeout(function(){me.DetectUrlHash();}, 150);
       } else if (me.curr == 'contact') {
@@ -156,107 +152,6 @@
     
     
 
-    /* Render company culture & values: */
-    RenderCompanyCulture: function(comInfoList) {
-      var me = this;
-      var culture = comInfoList.category.corCulture;
-      var _name = culture.categoryName,
-          _hash = culture.categoryLink,
-          _data = culture.categoryData,
-          _csan = _data.classAnchor,
-          _cult = _data.cultureValues,
-          _vHtm = '',
-          _vDes = '',
-          _firstThreeCute = '',
-          _firstThreeDescr = '',
-          _lastTwoCute = '',
-          _lastTwoDescr = '';
-      jQuery.map(_cult, function(value, i){
-        var _clsn = value.valueClassName,
-            _icon = value.valueIcon,
-            _text = value.valueText,
-            _cute = value.valueCute,
-            _desc = value.valueDesc;
-        _vHtm += '<li class="value-item '+ _clsn +' has-trans CMCM_ValueItem" data="'+ _clsn +'">\
-                    <div class="value-icon">\
-                      <img class="has-trans" src="'+ _icon +'" alt="'+ _text +'" />\
-                    </div>\
-                    <img class="value-cute has-trans" src="'+ _cute +'" alt="'+ _text +'" />\
-                    <span class="value-text has-trans">'+ _text +'</span>\
-                    <s class="dot1 has-trans"></s><s class="dot2 has-trans"></s><s class="dot3 has-trans"></s>\
-                  </li><!-- one value item -->';
-        _vDes += '<li class="value-descr has-trans CMCM_ValueDescr vd-'+ _clsn +'">\
-                    <span>'+ _desc +'</span>\
-                  </li>';
-        if (i < 3) { /* First three items render on the first row, for mobile: */
-          _firstThreeCute += '<div class="val-mob-item '+ _clsn +' has-trans CMCM_ValueItemOnMobile" data="'+ _clsn +'">\
-                                <img class="vmob-icon has-trans" src="'+ _icon +'" alt="'+ _text +'" />\
-                                <img class="vmob-cute has-trans" src="'+ _cute +'" alt="'+ _text +'" />\
-                                <span class="vmob-txt has-trans">'+ _text +'</span>\
-                                <s class="dot1 has-trans"></s><s class="dot2 has-trans"></s><s class="dot3 has-trans"></s>\
-                              </div><!-- val-mob-item -->';
-          _firstThreeDescr += '<div class="vmob-descr has-trans CMCM_ValueDescrOnMobile vmd-'+ _clsn +'">'+ _desc +'</div>';
-        } else {/* Last two items render on the second row, for mobile: */
-          _lastTwoCute += '<div class="val-mob-item '+ _clsn +' has-trans CMCM_ValueItemOnMobile" data="'+ _clsn +'">\
-                                <img class="vmob-icon has-trans" src="'+ _icon +'" alt="'+ _text +'" />\
-                                <img class="vmob-cute has-trans" src="'+ _cute +'" alt="'+ _text +'" />\
-                                <span class="vmob-txt has-trans">'+ _text +'</span>\
-                                <s class="dot1 has-trans"></s><s class="dot2 has-trans"></s><s class="dot3 has-trans"></s>\
-                              </div><!-- val-mob-item -->';
-          _lastTwoDescr += '<div class="vmob-descr has-trans CMCM_ValueDescrOnMobile vmd-'+ _clsn +'">'+ _desc +'</div>';
-        }
-      }); // End map
-      var _html = '<div class="category-container CMCM_CategoryContainer '+ _csan +'" id="'+ _hash +'">\
-                    <h2 class="category-title">'+ _name +'</h2>\
-                    <div class="one-app-introduction clearfix">\
-                      <div class="values-container rel">\
-                        <ul class="values-display-on-pc clearfix">'+ _vHtm +'</ul>\
-                        <ul class="values-descrs-on-pc">'+ _vDes +'</ul>\
-                        <div class="values-on-mobile">\
-                          <div class="val-on-mob-row1 clearfix">'+ _firstThreeCute +'</div><!-- row1 -->\
-                          <div class="val-on-mob-descr1 clearfix">'+ _firstThreeDescr +'</div><!-- descr1 -->\
-                          <div class="val-on-mob-row2 clearfix">'+ _lastTwoCute +'</div><!-- row2 -->\
-                          <div class="val-on-mob-descr2 clearfix">'+ _lastTwoDescr +'</div><!-- descr2 -->\
-                        </div>\
-                      </div>\
-                    </div>\
-                  </div><!-- category container of culture -->';
-      me.page.companyContainer.append(_html);
-      me.page.cultureValues = $('.CMCM_ValueItem');
-      me.page.cultureValDescr = $('.CMCM_ValueDescr');
-      me.page.valItemOnMobile = $('.CMCM_ValueItemOnMobile');
-      me.page.valItemDescrOnMobile = $('.CMCM_ValueDescrOnMobile');
-    },
-    
-    /* Render company employers benefits: */
-    RenderCompanyWelfare: function(comInfoList) {
-      var me = this;
-      var welfare = comInfoList.category.empWelfare;
-      var _name = welfare.categoryName,
-          _hash = welfare.categoryLink,
-          _data = welfare.categoryData,
-          _csan = _data.classAnchor,
-          _arry = _data.welfareIntros,
-          _imgs = _data.welfareImages,
-          _text = me.ArrayOutput(_arry, '<p class="welfare-para">', '</p>'),
-          _pics = '';
-      jQuery.map(_imgs, function(item, i){
-        var _src = item.image,
-            _des = item.descr,
-            _lay = '';
-        if (i%2 > 0) _lay = 'right';
-        _pics += '<div class="welfare-item '+ _lay +'">\
-                    <img src="'+ _src +'" alt="'+ _des +'" /><p>'+ _des +'</p>\
-                  </div>';
-      }); // End map
-      var _html = '<div class="category-container CMCM_CategoryContainer '+ _csan +'" id="'+ _hash +'">\
-                    <h2 class="category-title">'+ _name +'</h2>\
-                    <div class="one-app-introduction clearfix">\
-                      '+ _text +'<div class="welfare-imgs clearfix">'+ _pics +'</div>\
-                    </div><!-- one app introduction -->\
-                   </div><!-- category container of welfare -->';
-      me.page.companyContainer.append(_html);
-    },
     
     /* Render all products to product list page: */
     RenderAllProductsToProductPage: function(proList) {
@@ -586,6 +481,11 @@
 
     subPageMenuHead: $('#CMCM_SubMenuHeadAnchor'),
     companyContainer: $('#CMCM_CompanyContents'),
+    cultureValues: $('.CMCM_ValueItem'),
+    valItemOnMobile: $('.CMCM_ValueItemOnMobile'),
+    cultureValDescr: $('.CMCM_ValueDescr'),
+    valItemDescrOnMobile: $('.CMCM_ValueDescrOnMobile'),
+
     productContainer: $('#CMCM_ProductsContents'),
     contactContainer: $('#CMCM_ContactContents'),
     subPageMenu: $('.CMCM_SubMenus'),

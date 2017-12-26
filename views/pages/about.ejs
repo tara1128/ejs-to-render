@@ -91,6 +91,97 @@
               </div><!-- one leader -->
             <% }); %>
           </div><!-- category container of executive team -->
+          
+          <div class="category-container CMCM_CategoryContainer <%= cultureData.classAnchor %>" id="<%= cultureLink %>">
+            <h2 class="category-title"><%= cultureName %></h2>
+            <div class="one-app-introduction clearfix">
+              <div class="values-container rel">
+                <ul class="values-display-on-pc clearfix">
+                <% cultureData.cultureValues.forEach(function( v ){ %>
+                  <li class="value-item <%= v.valueClassName %> has-trans CMCM_ValueItem" data="<%= v.valueClassName %>">
+                    <div class="value-icon">
+                      <img class="has-trans" src="<%= v.valueIcon %>" alt="<%= v.valueText %>" />
+                    </div>
+                    <img class="value-cute has-trans" src="<%= v.valueCute %>" alt="<%= v.valueText %>" />
+                    <span class="value-text has-trans"><%= v.valueText %></span>
+                    <s class="dot1 has-trans"></s>
+                    <s class="dot2 has-trans"></s>
+                    <s class="dot3 has-trans"></s>
+                  </li><!-- one value item -->
+                <% }); %>
+                </ul>
+                <ul class="values-descrs-on-pc">
+                <% cultureData.cultureValues.forEach(function( v ){ %>
+                  <li class="value-descr has-trans CMCM_ValueDescr vd-<%= v.valueClassName %>">
+                    <span><%= v.valueDesc %></span>
+                  </li>
+                <% }); %>
+                </ul>
+                <div class="values-on-mobile">
+                  <div class="val-on-mob-row1 clearfix">
+                  <% cultureData.cultureValues.forEach(function( v, i ){ %>
+                    <% if (i < 3) { %>
+                      <div class="val-mob-item <%= v.valueClassName %> has-trans CMCM_ValueItemOnMobile" data="<%= v.valueClassName %>">
+                        <img class="vmob-icon has-trans" src="<%= v.valueIcon %>" alt="<%= v.valueText %>" />
+                        <img class="vmob-cute has-trans" src="<%= v.valueCute %>" alt="<%= v.valueText %>" />
+                        <span class="vmob-txt has-trans"><%= v.valueText %></span>
+                        <s class="dot1 has-trans"></s>
+                        <s class="dot2 has-trans"></s>
+                        <s class="dot3 has-trans"></s>
+                      </div><!-- val-mob-item -->
+                    <% } %>
+                  <% }); %>
+                  </div><!-- row1 -->
+                  <div class="val-on-mob-descr1 clearfix">
+                  <% cultureData.cultureValues.forEach(function( v, i ){ %>
+                    <% if (i < 3) { %>
+                      <div class="vmob-descr has-trans CMCM_ValueDescrOnMobile vmd-<%= v.valueClassName %>"><%= v.valueDesc %></div>
+                    <% } %>
+                  <% }); %>
+                  </div><!-- descr1 -->
+                  <div class="val-on-mob-row2 clearfix">
+                  <% cultureData.cultureValues.forEach(function( v, i ){ %>
+                    <% if (i > 2) { %>
+                      <div class="val-mob-item <%= v.valueClassName %> has-trans CMCM_ValueItemOnMobile" data="<%= v.valueClassName %>">
+                        <img class="vmob-icon has-trans" src="<%= v.valueIcon %>" alt="<%= v.valueText %>" />
+                        <img class="vmob-cute has-trans" src="<%= v.valueCute %>" alt="<%= v.valueText %>" />
+                        <span class="vmob-txt has-trans"><%= v.valueText %></span>
+                        <s class="dot1 has-trans"></s>
+                        <s class="dot2 has-trans"></s>
+                        <s class="dot3 has-trans"></s>
+                      </div><!-- val-mob-item -->
+                    <% } %>
+                  <% }); %>
+                  </div><!-- row2 -->
+                  <div class="val-on-mob-descr2 clearfix">
+                  <% cultureData.cultureValues.forEach(function( v, i ){ %>
+                    <% if (i > 2) { %>
+                      <div class="vmob-descr has-trans CMCM_ValueDescrOnMobile vmd-<%= v.valueClassName %>"><%= v.valueDesc %></div>
+                    <% } %>
+                  <% }); %>
+                  </div><!-- descr2 -->
+                </div>
+              </div>
+            </div>
+          </div><!-- category container of culture -->
+          
+          <div class="category-container CMCM_CategoryContainer <%= welfareData.classAnchor %>" id="<%= welfareLink %>">
+            <h2 class="category-title"><%= welfareName %></h2>
+            <div class="one-app-introduction clearfix">
+            <% welfareData.welfareIntros.forEach(function(text){ %>
+              <p class="welfare-para"><%= text %></p>
+            <% }); %>
+              <div class="welfare-imgs clearfix">
+              <% welfareData.welfareImages.forEach(function(item, i){ %>
+                <% if (i % 2 > 0) {var lay = 'right';} else {var lay = '';} %>
+                <div class="welfare-item <%= lay %>">
+                  <img src="<%= item.image %>" alt="<%= item.descr %>" />
+                  <p><%= item.descr %></p>
+                </div>
+              <% }); %>
+              </div>
+            </div><!-- one app introduction -->
+          </div><!-- category container of welfare -->
         
         
         
