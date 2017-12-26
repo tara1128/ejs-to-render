@@ -38,7 +38,6 @@ module.exports = function(lang) {
 
     welfareName: welfare.categoryName,
     welfareLink: welfare.categoryLink,
-    welfareData: welfare.categoryData,
-
+    welfareData: welfare.categoryData
   };
 };

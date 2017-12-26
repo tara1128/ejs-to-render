@@ -17,23 +17,22 @@
       var me = this;
       me._body.css('min-height', window.innerHeight);
       me.page = pageObj;
+      me.DetectLanguage();
+      me.DetectCurrentPage();
       me.AutoWidth();
       me.BindAllEvents();
       me.BindScrolling();
-      console.log('2017, Dec.26th 15:25, update cmpr@cmcm.com');
+      console.log('2017, Dec.26th 15:25, me.curr =', me.curr);
     },
-
-
-    /* Global function, output paragraph by paragraph from an array: */
-    ArrayOutput: function(array, htmlTag, htmlCloseTag) {
-      if (array.length < 1 || !array) return;
-      var result = '';
-      if (!htmlTag) htmlTag = '<span>';
-      if (!htmlCloseTag) htmlCloseTag = '</span>';
-      jQuery.map(array, function(text){
-        result += (htmlTag + text + htmlCloseTag);
-      });
-      return result;
+    DetectLanguage: function() {
+      var me = this;
+      var curLang = me._body.attr('data-lang');
+      if (curLang && curLang.length > 0) me.lang = curLang;
+    },
+    DetectCurrentPage: function() {
+      var me = this;
+      var cr = me._body.attr('data-subpage');
+      if (typeof cr != 'undefined') me.curr = cr;
     },
 
     /* Global function, for smooth scrolling: */
@@ -104,10 +103,8 @@
     RenderSubPages: function() {
       var me = this, dataList = null;
       if (me.curr == 'company') {
-        me.RenderCompanyWelfare(dataList);
         setTimeout(function(){me.DetectUrlHash();}, 150);
       } else if (me.curr == 'contact') {
-        dataList = me.contactList;
         me.RenderContactInfosToContactPage(dataList);
         setTimeout(function(){me.DetectUrlHash();}, 150);
       } else if (me.curr == 'product') {
