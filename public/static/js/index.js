@@ -1,7 +1,7 @@
 /*
   Script of Cheetah official website.
   Author: Alexandra
-  Latest modified: 2017-12-26 15:25
+  Latest modified: 2017-12-26 18:15
 */
 
 (function(win, doc, $) {
@@ -22,7 +22,7 @@
       me.AutoWidth();
       me.BindAllEvents();
       me.BindScrolling();
-      console.log('2017, Dec.26th 15:25, me.curr =', me.curr);
+      console.log('2017, Dec.26th 18:15, me.curr =', me.curr);
     },
     DetectLanguage: function() {
       var me = this;
@@ -93,19 +93,12 @@
     },
 
     
-    /* Render index page, including slogan, intros, ai, tool, liveme, games, nr: */
-    RenderIndexPage: function() {
-      var me = this;
-      me.SwiperInit();
-    },
-
     /* Render sub page, including left menu and main contents: */
     RenderSubPages: function() {
       var me = this, dataList = null;
       if (me.curr == 'company') {
         setTimeout(function(){me.DetectUrlHash();}, 150);
       } else if (me.curr == 'contact') {
-        me.RenderContactInfosToContactPage(dataList);
         setTimeout(function(){me.DetectUrlHash();}, 150);
       } else if (me.curr == 'product') {
         dataList = me.productList;
@@ -198,58 +191,6 @@
         } // End traverse of sub category
       } // End for-in traverse
       me.page.productContainer.html(_html);
-    },
-    
-    /* Render contact infos on contact page: */
-    RenderContactInfosToContactPage: function(contactList) {
-      var me = this, _html ='';
-      var categories = contactList.category;
-      for (var cate in categories) {
-        var _oneCate = categories[cate],
-            _name = _oneCate.categoryName,
-            _hash = _oneCate.categoryLink,
-            _data = _oneCate.categoryData,
-            _csan = _data.classAnchor,
-            _details = '';
-        if (_hash == 'Contact_Social') {/* Render this category specifically */
-          _details = '<div class="contact-info socl-media clearfix">\
-                        <div class="socl-media-left">\
-                          <h3 class="socl-media-tlt">'+ _data.wechatTitle +'</h3>\
-                          <img src="'+ _data.wechat2dUrl +'" alt="'+ _data.wechatTitle +'" />\
-                        </div>\
-                        <div class="socl-media-right">\
-                          <h3 class="socl-media-tlt">'+ _data.othersTitle +'</h3>\
-                          <div class="socl-media-group">\
-                            <a class="socl-media-item has-trans '+ _data.facebook.clsName +'" href="'+ _data.facebook.siteUrl +'" target="_blank">'+ _data.facebook.descTxt +'</a>\
-                            <a class="socl-media-item has-trans '+ _data.twitter.clsName +'" href="'+ _data.twitter.siteUrl +'" target="_blank">'+ _data.twitter.descTxt +'</a>\
-                            <a class="socl-media-item has-trans '+ _data.weibo.clsName +'" href="'+ _data.weibo.siteUrl +'" target="_blank">'+ _data.weibo.descTxt +'</a>\
-                            <a class="socl-media-item has-trans '+ _data.linkedin.clsName +'" href="'+ _data.linkedin.siteUrl +'" target="_blank">'+ _data.linkedin.descTxt +'</a>\
-                          </div>\
-                        </div>\
-                      </div><!-- contact info -->';
-        } else {
-          if (_hash == 'Contact_GlobalOffice') {/* Insert a map image for global offices: */
-            var _globalLocations = '', _globalLocNum = 14;
-            for (var g = 0; g < _globalLocNum; g++) {
-              _globalLocations += '<s class="global-loc has-trans has-anim loc-'+ g +'"></s>';
-            }
-            _details = '<div class="contact-info global-map">\
-                          <img src="/dist/images/global-offices.png" alt="Global Offices" />\
-                          '+ _globalLocations +'\
-                        </div><!-- contact info, global map -->';
-          } // End if
-          jQuery.map(_data.datas, function(detail, i){
-            var _detailTitle = detail.title,
-                _detailTexts = me.ArrayOutput(detail.details, '<p>', '</p>');
-            _details += '<div class="contact-info"><p class="cont-top-para">'+ _detailTitle +'</p>'+ _detailTexts +'</div><!-- contact info -->';
-          });
-        }
-        _html += '<div class="category-container CMCM_CategoryContainer '+ _csan +'" id="'+ _hash +'">\
-                    <h2 class="category-title">'+ _name +'</h2>\
-                    <div class="one-app-introduction clearfix">'+ _details +'</div>\
-                  </div><!-- category container -->';
-      }
-      me.page.contactContainer.html(_html);
     },
     
 
@@ -484,7 +425,6 @@
     valItemDescrOnMobile: $('.CMCM_ValueDescrOnMobile'),
 
     productContainer: $('#CMCM_ProductsContents'),
-    contactContainer: $('#CMCM_ContactContents'),
     subPageMenu: $('.CMCM_SubMenus'),
     footerContainer: $('#CMCM_Footer'),
     footerLangsContain: $('#CMCM_ContainLangs'),

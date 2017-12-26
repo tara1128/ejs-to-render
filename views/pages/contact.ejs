@@ -28,7 +28,85 @@
           </div><!-- category unit -->
           <b id="CMCM_SubMenuBottomAnchor"></b>
         </div>
-        <div class="sublist-container right" id="CMCM_ContactContents"></div>
+        <div class="sublist-container right" id="CMCM_ContactContents">
+        
+          <div class="category-container CMCM_CategoryContainer <%= mediaData.classAnchor %>" id="<%= mediaLink %>">
+            <h2 class="category-title"><%= mediaName %></h2>
+            <div class="one-app-introduction clearfix">
+              <% mediaData.datas.forEach(function(detail, i){ %>
+              <div class="contact-info">
+                <p class="cont-top-para"><%= detail.title %></p>
+                <% detail.details.forEach(function(text){ %>
+                  <p><%= text %></p>
+                <% }); %>
+              </div><!-- contact info -->
+              <% }); %>
+            </div>
+          </div><!-- category container -->
+        
+          <div class="category-container CMCM_CategoryContainer <%= socialData.classAnchor %>" id="<%= socialLink %>">
+            <h2 class="category-title"><%= socialName %></h2>
+            <div class="one-app-introduction clearfix">
+              <div class="contact-info socl-media clearfix">
+                <div class="socl-media-left">
+                  <h3 class="socl-media-tlt"><%= socialData.wechatTitle %></h3>
+                  <img src="<%= socialData.wechat2dUrl %>" alt="<%= socialData.wechatTitle %>" />
+                </div>
+                <div class="socl-media-right">
+                  <h3 class="socl-media-tlt"><%= socialData.othersTitle %></h3>
+                  <div class="socl-media-group">
+                    <a class="socl-media-item has-trans <%= socialData.facebook.clsName %>" href="<%= socialData.facebook.siteUrl %>" target="_blank"><%= socialData.facebook.descTxt %></a>
+                    <a class="socl-media-item has-trans <%= socialData.twitter.clsName %>" href="<%= socialData.twitter.siteUrl %>" target="_blank"><%= socialData.twitter.descTxt %></a>
+                    <a class="socl-media-item has-trans <%= socialData.weibo.clsName %>" href="<%= socialData.weibo.siteUrl %>" target="_blank"><%= socialData.weibo.descTxt %></a>
+                    <a class="socl-media-item has-trans <%= socialData.linkedin.clsName %>" href="<%= socialData.linkedin.siteUrl %>" target="_blank"><%= socialData.linkedin.descTxt %></a>
+                  </div>
+                </div>
+              </div><!-- contact info -->
+            </div>
+          </div><!-- category container -->
+        
+          <div class="category-container CMCM_CategoryContainer <%= businessData.classAnchor %>" id="<%= businessLink %>">
+            <h2 class="category-title"><%= businessName %></h2>
+            <div class="one-app-introduction clearfix">
+              <% businessData.datas.forEach(function(detail, i){ %>
+              <div class="contact-info">
+                <p class="cont-top-para"><%= detail.title %></p>
+                <% detail.details.forEach(function(text){ %>
+                  <p><%= text %></p>
+                <% }); %>
+              </div><!-- contact info -->
+              <% }); %>
+            </div>
+          </div><!-- category container -->
+        
+          <div class="category-container CMCM_CategoryContainer <%= officesData.classAnchor %>" id="<%= officesLink %>">
+            <h2 class="category-title"><%= officesName %></h2>
+            <div class="one-app-introduction clearfix">
+              <div class="contact-info global-map">
+                <img src="/dist/images/global-offices.png" alt="<%= officesName %>" />
+                <% for (var i = 0; i < 14; i++) { %>
+                <s class="global-loc has-trans has-anim loc-<%= i %>"></s>
+                <% } %>
+              </div><!-- contact info, global map -->
+            </div>
+          </div><!-- category container -->
+        
+          <div class="category-container CMCM_CategoryContainer <%= customerData.classAnchor %>" id="<%= customerLink %>">
+            <h2 class="category-title"><%= customerName %></h2>
+            <div class="one-app-introduction clearfix">
+              <% customerData.datas.forEach(function(detail, i){ %>
+              <div class="contact-info">
+                <p class="cont-top-para"><%= detail.title %></p>
+                <% detail.details.forEach(function(text){ %>
+                  <p><%= text %></p>
+                <% }); %>
+              </div><!-- contact info -->
+              <% }); %>
+            </div>
+          </div><!-- category container -->
+        
+        
+        </div>
       </div><!-- manage width -->
       <b id="CMCM_SubPageContentBottom"></b>
     </section><!-- subpage content -->
