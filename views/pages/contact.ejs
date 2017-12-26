@@ -88,6 +88,14 @@
                 <s class="global-loc has-trans has-anim loc-<%= i %>"></s>
                 <% } %>
               </div><!-- contact info, global map -->
+              <% officesData.datas.forEach(function(detail, i){ %>
+              <div class="contact-info">
+                <p class="cont-top-para"><%= detail.title %></p>
+                <% detail.details.forEach(function(text){ %>
+                  <p><%= text %></p>
+                <% }); %>
+              </div><!-- contact info -->
+              <% }); %>
             </div>
           </div><!-- category container -->
         

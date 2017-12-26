@@ -168,8 +168,8 @@ exports.CMCM_ContactList = {
                 '猎豹3D桌面: launcher@cmcm.com',
                 '金山电池医生: fankui@liebao.cn',
                 '钢琴块2: pianotiles2cmcm@gmail.com',
-                '<b>Cheetah Keyboard</b>: keyboard@cmcm.com',
-                '<b>PhotoGrid</b>: photogrid@cmcm.com'
+                'Cheetah Keyboard: keyboard@cmcm.com',
+                'PhotoGrid: photogrid@cmcm.com'
               ]
             }
           ]
@@ -326,16 +326,16 @@ exports.CMCM_ContactList = {
           classAnchor: 'category-of-clients',
           datas: [
             {
-              title: 'Need help with our products?<br>You can reach us through the following emails:',
+              title: 'Need help with our products? You can reach us through the following emails:',
               details: [
-                '<b>Clean Master</b>: support@cmcm.com',
-                '<b>Security Master</b>: cmsecurity@cmcm.com',
-                '<b>CM Browser</b>: fankui@liebao.cn',
-                '<b>CM Launcher</b>: launcher@cmcm.com',
-                '<b>Battery Doctor</b>: fankui@liebao.cn',
-                '<b>Piano Tiles2</b>: pianotiles2cmcm@gmail.com',
-                '<b>Cheetah Keyboard</b>: keyboard@cmcm.com',
-                '<b>PhotoGrid</b>: photogrid@cmcm.com'
+                'Clean Master: support@cmcm.com',
+                'Security Master: cmsecurity@cmcm.com',
+                'CM Browser: fankui@liebao.cn',
+                'CM Launcher: launcher@cmcm.com',
+                'Battery Doctor: fankui@liebao.cn',
+                'Piano Tiles2: pianotiles2cmcm@gmail.com',
+                'Cheetah Keyboard: keyboard@cmcm.com',
+                'PhotoGrid: photogrid@cmcm.com'
               ]
             }
           ]
