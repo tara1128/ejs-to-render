@@ -10,25 +10,212 @@
     <section class="subpage-content CMCM_SubpageContent">
       <div class="manage-width clearfix">
         <div class="submenu-nav left has-trans CMCM_SubMenus" id="CMCM_SubPageMenu_product">
-        
           <b id="CMCM_SubMenuHeadAnchor"></b>
           <div class="category-unit">
-            <a class="category-name has-trans CMCM_SubMenuItem active" href="<%=  %>"><%=  %></a>
+            <a class="category-name has-trans CMCM_SubMenuItem active" href="<%= mobileAppsLink %>"><%= mobileAppsName %></a>
             <div class="category-details CMCM_SubMenuDetails">
-              <a class="category-detail-one has-trans CMCM_SMD_A active" href=""></a>
+              <a class="category-detail-one has-trans CMCM_SMD_A active" href="#<%= mobileAppTool.hash %>"><%= mobileAppTool.name %></a>
+              <a class="category-detail-one has-trans CMCM_SMD_A" href="#<%= mobileAppSocl.hash %>"><%= mobileAppSocl.name %></a>
+              <a class="category-detail-one has-trans CMCM_SMD_A" href="#<%= mobileAppGame.hash %>"><%= mobileAppGame.name %></a>
             </div><!-- details -->
           </div><!-- category unit -->
+          <div class="category-unit">
+            <a class="category-name has-trans CMCM_SubMenuItem" href="<%= pcLink %>"><%= pcName %></a>
+          </div><!-- category unit -->
+          <div class="category-unit">
+            <a class="category-name has-trans CMCM_SubMenuItem" href="<%= aiLink %>"><%= aiName %></a>
+          </div><!-- category unit -->
+          <div class="category-unit">
+            <a class="category-name has-trans CMCM_SubMenuItem" href="<%= bigDataLink %>"><%= bigDataName %></a>
+          </div><!-- category unit -->
+          <div class="category-unit">
+            <a class="category-name has-trans CMCM_SubMenuItem" href="<%= businessLink %>"><%= businessName %></a>
+          </div><!-- category unit -->
+          <% if (hardware) { %>
+            <div class="category-unit">
+              <a class="category-name has-trans CMCM_SubMenuItem" href="<%= hardware.categoryLink %>"><%= hardware.categoryName %></a>
+            </div><!-- category unit -->
+          <% } %>
           <b id="CMCM_SubMenuBottomAnchor"></b>
-
         </div>
-        <div class="sublist-container right" id="CMCM_ProductContents"></div>
+        <div class="sublist-container right" id="CMCM_ProductContents">
+
+          <div class="category-container CMCM_CategoryContainer <%= mobileAppTool.anch %>" id="<%= mobileAppTool.hash %>">
+            <h2 class="category-title"><%= mobileAppTool.name %></h2>
+            <% mobileAppTool.data.forEach(function(app, i){ %>
+              <div class="one-app-introduction clearfix">
+                <div class="sub-appicon">
+                  <a class="sub-prod-icon-a has-trans" href="<%= app.link %>" target="<%= app.target %>">
+                    <img src="<%= app.icon %>" alt="<%= app.name %>" />
+                  </a>
+                </div>
+                <div class="sub-appinfo">
+                  <h3 class="clearfix">
+                    <a class="has-trans" href="<%= app.link %>" target="<%= app.target %>"><%= app.name %></a>
+                  </h3>
+                  <% app.descForProd.forEach(function(text){ %>
+                    <p><%= text %></p>
+                  <% }); %>
+                </div><!-- appinfo -->
+              </div><!-- one app introduction -->
+            <% }); %>
+          </div><!-- end of category container -->
+
+          <div class="category-container CMCM_CategoryContainer <%= mobileAppSocl.anch %>" id="<%= mobileAppSocl.hash %>">
+            <h2 class="category-title"><%= mobileAppSocl.name %></h2>
+            <% mobileAppSocl.data.forEach(function(app, i){ %>
+              <div class="one-app-introduction clearfix">
+                <div class="sub-appicon">
+                  <a class="sub-prod-icon-a has-trans" href="<%= app.link %>" target="<%= app.target %>">
+                    <img src="<%= app.icon %>" alt="<%= app.name %>" />
+                  </a>
+                </div>
+                <div class="sub-appinfo">
+                  <h3 class="clearfix">
+                    <a class="has-trans" href="<%= app.link %>" target="<%= app.target %>"><%= app.name %></a>
+                  </h3>
+                  <% app.descForProd.forEach(function(text){ %>
+                    <p><%= text %></p>
+                  <% }); %>
+                </div><!-- appinfo -->
+              </div><!-- one app introduction -->
+            <% }); %>
+          </div><!-- end of category container -->
+
+          <div class="category-container CMCM_CategoryContainer <%= mobileAppGame.anch %>" id="<%= mobileAppGame.hash %>">
+            <h2 class="category-title"><%= mobileAppGame.name %></h2>
+            <% mobileAppGame.data.forEach(function(app, i){ %>
+              <div class="one-app-introduction clearfix">
+                <div class="sub-appicon">
+                  <a class="sub-prod-icon-a has-trans" href="<%= app.link %>" target="<%= app.target %>">
+                    <img src="<%= app.icon %>" alt="<%= app.name %>" />
+                  </a>
+                </div>
+                <div class="sub-appinfo">
+                  <h3 class="clearfix">
+                    <a class="has-trans" href="<%= app.link %>" target="<%= app.target %>"><%= app.name %></a>
+                  </h3>
+                  <% app.descForProd.forEach(function(text){ %>
+                    <p><%= text %></p>
+                  <% }); %>
+                </div><!-- appinfo -->
+              </div><!-- one app introduction -->
+            <% }); %>
+          </div><!-- end of category container -->
+
+          <div class="category-container CMCM_CategoryContainer <%= pcData.pc.anch %>" id="<%= pcData.pc.hash %>">
+            <h2 class="category-title"><%= pcData.pc.name %></h2>
+            <% pcData.pc.data.forEach(function(app, i){ %>
+              <div class="one-app-introduction clearfix">
+                <div class="sub-appicon">
+                  <a class="sub-prod-icon-a has-trans" href="<%= app.link %>" target="<%= app.target %>">
+                    <img src="<%= app.icon %>" alt="<%= app.name %>" />
+                  </a>
+                </div>
+                <div class="sub-appinfo">
+                  <h3 class="clearfix">
+                    <a class="has-trans" href="<%= app.link %>" target="<%= app.target %>"><%= app.name %></a>
+                  </h3>
+                  <% app.descForProd.forEach(function(text){ %>
+                    <p><%= text %></p>
+                  <% }); %>
+                </div><!-- appinfo -->
+              </div><!-- one app introduction -->
+            <% }); %>
+          </div><!-- end of category container -->
+
+          <div class="category-container CMCM_CategoryContainer <%= aiData.ai.anch %>" id="<%= aiData.ai.hash %>">
+            <h2 class="category-title"><%= aiData.ai.name %></h2>
+            <% aiData.ai.data.forEach(function(app, i){ %>
+              <div class="one-app-introduction clearfix">
+                <div class="sub-appicon">
+                  <a class="sub-prod-icon-a has-trans" href="<%= app.link %>" target="<%= app.target %>">
+                    <img src="<%= app.icon %>" alt="<%= app.name %>" />
+                  </a>
+                </div>
+                <div class="sub-appinfo">
+                  <h3 class="clearfix">
+                    <a class="has-trans" href="<%= app.link %>" target="<%= app.target %>"><%= app.name %></a>
+                  </h3>
+                  <% app.descForProd.forEach(function(text){ %>
+                    <p><%= text %></p>
+                  <% }); %>
+                </div><!-- appinfo -->
+              </div><!-- one app introduction -->
+            <% }); %>
+          </div><!-- end of category container -->
+
+          <div class="category-container CMCM_CategoryContainer <%= bigDataData.bigData.anch %>" id="<%= bigDataData.bigData.hash %>">
+            <h2 class="category-title"><%= bigDataData.bigData.name %></h2>
+            <% bigDataData.bigData.data.forEach(function(app, i){ %>
+              <div class="one-app-introduction clearfix">
+                <div class="sub-appicon">
+                  <a class="sub-prod-icon-a has-trans" href="<%= app.link %>" target="<%= app.target %>">
+                    <img src="<%= app.icon %>" alt="<%= app.name %>" />
+                  </a>
+                </div>
+                <div class="sub-appinfo">
+                  <h3 class="clearfix">
+                    <a class="has-trans" href="<%= app.link %>" target="<%= app.target %>"><%= app.name %></a>
+                  </h3>
+                  <% app.descForProd.forEach(function(text){ %>
+                    <p><%= text %></p>
+                  <% }); %>
+                </div><!-- appinfo -->
+              </div><!-- one app introduction -->
+            <% }); %>
+          </div><!-- end of category container -->
+
+          <div class="category-container CMCM_CategoryContainer <%= businessData.business.anch %>" id="<%= businessData.business.hash %>">
+            <h2 class="category-title"><%= businessData.business.name %></h2>
+            <% businessData.business.data.forEach(function(app, i){ %>
+              <div class="one-app-introduction clearfix">
+                <div class="sub-appicon">
+                  <a class="sub-prod-icon-a has-trans" href="<%= app.link %>" target="<%= app.target %>">
+                    <img src="<%= app.icon %>" alt="<%= app.name %>" />
+                  </a>
+                </div>
+                <div class="sub-appinfo">
+                  <h3 class="clearfix">
+                    <a class="has-trans" href="<%= app.link %>" target="<%= app.target %>"><%= app.name %></a>
+                  </h3>
+                  <% app.descForProd.forEach(function(text){ %>
+                    <p><%= text %></p>
+                  <% }); %>
+                </div><!-- appinfo -->
+              </div><!-- one app introduction -->
+            <% }); %>
+          </div><!-- end of category container -->
+
+          <% if (hardware) { %>
+            <div class="category-container CMCM_CategoryContainer <%= hardware.categoryData.hardware.anch %>" id="<%= hardware.categoryData.hardware.hash %>">
+              <h2 class="category-title"><%= hardware.categoryData.hardware.name %></h2>
+              <% hardware.categoryData.hardware.data.forEach(function(app, i){ %>
+                <div class="one-app-introduction clearfix">
+                  <div class="sub-appicon">
+                    <a class="sub-prod-icon-a has-trans" href="<%= app.link %>" target="<%= app.target %>">
+                      <img src="<%= app.icon %>" alt="<%= app.name %>" />
+                    </a>
+                  </div>
+                  <div class="sub-appinfo">
+                    <h3 class="clearfix">
+                      <a class="has-trans" href="<%= app.link %>" target="<%= app.target %>"><%= app.name %></a>
+                    </h3>
+                    <% app.descForProd.forEach(function(text){ %>
+                      <p><%= text %></p>
+                    <% }); %>
+                  </div><!-- appinfo -->
+                </div><!-- one app introduction -->
+              <% }); %>
+            </div><!-- end of category container -->
+          <% } %>
+        </div><!-- product contents -->
       </div><!-- manage width -->
       <b id="CMCM_SubPageContentBottom"></b>
     </section><!-- subpage content -->
 
-
     <% include ../partials/footer %>
   </div><!-- .cmcm-wrapper -->
-  <script src="/dist/index.min.js?v=1737"></script>
+  <script src="/dist/index.min.js?v=12271226"></script>
 </body>
 </html>

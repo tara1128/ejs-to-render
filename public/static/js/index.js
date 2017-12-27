@@ -1,7 +1,7 @@
 /*
   Script of Cheetah official website.
   Author: Alexandra
-  Latest modified: 2017-12-26 18:15
+  Latest modified: 2017-12-27 12:28
 */
 
 (function(win, doc, $) {
@@ -22,7 +22,7 @@
       me.AutoWidth();
       me.BindAllEvents();
       me.BindScrolling();
-      console.log('2017, Dec.26th 18:15, me.curr =', me.curr);
+      console.log('2017, Dec.27th 12:28');
     },
     DetectLanguage: function() {
       var me = this;
@@ -101,98 +101,13 @@
       } else if (me.curr == 'contact') {
         setTimeout(function(){me.DetectUrlHash();}, 150);
       } else if (me.curr == 'product') {
-        dataList = me.productList;
-        me.RenderAllProductsToProductPage(dataList);
         setTimeout(function(){me.DetectUrlHash();}, 150);
       } else {
         return;
       }
-      me.RenderSubPageMenu(dataList);
       me.AdjustLeftMenuPositions();
     },
 
-    /* Render left menu in sub pages: */
-    RenderSubPageMenu: function(dataList) {
-      var me = this;
-      var menuItems = dataList.category,
-          menuContainer = $('#CMCM_SubPageMenu_' + me.curr);
-      for (var item in menuItems) {
-        var _cateName = menuItems[item].categoryName,
-            _cateHref = menuItems[item].categoryLink,
-            _cateData = menuItems[item].categoryData,
-            _subHtml = '',
-            _ifUnfold = '';
-        if (_cateData.onMenu) { /* If sub-menus displayed beneath this menu */
-          for (var __subCate in _cateData) {
-            if (_cateData[__subCate].name) {
-              var __name = _cateData[__subCate].name,
-                  __hash = _cateData[__subCate].hash;
-            }
-          }
-          // if (_cateData.unfold) {_ifUnfold = me.clsn;}
-        }
-      } // End for-in
-      menuContainer.append(anchorHead).append(_cateHtml).append(anchorBott);
-      me.page.subMenuItems = $('.CMCM_SubMenuItem');
-      me.page.subMenuSubAs = $('.CMCM_SMD_A');
-      // me.page.subPageMenuHead = $('#CMCM_SubMenuHeadAnchor');
-      me.page.subPageMenuFoot = $('#CMCM_SubMenuBottomAnchor');
-    },
-    
-    
-    
-
-    
-    /* Render all products to product list page: */
-    RenderAllProductsToProductPage: function(proList) {
-      var me = this, _html ='';
-      var categories = proList.category;
-      for (var cate in categories) { // Traverse big category like 'mobileApps'
-        var _oneCate = categories[cate],
-            // _cateName = _oneCate.categoryName,
-            // _cateHash = _oneCate.categoryLink,
-            _cateData = _oneCate.categoryData;
-        for (var sub in _cateData) { // Sub category like 'tool' or 'news'
-          var _oneSubCate = _cateData[sub];
-          if (_oneSubCate.name) {
-            var _name = _oneSubCate.name,
-                _hash = _oneSubCate.hash,
-                _csan = _oneSubCate.anch,
-                _apps = _oneSubCate.data,
-                _allAppsInThisSubCate = '';
-            jQuery.map(_apps, function(app, i){
-              var _appName = app.name,
-                  _appIcon = app.icon,
-                  _appdescForProd = me.ArrayOutput(app.descForProd, '<p>', '</p>'),
-                  _appLink = app.link,
-                  _appTarget = app.target,
-                  _ifHide = '';
-              if (!_appdescForProd) _ifHide = 'hide';
-              _allAppsInThisSubCate += '<div class="one-app-introduction clearfix '+ _ifHide +'">\
-                                          <div class="sub-appicon">\
-                                            <a class="sub-prod-icon-a has-trans" href="'+ _appLink +'" target="'+ _appTarget +'">\
-                                              <img src="'+ _appIcon +'" alt="'+ _appName +'" />\
-                                            </a>\
-                                          </div>\
-                                          <div class="sub-appinfo">\
-                                            <h3 class="clearfix">\
-                                              <a class="has-trans" href="'+ _appLink +'" target="'+ _appTarget +'">'+ _appName +'</a>\
-                                            </h3>\
-                                            '+ _appdescForProd +'\
-                                          </div><!-- appinfo -->\
-                                        </div><!-- one app introduction -->';
-            }); // End map
-            /* NOTE: One unit area in page is based on one sub cate, not big cate. */
-            _html += '<div class="category-container CMCM_CategoryContainer '+ _csan +'" id="'+ _hash +'">\
-                        <h2 class="category-title">'+ _name +'</h2>\
-                        '+ _allAppsInThisSubCate +'\
-                      </div><!-- end of category container -->';
-          } // End if
-        } // End traverse of sub category
-      } // End for-in traverse
-      me.page.productContainer.html(_html);
-    },
-    
 
     /* Add animations to elements with class 'has-anim': */
     AddAnimateToElement: function(_top) {
@@ -417,7 +332,12 @@
     inxGameUnits: $('.CMCM_GameUnit'),
     inxGameIntros: $('.CMCM_GameIntros'),
 
+    subPageMenu: $('.CMCM_SubMenus'),
     subPageMenuHead: $('#CMCM_SubMenuHeadAnchor'),
+    subPageMenuFoot: $('#CMCM_SubMenuBottomAnchor'),
+    subMenuItems: $('.CMCM_SubMenuItem'),
+    subMenuSubAs: $('.CMCM_SMD_A'),
+
     companyContainer: $('#CMCM_CompanyContents'),
     cultureValues: $('.CMCM_ValueItem'),
     valItemOnMobile: $('.CMCM_ValueItemOnMobile'),
@@ -425,7 +345,6 @@
     valItemDescrOnMobile: $('.CMCM_ValueDescrOnMobile'),
 
     productContainer: $('#CMCM_ProductsContents'),
-    subPageMenu: $('.CMCM_SubMenus'),
     footerContainer: $('#CMCM_Footer'),
     footerLangsContain: $('#CMCM_ContainLangs'),
     footerLangsTrigger: $('#CMCM_FootLangsTrigger'),

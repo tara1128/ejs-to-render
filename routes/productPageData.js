@@ -1,6 +1,6 @@
 /*
   routes/productPageData.js
-  2017-12-26 19:00
+  2017-12-27 11:25
 */
 
 var product = require('../data/product');
@@ -12,15 +12,20 @@ module.exports = function(lang) {
       pc = category.pc,
       ai = category.ai,
       bigData = category.bigData,
-      business = category.business;
-  if (lang != 'en-us') {
-    var hardware = category.hardware;
+      business = category.business,
+      hardware = null;
+  if (category.hardware) {
+    hardware = category.hardware;
   }
 
   return {
     mobileAppsName: mobileApps.categoryName,
     mobileAppsLink: mobileApps.categoryLink,
     mobileAppsData: mobileApps.categoryData,
+
+    mobileAppTool: mobileApps.categoryData.tool,
+    mobileAppSocl: mobileApps.categoryData.socl,
+    mobileAppGame: mobileApps.categoryData.game,
 
     pcName: pc.categoryName,
     pcLink: pc.categoryLink,
@@ -38,8 +43,6 @@ module.exports = function(lang) {
     businessLink: business.categoryLink,
     businessData: business.categoryData,
 
-    hardwareName: hardware.categoryName,
-    hardwareLink: hardware.categoryLink,
-    hardwareData: hardware.categoryData,
-
+    hardware: hardware
+  }
 };
