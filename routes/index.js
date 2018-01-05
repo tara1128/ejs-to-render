@@ -1,6 +1,6 @@
 /*
   routes/index.js
-  2017-12-18 18:03
+  2018-01-05 16:18
 */
 
 var express = require('express');
@@ -22,6 +22,11 @@ router.get('/en-us', function(req, res) {
 
 router.get('/zh-cn', function(req, res) {
   var lang = 'zh-cn';
+  res.render('index', mergeObjects(frontpageData(lang), publicData(lang)));
+});
+
+router.get('/zh-tw', function(req, res) {
+  var lang = 'zh-tw';
   res.render('index', mergeObjects(frontpageData(lang), publicData(lang)));
 });
 

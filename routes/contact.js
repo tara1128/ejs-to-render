@@ -1,6 +1,6 @@
 /*
   routes/contact.js
-  2017-12-26 16:25
+  2018-01-05 16:18
 */
 
 var express = require('express');
@@ -16,6 +16,11 @@ router.get('/en-us/contact', function(req, res) {
 
 router.get('/zh-cn/contact', function(req, res) {
   var lang = 'zh-cn';
+  res.render('contact', mergeObjects(contactPageData(lang), publicData(lang)));
+});
+
+router.get('/zh-tw/contact', function(req, res) {
+  var lang = 'zh-tw';
   res.render('contact', mergeObjects(contactPageData(lang), publicData(lang)));
 });
 

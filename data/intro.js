@@ -8,5 +8,10 @@ exports.CMCM_IntrosToIndex = {
     page: 'index',
     slogan: ['Make', 'the world smarter'],
     subslogan: 'Powering mobile apps with AI and big data'
+  },
+  'zh-tw': {
+    page: 'index',
+    slogan: ['Make', 'the world smarter'],
+    subslogan: '用AI和大數據賦能移動應用'
   }
 };

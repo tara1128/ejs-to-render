@@ -1,6 +1,6 @@
 /*
   routes/about.js
-  2017-12-25 17:43
+  2018-01-05 16:18
 */
 
 var express = require('express');
@@ -16,6 +16,11 @@ router.get('/en-us/about', function(req, res) {
 
 router.get('/zh-cn/about', function(req, res) {
   var lang = 'zh-cn';
+  res.render('about', mergeObjects(aboutPageData(lang), publicData(lang)));
+});
+
+router.get('/zh-tw/about', function(req, res) {
+  var lang = 'zh-tw';
   res.render('about', mergeObjects(aboutPageData(lang), publicData(lang)));
 });
 

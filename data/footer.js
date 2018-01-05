@@ -88,5 +88,50 @@ exports.CMCM_PublicFooter = {
         curHome: '/en-us/'
       }
     }
+  },
+  'zh-tw': {
+    page: 'all',
+    name: 'Cheetah Mobile',
+    data: {
+      outLinks: [
+        {
+          linkName: '投資者關係',
+          linkUrl: 'http://ir.cmcm.com/',
+          sublink: [
+            {
+              name: '季度業績',
+              url: 'http://ir.cmcm.com/index.php?s=123'
+            },
+            {
+              name: '投資者新聞',
+              url: 'http://ir.cmcm.com/index.php?s=43'
+            }
+          ]
+        },
+        {
+          linkName: '人才招募',
+          linkUrl: 'http://hr.cmcm.com/',
+          sublink: [
+            {
+              name: '社會招募',
+              url: 'http://hr.cmcm.com/social'
+            },
+            {
+              name: '校園招募',
+              url: 'http://hr.cmcm.com/campus'
+            }
+          ]
+        }
+      ],
+      copyRight: {
+        privacy: '隱私政策',
+        pvyLink: 'http://www.cmcm.com/protocol/site/privacy-tw.html',
+        tos: '用戶協議',
+        tosLink: 'http://www.cmcm.com/protocol/site/tos-tw.html',
+        cptext: '獵豹移動 &copy; 2017 •',
+        curLang: '繁體中文',
+        curHome: '/zh-tw/'
+      }
+    }
   }
 };

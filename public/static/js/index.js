@@ -1,7 +1,7 @@
 /*
   Script of Cheetah official website.
   Author: Alexandra
-  Latest modified: 2017-12-27 12:28
+  Latest modified: 2018-01-05 16:10
 */
 
 (function(win, doc, $) {
@@ -13,6 +13,11 @@
     lang: 'en-us',
     curr: 'index',
     clsn: 'active',
+    fxCls: 'fixed',
+    stkCls: 'sticky',
+    unfdCls: 'unfold',
+    animCls: 'animated',
+    scrollLimit: 380,
 		init: function(pageObj) {
       var me = this;
       me._body.css('min-height', window.innerHeight);
@@ -22,17 +27,35 @@
       me.AutoWidth();
       me.BindAllEvents();
       me.BindScrolling();
-      console.log('2017, Dec.27th 12:28');
+      console.log('2018, Jan.5th 16:10, added tw, simplified codes.');
     },
     DetectLanguage: function() {
       var me = this;
       var curLang = me._body.attr('data-lang');
       if (curLang && curLang.length > 0) me.lang = curLang;
     },
+
+    /* Detect URL hash for a specific part of the page: */
+    DetectUrlHash: function() {
+      var me = this, target = $(location.hash);
+      if ( !(target.offset()) ) return;
+      if (location.hash && target.offset().top) {
+        var topValue = target.offset().top - 70;
+        me.SmoothScrolling(target, topValue);
+      }
+    },
+
+    /* Detect current page: */
     DetectCurrentPage: function() {
       var me = this;
       var cr = me._body.attr('data-subpage');
       if (typeof cr != 'undefined') me.curr = cr;
+      if ( me.curr == 'index' ) {
+        me.SwiperInit();
+      } else {
+        setTimeout(function(){me.DetectUrlHash();}, 150);
+        me.AdjustLeftMenuPositions();
+      }
     },
 
     /* Global function, for smooth scrolling: */
@@ -47,30 +70,20 @@
       }
     },
 
-    /* Detect URL hash for a specific part of the page: */
-    DetectUrlHash: function() {
-      var me = this, target = $(location.hash);
-      if ( !(target.offset()) ) return;
-      if (location.hash && target.offset().top) {
-        var topValue = target.offset().top - 70;
-        me.SmoothScrolling(target, topValue);
-      }
-    },
-
     /* Reset first screen's height on mobiles to fit devices: */
     ResetFirstScreenHeight: function() {
-      var me = this;
+      var me = this, pg = me.page;
       var devHeight = window.innerHeight;
-      me.page.firstScreen.height(devHeight);
-      me.page.mobileSwiper.height(devHeight);
+      pg.firstScreen.height(devHeight);
+      pg.mobileSwiper.height(devHeight);
     },
-    
 
     /* Index first screen slider: */
     SwiperInit: function() {
-      var me = this;
+      var me = this, pg = me.page;
       if (window.innerWidth > 768) { /* On PC */
-        if ($('.billboard-swiper-container').find('.swiper-slide').length < 2) return;
+        console.log('Swiper Init works! On PC!');
+        if (pg.billboardSwiperCon.find('.swiper-slide').length < 2) return;
         new Swiper('.billboard-swiper-container', {
           paginationClickable:true,
           spaceBetween:0,
@@ -79,6 +92,7 @@
           autoplayDisableOnInteraction:false
         });
       } else { /* On mobiles */
+        console.log('Swiper Init works! On Mobile!');
         me.ResetFirstScreenHeight();
         if (navigator.userAgent.indexOf('MSIE 8') > -1) return; /* For damn IE8 */
         new Swiper('.billboard-swiper-for-mobile', {
@@ -92,47 +106,29 @@
       }
     },
 
-    
-    /* Render sub page, including left menu and main contents: */
-    RenderSubPages: function() {
-      var me = this, dataList = null;
-      if (me.curr == 'company') {
-        setTimeout(function(){me.DetectUrlHash();}, 150);
-      } else if (me.curr == 'contact') {
-        setTimeout(function(){me.DetectUrlHash();}, 150);
-      } else if (me.curr == 'product') {
-        setTimeout(function(){me.DetectUrlHash();}, 150);
-      } else {
-        return;
-      }
-      me.AdjustLeftMenuPositions();
-    },
-
-
     /* Add animations to elements with class 'has-anim': */
     AddAnimateToElement: function(_top) {
-      var elements = $('.has-anim');
-      var animCls = 'animated';
+      var me = this, pg = me.page;
+      var elements = pg.animElements;
       jQuery.map(elements, function(ele, i){
         var _offsetTop = $(ele).offset().top;
         if (_top >= _offsetTop - 1000) {
-          $(ele).addClass(animCls);
+          $(ele).addClass(me.animCls);
         }
       });
     },
 
     /* Adjust left menu's position for every time refreshing: */
     AdjustLeftMenuPositions: function() {
-      var me = this,
-          cateContainers = $('.CMCM_CategoryContainer'),
-          _sclTop = document.body.scrollTop || document.documentElement.scrollTop;
-      for (var i = 0; i < cateContainers.length; i++) {
-        var item = $(cateContainers[i]);
+      var me = this, pg = me.page;
+      var _sclTop = document.body.scrollTop || document.documentElement.scrollTop;
+      for (var i = 0; i < pg.cateContainers.length; i++) {
+        var item = $(pg.cateContainers[i]);
         var itemTop = item.offset().top;
         var itemId = '#' + item.attr('id');
         var targetA = $('a[href="'+ itemId +'"]');
         if (_sclTop <= itemTop) {
-          me.page.subPageMenu.find('a').removeClass('active');
+          pg.subPageMenu.find('a').removeClass('active');
           targetA.addClass('active');
           $('html, body').animate({
             scrollTop: (_sclTop <= 100) ? (_sclTop) : (itemTop - 50)
@@ -144,31 +140,28 @@
 
     /* Scrolling event: */
     BindScrolling: function() {
-      var me = this,
-          cateContainers = $('.CMCM_CategoryContainer'),
-          scrollLimit = 380,
-          lastScrollTop = 0;
+      var me = this, pg = me.page, lastScrollTop = 0;
       me._win.scroll(function(){
         var scrollTop = document.body.scrollTop || document.documentElement.scrollTop;
         me.AddAnimateToElement(scrollTop);
-        if (scrollTop >= scrollLimit) {
-          me.page.topBar.addClass('fixed');
+        if (scrollTop >= me.scrollLimit) {
+          pg.topBar.addClass(me.fxCls);
         } else {
-          me.page.topBar.removeClass('fixed');
+          pg.topBar.removeClass(me.fxCls);
         }
         /* Subpage left menu only displays on desktop: */
         if (window.innerWidth <= 768) return;
         if (scrollTop >= 54) {
-          // me.page.subPageMenu.addClass('fixed').css('top', scrollTop + 54);
-          me.page.subPageMenu.addClass('fixed');
+          // pg.subPageMenu.addClass(me.fxCls).css('top', scrollTop + 54);
+          pg.subPageMenu.addClass(me.fxCls);
         } else {
-          me.page.subPageMenu.removeClass('fixed');
+          pg.subPageMenu.removeClass(me.fxCls);
         }
         /* Highlight the current content's menu, on desktop only: */
-        jQuery.map(cateContainers, function(item, index){
+        jQuery.map(pg.cateContainers, function(item, index){
           if ( $(item).offset().top < (scrollTop + 200) ) {
             var targetA = $('a[href="#'+ item.id +'"]');
-            me.page.subPageMenu.find('a').removeClass(me.clsn);
+            pg.subPageMenu.find('a').removeClass(me.clsn);
             targetA.addClass(me.clsn);
             if (targetA.hasClass('CMCM_SMD_A')) {
               targetA.parent().parent().find('.CMCM_SubMenuItem').addClass(me.clsn);
@@ -180,23 +173,23 @@
             $('a[href="#'+ item.id +'"]').removeClass(me.clsn);
             /* For tall screens, highlight the last menu when scrolling to the bottom: */
             if (me._win.height() + scrollTop >= document.body.scrollHeight - 100) {
-              $('a[href="#'+ cateContainers[cateContainers.length-3].id +'"]').removeClass(me.clsn);
-              $('a[href="#'+ cateContainers[cateContainers.length-2].id +'"]').removeClass(me.clsn);
-              $('a[href="#'+ cateContainers[cateContainers.length-1].id +'"]').addClass(me.clsn);
+              $('a[href="#'+ pg.cateContainers[pg.cateContainers.length-3].id +'"]').removeClass(me.clsn);
+              $('a[href="#'+ pg.cateContainers[pg.cateContainers.length-2].id +'"]').removeClass(me.clsn);
+              $('a[href="#'+ pg.cateContainers[pg.cateContainers.length-1].id +'"]').addClass(me.clsn);
             }
           }
         }); // End map
         /* In sub pages, make left menu sticky when scrolling to the bottom: */
         if (me.curr != 'index') {
-          var subPageCtBottomTop = me.page.subPageCtBottom.offset().top - 3,
-              subMenuAncHeadTop = me.page.subPageMenuHead.offset().top,
-              subMenuAncFootTop = me.page.subPageMenuFoot.offset().top;
+          var subPageCtBottomTop = pg.subPageCtBottom.offset().top - 3,
+              subMenuAncHeadTop = pg.subPageMenuHead.offset().top,
+              subMenuAncFootTop = pg.subPageMenuFoot.offset().top;
           if (subMenuAncFootTop >= subPageCtBottomTop) {
-            me.page.subPageMenu.addClass('sticky');
+            pg.subPageMenu.addClass(me.stkCls);
           } 
-          var _sumDis = scrollTop + me.page.subPageMenu.height();
+          var _sumDis = scrollTop + pg.subPageMenu.height();
           if (scrollTop < lastScrollTop && _sumDis <= subMenuAncHeadTop) { // When scrolling up
-            me.page.subPageMenu.removeClass('sticky');
+            pg.subPageMenu.removeClass(me.stkCls);
           }
         }
         lastScrollTop = scrollTop;
@@ -205,10 +198,10 @@
     
     /* Adjust widths automatically in mobiles: */
     AutoWidth: function() {
+      var me = this, pg = me.page;
       if (window.innerWidth > 768) return;
-      var targetElement = $('.CMCM_AutoWidth');
-      for (var i = 0; i < targetElement.length; i++) {
-        var item = $(targetElement[i]),
+      for (var i = 0; i < pg.targetElement.length; i++) {
+        var item = $(pg.targetElement[i]),
             targetParents = item.parent(),
             targetSibling = targetParents.find('.CMCM_AutoWidthSibling'),
             parentWidth = targetParents.width(),
@@ -222,14 +215,13 @@
 
     /* After renderings, bind events to elements: */
     BindAllEvents: function() {
-      var me = this;
+      var me = this, pg = me.page;
       /* Unfold burger nav on mobiles: */
-      me.page.topBurger.click(function(){
-        var cls = 'unfold';
-        if ( !me.page.topNav.hasClass(cls) ) {
-          me.page.topNav.addClass(cls);
+      pg.topBurger.click(function(){
+        if ( !pg.topNav.hasClass(me.unfdCls) ) {
+          pg.topNav.addClass(me.unfdCls);
         } else {
-          me.page.topNav.removeClass(cls);
+          pg.topNav.removeClass(me.unfdCls);
         }
       });
       /* Click game units on mobiles: */
@@ -240,8 +232,8 @@
         });
       };
       /* Click to switch langs on footer area: */
-      me.page.footerLangsTrigger.click(function(e){
-        var _p = me.page.footerLangsContain;
+      pg.footerLangsTrigger.click(function(e){
+        var _p = pg.footerLangsContain;
         //e.stopPropagation();
         if (!_p.hasClass(me.clsn)) {
           _p.addClass(me.clsn);
@@ -251,37 +243,37 @@
         }
       });
       me._body.click(function(){
-        var _p = me.page.footerLangsContain;
+        var _p = pg.footerLangsContain;
         if (_p.hasClass(me.clsn)) _p.removeClass(me.clsn);
       });
       /* Hover game units to display descriptions: */
       if (me.curr == 'index') {
-        me.page.inxGameUnits.mouseenter(function(){
+        pg.inxGameUnits.mouseenter(function(){
           $(this).find('.CMCM_GameIntros').addClass(me.clsn);
         });
-        me.page.inxGameUnits.mouseleave(function(){
+        pg.inxGameUnits.mouseleave(function(){
           $(this).find('.CMCM_GameIntros').removeClass(me.clsn);
         });
       }
       /* Hover culture values: */
       if (me.curr == 'company') {
-        me.page.cultureValues.mouseenter(function(){
+        pg.cultureValues.mouseenter(function(){
           var _i = $(this), token = _i.attr('data');
           var _descr = $('.vd-'+ token);
-          me.page.cultureValDescr.removeClass(me.clsn);
+          pg.cultureValDescr.removeClass(me.clsn);
           _i.addClass(me.clsn);
           _descr.addClass(me.clsn);
         });
-        me.page.cultureValues.mouseleave(function(){
+        pg.cultureValues.mouseleave(function(){
           $(this).removeClass(me.clsn);
-          me.page.cultureValDescr.removeClass(me.clsn);
+          pg.cultureValDescr.removeClass(me.clsn);
         });
         /* On mobiles, click each icon of culture&value: */
-        me.page.valItemOnMobile.click(function(){
+        pg.valItemOnMobile.click(function(){
           var _i = $(this), token = _i.attr('data');
           var _descr = $('.vmd-'+ token);
-          me.page.valItemOnMobile.removeClass(me.clsn);
-          me.page.valItemDescrOnMobile.removeClass(me.clsn);
+          pg.valItemOnMobile.removeClass(me.clsn);
+          pg.valItemDescrOnMobile.removeClass(me.clsn);
           if (!_i.hasClass(me.clsn)) {
             _i.addClass(me.clsn);
             _descr.addClass(me.clsn);
@@ -290,26 +282,26 @@
       }
       /* Click menus on the left of sub pages: */
       if (me.curr != 'index') {
-        me.page.subMenuItems.click(function(event){
+        pg.subMenuItems.click(function(event){
           var _i = $(this), target = $(this.hash);
           var topValue = target.offset().top - 70;
           me.SmoothScrolling(target, topValue, event);
-          me.page.subMenuItems.removeClass(me.clsn);
-          me.page.subMenuSubAs.removeClass(me.clsn);
+          pg.subMenuItems.removeClass(me.clsn);
+          pg.subMenuSubAs.removeClass(me.clsn);
           _i.addClass(me.clsn);
           location.hash = this.hash;
           $(_i.parent().find('.CMCM_SMD_A')[0]).addClass(me.clsn);
         });
         /* Click submenus on the left of sub pages: */
-        me.page.subMenuSubAs.click(function(event){
+        pg.subMenuSubAs.click(function(event){
           var _i = $(this), target = $(this.hash);
           var topValue = target.offset().top - 70;
           var myFth = _i.parent();
           var myMenu = myFth.parent().find('.CMCM_SubMenuItem');
           if ( !_i.hasClass(me.clsn) ) {
             me.SmoothScrolling(target, topValue, event);
-            me.page.subMenuItems.removeClass(me.clsn);
-            me.page.subMenuSubAs.removeClass(me.clsn);
+            pg.subMenuItems.removeClass(me.clsn);
+            pg.subMenuSubAs.removeClass(me.clsn);
             myMenu.addClass(me.clsn);
             _i.addClass(me.clsn);
             location.hash = this.hash;
@@ -328,27 +320,27 @@
     topBar: $('#CMCM_TopBar'),
     topNav: $('#CMCM_TopNav'),
     topBurger: $('#CMCM_TopBurger'),
+    billboardSwiperCon: $('.billboard-swiper-container'),
     mobileSwiper: $('#CMCM_SwiperInMobile'),
     inxGameUnits: $('.CMCM_GameUnit'),
     inxGameIntros: $('.CMCM_GameIntros'),
+    animElements: $('.has-anim'),
+    targetElement: $('.CMCM_AutoWidth'),
 
+    cateContainers: $('.CMCM_CategoryContainer'),
     subPageMenu: $('.CMCM_SubMenus'),
     subPageMenuHead: $('#CMCM_SubMenuHeadAnchor'),
     subPageMenuFoot: $('#CMCM_SubMenuBottomAnchor'),
+    subPageCtBottom: $('#CMCM_SubPageContentBottom'),
     subMenuItems: $('.CMCM_SubMenuItem'),
     subMenuSubAs: $('.CMCM_SMD_A'),
-
-    companyContainer: $('#CMCM_CompanyContents'),
     cultureValues: $('.CMCM_ValueItem'),
     valItemOnMobile: $('.CMCM_ValueItemOnMobile'),
     cultureValDescr: $('.CMCM_ValueDescr'),
     valItemDescrOnMobile: $('.CMCM_ValueDescrOnMobile'),
 
-    productContainer: $('#CMCM_ProductsContents'),
-    footerContainer: $('#CMCM_Footer'),
     footerLangsContain: $('#CMCM_ContainLangs'),
-    footerLangsTrigger: $('#CMCM_FootLangsTrigger'),
-    subPageCtBottom: $('#CMCM_SubPageContentBottom')
+    footerLangsTrigger: $('#CMCM_FootLangsTrigger')
   };
   CMCMWebsite.init(realPage);
 })(jQuery);

@@ -22,9 +22,11 @@
 
       <li class="top-nav-li has-trans top-langs" id="CMCM_TopLangSwitch">
         <div class="langs clearfix">
-          <a class="lang-a has-trans '+ cnCls +'" href="/zh-cn/">简<s class="has-trans">&nbsp;</s></a>
+          <a class="lang-a has-trans <% (Lang == 'zh-cn')?('active'):('') %>" href="/zh-cn/">简<s class="has-trans">&nbsp;</s></a>
           <a class="lang-a strip"> | </a>
-          <a class="lang-a has-trans '+ enCls +'" href="/en-us/">EN<s class="has-trans">&nbsp;</s></a>
+          <a class="lang-a has-trans <% (Lang == 'zh-tw')?('active'):('') %>" href="/zh-tw/">繁<s class="has-trans">&nbsp;</s></a>
+          <a class="lang-a strip"> | </a>
+          <a class="lang-a has-trans <% (Lang == 'en-us')?('active'):('') %>" href="/en-us/">EN<s class="has-trans">&nbsp;</s></a>
         </div>
       </li>
     </ul>

@@ -813,5 +813,392 @@ exports.CMCM_ProductList = {
         }
       }
     } // category
+  },
+  'zh-tw': {
+    page: 'any',
+    name: '產品服務',
+    link: '/zh-tw/product/',
+    category: {
+      mobileApps: {
+        categoryName: '移動端',
+        categoryLink: 'tools', /* For target, make its hash the same as its first son. */
+        categoryData: {
+          onMenu: true, /* To show sub categories on menu, make it true. */
+          unfold: true, /* To unfold sub categories by default, make it true. */
+          tool: {
+            name: '工具',
+            hash: 'tools',
+            anch: 'category-of-tool',
+            desc: ['工具全球領先的工具應用開發商，覆蓋PC、移動端，構建安全、清理、圖片編輯等多元化的產品矩陣；', '高居Google Play同品類榜首，開創獵豹移動出海浪潮'],
+            data: [
+              {
+                priority: '100',
+                name: 'Clean Master',
+                slog: '',
+                icon: '/dist/images/brandnew-logo-clean-master-103.png',
+                descForIndex: ['全球領先的Android優化軟體。首創業界領先的「雲端+人工智慧」深度清理系統，清理量較同類產品高30%以上；率先支援清理微信小程式垃圾；雲端防毒體系曾多次被安全權威機構AV-Test評測為滿分；霸榜100個國家Google Play工具榜'],
+                descForProd: ['全球Android優化明星軟體。首創業界領先的「雲端+人工智慧」深度清理系統，清理量較同類產品高於30%；率先支援清理微信小程式垃圾。雲端防毒體系多次被權威機構AV-Test評為滿分，霸榜100個國家Google Play工具榜。'],
+                star: 4.7,
+                tags: ['全球3億下載', '全球百國Google Play 工具榜排名第一'],
+                link: 'http://www.cmcm.com/zh-tw/clean-master/',
+                target: '_blank',
+                pict: '/dist/images/brandnew-tool-cm-en.png'
+              },
+            
+              {
+                priority: '50',
+                name: 'Security Master安全All霸',
+                slog: '',
+                icon: '/dist/images/brandnew-logo-security-103.png',
+                descForIndex: ['全球領先的手機安全應用，獲紅點設計大獎。具有智慧檢測、病毒查殺、應用鎖、拍下入侵者等功能，全面保護用戶的手機安全及隱私'],
+                descForProd: ['全球領先的手機安全應用。具有智慧檢測、病毒查殺、應用鎖、拍下入侵者等功能，內建AV TEST評測滿分病毒引擎，全面保護手機安全。Google Play下載超過5億次，霸榜30個國家安全工具類應用排行榜，評分高達4.7。'],
+                star: 0,
+                tags: ['Google Play全球下載超過五億', 'AV TEST評測滿分病毒引擎'],
+                link: 'http://www.cmcm.com/zh-tw/cm-security/',
+                target: '_blank',
+                pict: ''
+              },
+            
+              {
+                priority: '50',
+                name: 'CM Launcher 3D',
+                slog: '',
+                icon: '/dist/images/brandnew-logo-launcher-103.png',
+                descForIndex: ['全球Android平台極受歡迎的個性化手機桌面產品，提供海量主題，深度個性化定制。覆蓋200多個國家和地區，Google Play總下載量近3億'],
+                descForProd: ['全球Android平台大受歡迎的個性化手機桌面產品。提供海量主題、深度個性化訂製，並搭載智慧鎖屏功能，全方位保障隱私與安全。覆蓋全球200多個國家和地區，霸榜Google Play 94個國家個性化榜單，總下載量近3億。'],
+                star: 0,
+                tags: ['3億累積下載'],
+                link: 'http://www.cmcm.com/zh-tw/cm-launcher/',
+                target: '_blank',
+                pict: ''
+              },
+            
+              {
+                priority: '33',
+                name: 'Cheetah Keyboard',
+                slog: '',
+                icon: '/dist/images/brandnew-logo-kb-103.png',
+                descForIndex: ['業界率先引入深度學習模型的協力廠商輸入法，霸榜Google Play 50個國家個性化榜單'],
+                descForProd: ['業界率先引入深度學習模型的協力廠商輸入法。具有智慧預測、自動校正、學習用戶習慣等功能。融入自然語言處理（NLP）技術和機器學習演算法，預測準確率更高。覆蓋140多個國家和地區，為Google Play評分最高的協力廠商輸入法之一。'],
+                star: 0,
+                tags: [],
+                link: 'http://www.cmcm.com/en-us/keyboard/',
+                target: '_blank',
+                pict: ''
+              },
+            
+              {
+                priority: '33',
+                name: 'PhotoGrid',
+                slog: '',
+                icon: '/dist/images/brandnew-logo-photogrid-103.png',
+                descForIndex: ['相片組合編輯、視頻拼貼、修圖濾鏡神器，2016年Google Play年度最佳App'],
+                descForProd: ['時下必備的相片組合編輯、影片拼貼、修圖濾鏡神器。內含海量素材，更利用機器學習、臉部辨識技術，推出Twinkle功能，令照片產生特殊的動態效果。Android和iOS雙平台共5.5億下載量，2016年Google Play年度最佳App之一。'],
+                star: 0,
+                tags: [],
+                link: 'http://www.cmcm.com/zh-tw/photo-grid/',
+                target: '_blank',
+                pict: ''
+              },
+            
+              {
+                priority: '33',
+                name: 'CM Browser',
+                slog: '',
+                icon: '/dist/images/brandnew-logo-browser-103.png',
+                descForIndex: ['極致輕巧的安全瀏覽器。曾登頂8個國家App Store工具榜，Google Play總下載量近1億'],
+                descForProd: ['更輕巧、更快速、更安全的新一代手機瀏覽器。同時，它還是中國率先做內容探索的瀏覽器，為用戶推送個性化、高品質的內容。曾登頂8個國家App Store工具榜，Google Play總下載量近1億，在全球擁有海量用戶。'],
+                star: 0,
+                tags: [],
+                link: 'http://m.liebao.cn/?f=cmcn',
+                target: '_blank',
+                pict: ''
+              },
+            
+              {
+                priority: '',
+                name: 'Battery Doctor',
+                slog: '',
+                icon: '/dist/images/brandnew-logo-bd-103.png',
+                descForIndex: [],
+                descForProd: ['全球專業的電池保養和電量管理軟體，能輕鬆延長手機續航時間；科學用電、延長電池壽命。覆蓋全球200多個國家和地區，曾霸榜Google Play 26個國家工具榜，在133個國家App Store工具榜登頂，Google Play下載量超1億。'],
+                star: 0,
+                tags: [],
+                link: 'http://www.cmcm.com/zh-tw/battery-doctor/',
+                target: '_blank',
+                pict: ''
+              }
+            ]
+          },
+          socl: {
+            name: '社交',
+            hash: 'social',
+            anch: 'category-of-social',
+            desc: ['成功出海歐美的社交產品，跨越文化壁壘，', '連接全球用戶，佈局海外直播市場，建立內容生態體系'],
+            data: [
+              {
+                priority: '',
+                name: 'Live.me',
+                slog: '',
+                icon: '/dist/images/brandnew-logo-liveme-103.png',
+                descForIndex: ['一款風靡全球的直播類社交應用，繼工具產品之後，《Live.me》成為獵豹移動出海的新標竿。內含禮物打賞、主播連線、遊戲直播等功能，並在後台監測系統中引入人工智慧技術，不僅為用戶提供個性化的直播和社交內容，也確保了平台的「綠色」與健康。將中國的直播打賞模式複製到海外，已經成為全球年輕人最喜愛的社交產品之一。目前已在85個國家和地區發行，覆蓋8種不同語言。登頂全球42個國家Google Play社交暢銷榜'],
+                descForProd: ['一款風靡全球的直播類社交應用。將中國的直播打賞模式複製到海外，吸引了眾多明星及大牌網紅入駐，已經成為美國年輕人最喜愛的社交產品之一。覆蓋85個國家，8種語言，登頂全球42個國家Google Play社交暢銷榜。'],
+                star: 0,
+                tags: ['85個市場|覆蓋多元文化', '8種語言|融合本地需求', '42個國家|登頂社交暢銷榜'],
+                link: 'http://www.liveme.com/',
+                target: '_blank',
+                pict: ''
+              }
+            ]
+          },
+          game: {
+            name: '遊戲',
+            hash: 'games',
+            anch: 'category-of-game',
+            desc: ['獵豹移動手遊產品在全球月活躍使用者超過1億，', '是iOS和Google Play月度手遊下載榜Top10頻繁上榜的開發商'],
+            data: [
+              {
+                priority: '50-100',
+                name: '鋼琴塊2',
+                slog: '',
+                icon: '/dist/images/brandnew-logo-pt2-103.png',
+                descForIndex: ['風靡全球、坐擁六億玩家的音樂類輕遊戲；全新的滑塊玩法、豐富的賽制模式。2016年高居iOS和Google Play雙平台音樂休閒遊戲類全球下載量榜單前列'],
+                descForProd: ['一款風靡全球、坐擁9億玩家的音樂類輕遊戲，讓人人都能彈鋼琴。急速節奏，不斷挑戰手速極限；音樂風格多樣、海量歌曲不斷更新；完美音質，如同置身鋼琴演奏會；參與排行，與全球玩家一較高低。2016年高居iOS和Google Play雙平台音樂休閒遊戲類全球下載量榜單前列。'],
+                star: 0,
+                tags: [],
+                link: 'http://www.cmcm.com/zh-tw/piano-tiles/',
+                target: '_blank',
+                pict: ''
+              },
+            
+              {
+                priority: '50-50',
+                name: '滾動的天空',
+                slog: '',
+                icon: '/dist/images/brandnew-logo-rolling-sky.png',
+                descForIndex: ['挑戰速度和反應力極限的輕遊戲；3D立體視覺、多樣的遊戲場景，讓你操控小球去征服世界。現累績下載已超2.4億，被評為Google Play 2016最佳遊戲之一'],
+                descForProd: ['一款挑戰速度和反應力極限的輕遊戲，華麗的3D特效場景，在山丘、宇宙、森林等場景中，感受充滿想像力的陷阱和障礙物，讓你操控小球征服世界。現累計下載已超2.4億，被評為Google Play 2016最佳遊戲之一。'],
+                star: 0,
+                tags: [],
+                link: 'http://www.cmcm.com/zh-tw/rolling-sky/',
+                target: '_blank',
+                pict: ''
+              },
+            
+              {
+                priority: '25-50',
+                name: '跳舞的線',
+                slog: '',
+                icon: '/dist/images/brandnew-game-bg-dl-icon.png',
+                descForIndex: ['音樂類輕遊戲，特色原創音軌，伴你衝破重重關卡；長期霸榜美國等115個國家音樂遊戲榜'],
+                descForProd: ['原創音樂節奏類輕遊戲。獨一無二的遊戲場景，帶你穿越沙漠、遍覽四季、漫步田野；雷鬼、電音、古典等多種風格音樂，伴你衝破重重艱險阻礙；探索無限未知，打造與眾不同的遊戲體驗。長期被Google Play、Apple Store編輯推薦，Apple Store和Google Play雙平台評分4.8（滿分5分），權威遊戲媒體及分發平台TapTap評分9.7分，長期霸榜美國等115個國家音樂遊戲榜。'],
+                star: 0,
+                tags: [],
+                link: 'http://board.cmcm.com/dl/transfer.html',
+                target: '_blank',
+                pict: ''
+              },
+            
+              {
+                priority: '25-50',
+                name: '弓箭手大作戰',
+                slog: '',
+                icon: '/dist/images/brandnew-logo-arrow-io.png',
+                descForIndex: ['真人對戰io遊戲，用弓箭征服世界；獲2016阿里巴巴新晉熱門遊戲獎'],
+                descForProd: ['一款全新玩法的真人對戰io遊戲。通過虛擬搖桿控制走位，利用手中的弓箭擊敗對手；上百種技能組合，遊戲永遠充滿變數；豐富的圖元人偶風格選擇，多人即時對戰，讓你的手指停不下來。'],
+                star: 0,
+                tags: [],
+                link: 'https://play.google.com/store/apps/details?id=com.cmcm.arrowio',
+                target: '_blank',
+                pict: ''
+              },
+
+              {
+                priority: '',
+                name: '深海水族館',
+                slog: '',
+                icon: '/dist/images/brandnew-logo-shszg.png',
+                descForIndex: [],
+                descForProd: ['一款風靡全球的養魚遊戲，在遊戲中收集成百上千的魚兒，讓你創造自己的水族館。簡單的操作、絕美的圖片、美妙的背景音樂，更有虛擬實境模式，讓你的身心得到徹底放鬆與治癒。'],
+                star: 0,
+                tags: [],
+                link: 'https://play.google.com/store/apps/details?id=com.idleif.abyssrium',
+                target: '_blank',
+                pict: ''
+              },
+
+              {
+                priority: '',
+                name: '點點衝刺',
+                slog: '',
+                icon: '/dist/images/brandnew-logo-ddcc.png',
+                descForIndex: [],
+                descForProd: ['一款考驗反應能力的奔跑類街機手遊。畫風極具簡約風格，玩法操作簡單，潛移默化地提升用戶反應能力和手速。曾霸榜多個國家Google Play遊戲下載榜，獲得Google Play千次以上編輯推薦。'],
+                star: 0,
+                tags: [],
+                link: 'https://play.google.com/store/apps/details?id=com.secondarm.taptapdash',
+                target: '_blank',
+                pict: ''
+              }
+            ]
+          }
+        }
+      },
+      pc: {
+        categoryName: 'PC端',
+        categoryLink: 'forpc',
+        categoryData: {
+          onMenu: false, /* NOT to show sub categories on menu, make it false. */
+          pc: {/* When no sub category, using the same name & hash as its father!*/
+            name: 'PC',
+            hash: 'forpc',
+            anch: 'category-of-pc',
+            desc: '',
+            data: [
+              {
+                priority: '',
+                name: 'CM Browser',
+                slog: '',
+                icon: '/dist/images/brandnew-logo-browser-103.png',
+                descForIndex: [],
+                descForProd: ['廣受歡迎的雙核安全瀏覽器，基於Chromium內核超過100項改進，啟動速度提升30%；智慧防卡死，全面相容HTML5，充滿藝術氣息的視覺方案；首創BIPS雲安全體系，攔截惡意網址，全面攔截來自Web的安全威脅。'],
+                star: 0,
+                tags: [],
+                link: 'https://www.liebao.cn',
+                target: '_blank',
+                pict: ''
+              },
+              {
+                priority: '',
+                name: '金山毒霸',
+                slog: '',
+                icon: '/dist/images/brandnew-logo-duba.png',
+                descForIndex: [],
+                descForProd: ['集殺毒、系統管理為一體的安全軟體。18年專業累積、20次通過VB100認證、多次通過AV-Comparatives、AV-Test認證，具備藍芯引擎，與雲安全無縫結合，使用微特徵識別技術通殺未知木馬。'],
+                star: 0,
+                tags: [],
+                link: 'http://www.duba.net',
+                target: '_blank',
+                pict: ''
+              },
+              {
+                priority: '',
+                name: '驅動精靈',
+                slog: '',
+                icon: '/dist/images/brandnew-logo-qdjl-103.png',
+                descForIndex: [],
+                descForProd: ['中國知名電腦驅動程式管理軟體，基於十餘年的專業資料積累，硬體設備識別率高達98.3%，其中網卡的識別率高達99.9%，為數億用戶解決各種電腦驅動問題、系統故障，實為裝機必備。'],
+                star: 0,
+                tags: [],
+                link: 'http://www.drivergenius.com',
+                target: '_blank',
+                pict: ''
+              }
+            ]
+          }
+        }
+      },
+      ai: {
+        categoryName: '人工智慧',
+        categoryLink: 'ai',
+        categoryData: {
+          onMenu: false, /* NOT to show sub categories on menu, make it false. */
+          ai: {/* When no sub category, using the same name & hash as its father!*/
+            name: '人工智慧',
+            hash: 'ai',
+            anch: 'category-of-ai',
+            desc: ['旗下人工智慧公司獵戶星空在遠場語音交互系統、圖像識別、', '視覺導航等領域，擁有完全自主開發、領先行業的技術'],
+            data: [
+              {
+                priority: '',
+                name: '獵戶星空',
+                slog: '',
+                icon: '/dist/images/brandnew-logo-orion-200.png',
+                descForIndex: [],
+                descForProd: ['獵豹移動構建AI技術平台，為產品賦能，完善了工具產品矩陣，也為內容產品帶來增長。旗下獵戶星空在智慧語音交互系統、圖像識別、視覺導航等技術上領跑行業；2017年在微軟百萬名人識別競賽（LFW）中，奪得子命題有限制類第一名。'],
+                star: 0,
+                tags: [],
+                link: 'http://ainirobot.com/',
+                target: '_blank',
+                pict: ''
+              },
+              {
+                priority: '',
+                name: '智慧語音OS',
+                slog: '',
+                icon: '',
+                descForIndex: ['旗下人工智慧公司獵戶星空自主開發的「全鏈路遠場智慧語音交互系統」，其麥克風陣列、語音喚醒、語音辨識、語義理解、語音合成等軟硬體技術均處於行業領先水準。所有技術均屬自主智慧財產權，與產品體驗設計深度融合，極致打磨。首創多種自然擬人的交互技術，打造出人性化的語音交互體驗'],
+                descForProd: [], // This product shows on index only!
+                star: 0,
+                tags: [
+                  {num: 5, adj: '大',  noun: '語音技術', sentence: '全鏈路自主研發'},
+                  {num: 6, adj: '項',  noun: '創新技術', sentence: '人性化的交流'},
+                  {num: 1, adj: '億+', noun: '音訊內容', sentence: '為使用者深度定制'}
+                ],
+                link: 'http://ainirobot.com/pc_liehu.html',
+                target: '_blank',
+                pict: ''
+              }
+            ]
+          }
+        }
+      },
+      bigData: {
+        categoryName: '大數據',
+        categoryLink: 'bigdata',
+        categoryData: {
+          onMenu: false, /* NOT to show sub categories on menu, make it false. */
+          bigData: {
+            name: '大數據',
+            hash: 'bigdata',
+            anch: 'category-of-bigdata',
+            desc: '',
+            data: [
+              {
+                priority: '',
+                name: 'Cheetah Data',
+                slog: '',
+                icon: '/dist/images/cheetah-data-logo.png',
+                descForIndex: [],
+                descForProd: ['以旗下產品海量資料為基礎，覆蓋200多個國家地區、6億使用者，提供安卓App各項指標，洞察用戶畫像。旗下擁有移動互聯網研究機構「獵豹全球智庫」。定期發佈移動互聯網研究、諮詢報告。'],
+                star: 0,
+                tags: [],
+                link: 'http://data.cmcm.com/',
+                target: '_blank',
+                pict: ''
+              }
+            ]
+          }
+        }
+      },
+      business: {
+        categoryName: '商業',
+        categoryLink: 'business',
+        categoryData: {
+          onMenu: false, /* NOT to show sub categories on menu, make it false. */
+          business: {/* When no sub category, using the same name & hash as its father!*/
+            name: '商業',
+            hash: 'business',
+            anch: 'category-of-business',
+            desc: '',
+            data: [
+              {
+                priority: '',
+                name: 'Cheetah Ads',
+                slog: '',
+                icon: '/dist/images/brandnew-logo-a-d-s-500.png',
+                descForIndex: [],
+                descForProd: ['全新升級的商業品牌，基於全球近6億月活用戶，涵蓋移動及PC端業務，憑藉大資料及人工智慧等先進技術，為廣告主提供更加精准、智慧、個性化的服務。讓廣告不再打擾、而是打動用戶；讓智趣未來，迎面而來。'],
+                star: 0,
+                tags: [],
+                link: 'http://ads.cmcm.com/zh-tw/',
+                target: '_blank',
+                pict: ''
+              }
+            ]
+          }
+        }
+      }
+    } // category
   }
 };

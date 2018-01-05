@@ -391,5 +391,200 @@ exports.CMCM_CompanyInfoList = {
         }
       }
     }// category   
+  },
+  'zh-tw': {
+    page: 'company',
+    name: '關於公司',
+    link: '/zh-tw/about/',
+    category: {
+      missionVisions: {
+        categoryName: '使命與願景',
+        categoryLink: 'mission',
+        categoryData: {
+          classAnchor: 'category-of-vision',
+          slogan: 'Make the world smarter',
+          descrp: '獵豹移動致力於用AI+大數據，為全球用戶提供卓越的移動應用'
+        }
+      },
+      introduction: {
+        categoryName: '公司簡介',
+        categoryLink: 'intro',
+        categoryData: {
+          classAnchor: 'category-of-company',
+          introTexts: ['獵豹移動是一家全球領先的移動互聯網公司，致力於為全球用戶提供卓越的應用。公司於2010年11月，由金山安全和可牛影像合併而成，繼承了金山18年的安全技術積累和可牛影像的互聯網基因。2014年5月8日，獵豹移動在紐約證交所正式掛牌上市，交易代碼CMCM。獵豹移動是中國移動互聯網公司出海的領軍者。截至2017年9月，公司產品在全球移動端月度活躍用戶約為5.89億，用戶分佈覆蓋全球200多個國家及地區。其中，75.4%來自以歐美為主的海外市場。', '公司核心產品包括一系列工具及安全應用，如《Clean Master》、《Security Master安全All霸》、《CM Launcher 3D》、《Cheetah Keyboard》等，為全球移動用戶提供更快速、更易用、更安全的移動互聯網體驗。在工具應用之外，獵豹移動還擁有直播社交類應用《Live.me》、遊戲應用《鋼琴塊2》、《弓箭手大作戰》等產品。2016年4月，正式進軍人工智慧領域，旗下人工智慧公司獵戶星空在遠場語音交互系統、圖像識別、視覺導航等領域，擁有完全自主開發並領先行業的技術。'],
+          introImage: '/dist/images/company-introduction.jpg'
+        }
+      },
+      devHistory: {
+        categoryName: '發展歷程',
+        categoryLink: 'history',
+        categoryData: {
+          classAnchor: 'category-of-history',
+          companyHistory: [
+            {
+              year: 2017,
+              events: {
+                '07': '旗下人工智慧公司獵戶星空在微軟百萬名人識別競賽中，獲得第一名',
+                '06': '旗下AI公司獵戶星空聯合喜馬拉雅發佈《小雅音箱》，為其提供全鏈路遠場語音交互系統',
+                '05': '專注社交直播的子公司《Live.me》獲6,000萬美元融資'
+              }
+            },
+            {
+              year: 2016,
+              events: {
+                '04': '推出直播社交產品《Live.me》，成為美國時尚年輕人最喜愛的社交產品之一',
+                '01': '正式宣佈成立獵豹全球智庫'
+              }
+            },
+            {
+              year: 2015,
+              events: {
+                '12': '《鋼琴塊2》成為App Store和Google Play雙平台全球下載量最大的遊戲產品',
+                '06': '發佈中國首個面向全球的移動廣告平台 – Cheetah Ads獵豹廣告平台'
+              }
+            },
+            {
+              year: 2014,
+              events: {
+                '12': '成為Google Play全球第二大應用開發商，僅次於Facebook',
+                '05': '登錄紐約證交所，正式掛牌上市，交易代碼CMCM',
+                '03': '金山網路更名為獵豹移動 (Cheetah Mobile)'
+              }
+            },
+            {
+              year: 2013,
+              events: {
+                '12': '《Clean Master》全球下載量突破1億，日活躍用戶突破5,000萬',
+                '08': '《Battery Doctor》全球下載量突破1億',
+                '07': '《Clean Master》中文版《獵豹清理大師》發佈'
+              }
+            },
+            {
+              year: 2012,
+              events: {
+                '09': '在海外推出Android系統專業手機清理應用《Clean Master》',
+                '06': '發佈中國首款雙核安全瀏覽器《CM Browser》'
+              }
+            },
+            {
+              year: 2011,
+              events: {
+                '08': '安全軟體用戶端使用者量超過1億',
+                '07': '獲騰訊2,000萬美金戰略投資'
+              }
+            },
+            {
+              year: 2010,
+              events: {
+                '11': '金山安全與可牛影像合併，成立金山網路（獵豹移動前身）'
+              }
+            }
+          ]
+        }
+      },
+      leaderTeam: {
+        categoryName: '管理團隊',
+        categoryLink: 'leaders',
+        categoryData: {
+          classAnchor: 'category-of-leaders',
+          leaderDetails: [
+            {
+              name: '傅盛',
+              title: '獵豹移動<br>執行長',
+              detail: ['全面負責公司各項產品和人工智慧業務的全球戰略。短短五年，將獵豹移動打造成為全球和中國領先的工具及內容應用開發商；在他的領導下，獵豹移動成為第一批成功拓展海外市場的中國互聯網公司。曾擔任奇虎360軟體事業部總經理，打造出核心產品360安全衛士。2008年加入經緯創投中國任副總裁；2009年創立可牛影像並任董事長兼CEO。'],
+              avatar: '/dist/images/leaders-fusheng.jpg'
+            },
+            {
+              name: '徐鳴',
+              title: '獵豹移動<br>總裁',
+              detail: ['全面負責公司管理戰略和全產品線業務。除了傳統工具應用，他還帶隊落實人臉識別、語音OS等技術的研發。他擁有超過10年的互聯網工具產品研發經驗，是業界公認的頂尖程式師及專業研發管理人員。他帶領團隊開發出《Clean Master》、《Security Master安全All霸》等旗艦產品，並將之打造成全球第一的工具類軟體，開啟了中國工具產品國際化的浪潮。'],
+              avatar: '/dist/images/leaders-xuming.jpg'
+            },
+            {
+              name: '姜震宇',
+              title: '獵豹移動<br>財務長',
+              detail: ['在企業財務管理、資本市場運作、兼併收購交易及合規性管理領域從業十餘年，積累了豐富的實戰經驗。同時，在互聯網、移動互聯網行業有著資深的背景和經驗。在加盟獵豹移動之前，姜震宇曾在北京創辦過一家科技公司。2014年至2015年，曾擔任北京玖富時代投資顧問有限公司財務長。'],
+              avatar: '/dist/images/leaders-jiangzhenyu.jpg'
+            },
+            {
+              name: '肖潔',
+              title: '獵豹移動<br>高級副總裁',
+              detail: ['擁有豐厚的品牌整合、傳播以及市場公關經驗，全面負責公司的市場公關工作，同時還負責海外商業產品及其他創新業務的開拓。她帶領團隊打造了中國首個面向全球的移動廣告平台《Cheetah Ads》，依靠獵豹移動橫跨安全、直播、遊戲等各個領域的應用產品線，為全球廣告主提供了沉浸式的直立視頻廣告解決方案。'],
+              avatar: '/dist/images/leaders-xiaojie.jpg'
+            }
+          ]
+        }
+      },
+      corCulture: {
+        categoryName: '企業文化',
+        categoryLink: 'culture',
+        categoryData: {
+          classAnchor: 'category-of-culture',
+          cultureValues: [
+            {
+              valueClassName: 'value-put-users-first', 
+              valueIcon: '/dist/images/cv-ci-put-users-first.png',
+              valueText: '用戶至上',
+              valueCute: '/dist/images/value-icon-put-users-first.png',
+              valueDesc: '以產品為核心，做到彼此信賴，與用戶共創價值'
+            },
+            {
+              valueClassName: 'value-result-oriented', 
+              valueIcon: '/dist/images/cv-ci-result-oriented.png',
+              valueText: '結果導向',
+              valueCute: '/dist/images/value-icon-result-oriented.png',
+              valueDesc: '承擔責任，對結果負責，不找藉口和理由，以終為始'
+            },
+            {
+              valueClassName: 'value-start-from-me', 
+              valueIcon: '/dist/images/cv-ci-start-from-me.png',
+              valueText: '從我做起',
+              valueCute: '/dist/images/value-icon-starts-from-me.png',
+              valueDesc: '目標清晰，大局觀意識，擁抱變化，持續學習，不斷成長'
+            },
+            {
+              valueClassName: 'value-briefness', 
+              valueIcon: '/dist/images/cv-ci-briefness.png',
+              valueText: '簡單',
+              valueCute: '/dist/images/value-icon-briefness.png',
+              valueDesc: '簡單做人，簡單做事，簡化目標'
+            },
+            {
+              valueClassName: 'value-perfection', 
+              valueIcon: '/dist/images/cv-ci-perfection.png',
+              valueText: '極致',
+              valueCute: '/dist/images/value-icon-perfection.png',
+              valueDesc: '深度思考，高效執行，把不可能變成可能'
+            }
+          ]
+        }
+      },
+      empWelfare: {
+        categoryName: '員工福利',
+        categoryLink: 'welfare',
+        categoryData: {
+          classAnchor: 'category-of-welfare',
+          welfareIntros: ['在獵豹移動，有著豐富多彩的員工福利。創意無限的社團和節日活動：籃球社、羽毛球社、登山社、公益社……總有一款適合你；每年還有各類體育賽事，家庭日、中西方節日等文化主題派對，努力工作、快樂生活就是這麼簡單。層出不窮的學習和生活方式：獵豹學院、駭客馬拉松、高管周例會，讓大家可以隨時給自己「充電」；圖書館、咖啡廳、健身房、電影院、KTV盡在「東半球最有矽谷風格的中國公司。」除此之外，還有免費班車、加班搭車報銷、年度健康體檢、生日禮物、海歸落戶、新婚禮金、節日關懷、消費貸款、補充商業保險等等福利制度。'],
+          welfareImages: [
+            {
+              image: '/dist/images/welfare-building.jpg',
+              descr: '位於北京總部內的攀岩場打造巨型聖誕樹'
+            },
+            {
+              image: '/dist/images/welfare-annual-meeting.jpg',
+              descr: '史上最「壕」華的郵輪年會'
+            },
+            {
+              image: '/dist/images/welfare-public-benefit.jpg',
+              descr: '獵豹公益社，把愛心傳遞下去'
+            },
+            {
+              image: '/dist/images/welfare-new-family-day.jpg?dec',
+              descr: '家庭日，帶著家人來場趣味競賽'
+            }
+          ]
+        }
+      }
+    }// category
   }
 };

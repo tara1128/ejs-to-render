@@ -1,6 +1,6 @@
 /*
   routes/product.js
-  2017-12-26 18:58
+  2018-01-05 16:18
 */
 
 var express = require('express');
@@ -16,6 +16,11 @@ router.get('/en-us/product', function(req, res) {
 
 router.get('/zh-cn/product', function(req, res) {
   var lang = 'zh-cn';
+  res.render('product', mergeObjects(productPageData(lang), publicData(lang)));
+});
+
+router.get('/zh-tw/product', function(req, res) {
+  var lang = 'zh-tw';
   res.render('product', mergeObjects(productPageData(lang), publicData(lang)));
 });
 
