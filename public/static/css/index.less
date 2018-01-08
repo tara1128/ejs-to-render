@@ -1,7 +1,7 @@
 /*
   Main styles of Cheetah official website.
   Author: Alexandra.
-  Latest modified: 2017-12-05 19:29 */
+  Latest modified: 2018-01-08 16:18 */
 
 @main-orange:#f0641e;
 @light-orange:#f19149;
@@ -304,7 +304,10 @@ body.zh-cn .top-logo {
     /* s {width:0;} */
   }
   a.lang-a.strip {
-    color:#ddd;
+    color:hsla(0,0%,100%,.45);
+  }
+  a.lang-a.strip:last-child {
+    display:none;
   }
 }
 body.subpage .top-nav-li {
@@ -665,9 +668,6 @@ body.zh-cn .app-desc {
     font-size:14px;
     color:@ai-blue;
   }
-  span.hide {
-    display:none;
-  }
   span.ai-bbl-top {
     margin:20px 0 0;
     b {
@@ -686,6 +686,9 @@ body.zh-cn .app-desc {
 body.en-us .ai-bubbles {
   span.ai-bbl-mid {
     color:@dark-grey;
+  }
+  span.ai-bbl-btm {
+    display:none;
   }
 }
 body.zh-cn .ai-bubbles {

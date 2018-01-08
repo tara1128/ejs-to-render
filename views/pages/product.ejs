@@ -127,21 +127,23 @@
           <div class="category-container CMCM_CategoryContainer <%= aiData.ai.anch %>" id="<%= aiData.ai.hash %>">
             <h2 class="category-title"><%= aiData.ai.name %></h2>
             <% aiData.ai.data.forEach(function(app, i){ %>
-              <div class="one-app-introduction clearfix">
-                <div class="sub-appicon">
-                  <a class="sub-prod-icon-a has-trans" href="<%= app.link %>" target="<%= app.target %>">
-                    <img src="<%= app.icon %>" alt="<%= app.name %>" />
-                  </a>
-                </div>
-                <div class="sub-appinfo">
-                  <h3 class="clearfix">
-                    <a class="has-trans" href="<%= app.link %>" target="<%= app.target %>"><%= app.name %></a>
-                  </h3>
-                  <% app.descForProd.forEach(function(text){ %>
-                    <p><%= text %></p>
-                  <% }); %>
-                </div><!-- appinfo -->
-              </div><!-- one app introduction -->
+              <% if (i < 1) { %>
+                <div class="one-app-introduction clearfix">
+                  <div class="sub-appicon">
+                    <a class="sub-prod-icon-a has-trans" href="<%= app.link %>" target="<%= app.target %>">
+                      <img src="<%= app.icon %>" alt="<%= app.name %>" />
+                    </a>
+                  </div>
+                  <div class="sub-appinfo">
+                    <h3 class="clearfix">
+                      <a class="has-trans" href="<%= app.link %>" target="<%= app.target %>"><%= app.name %></a>
+                    </h3>
+                    <% app.descForProd.forEach(function(text){ %>
+                      <p><%= text %></p>
+                    <% }); %>
+                  </div><!-- appinfo -->
+                </div><!-- one app introduction -->
+              <% } %>
             <% }); %>
           </div><!-- end of category container -->
 

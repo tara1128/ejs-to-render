@@ -27,4 +27,3 @@ module.exports = function(lang) {
     pubFooter: footer.CMCM_PublicFooter[lang]
   };
 };
-

@@ -22,11 +22,11 @@
 
       <li class="top-nav-li has-trans top-langs" id="CMCM_TopLangSwitch">
         <div class="langs clearfix">
-          <a class="lang-a has-trans <% (Lang == 'zh-cn')?('active'):('') %>" href="/zh-cn/">简<s class="has-trans">&nbsp;</s></a>
-          <a class="lang-a strip"> | </a>
-          <a class="lang-a has-trans <% (Lang == 'zh-tw')?('active'):('') %>" href="/zh-tw/">繁<s class="has-trans">&nbsp;</s></a>
-          <a class="lang-a strip"> | </a>
-          <a class="lang-a has-trans <% (Lang == 'en-us')?('active'):('') %>" href="/en-us/">EN<s class="has-trans">&nbsp;</s></a>
+          <% Object.keys(langsCollection).forEach(function(key, i){ %>
+            <% if (Lang == key) { var actCls = 'active' } else { var actCls = ''} %>
+            <a class="lang-a has-trans <%= key %> <%= actCls %>" href="/<%= key %>/"><%= langsCollection[key].naviName %><s class="has-trans">&nbsp;</s></a>
+            <a class="lang-a strip"> | </a>
+          <% }); %>
         </div>
       </li>
     </ul>
