@@ -1,7 +1,7 @@
 /*
   Responsive designs, mainly for mobile devices.
   Author: Alexandra
-  Latest modified: 2018-01-09 16:27 */
+  Latest modified: 2018-01-10 18:34 */
 
 @page-bgcolor:#f0f1f2;
 @main-orange:#f0641e;
@@ -71,6 +71,21 @@
     overflow:hidden;
     clear:both;
   }
+  .top-nav::before {
+    content:" ";
+    position:absolute;
+    right:16px;
+    top:-10px;
+    width:0px;
+    height:0px;
+    opacity:0;
+    background-repeat:no-repeat;
+    background-image:url(/dist/images/arrow-1x.png);
+    background-image:-webkit-image-set(
+      url(/dist/images/arrow-1x.png) 1x,
+      url(/dist/images/arrow-2x.png) 2x
+    );
+  }
   .top-nav-li {
     float:none;
     margin:0 auto;
@@ -102,6 +117,8 @@
     }
   }
   .top-nav.unfold {
+    position:relative;
+    overflow:visible;
     .top-nav-li {
       height:50px;
       a.lang-a {
@@ -112,6 +129,11 @@
     }
     .top-nav-li:first-child {margin:20px auto 0;}
     .top-nav-li:last-child {margin:0 auto 20px;}
+  }
+  .top-nav.unfold::before {
+    width:14px;
+    height:11px;
+    opacity:0.96;
   }
 
   .top-nav-sub,
