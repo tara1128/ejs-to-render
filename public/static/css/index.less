@@ -1,7 +1,7 @@
 /*
   Main styles of Cheetah official website.
   Author: Alexandra.
-  Latest modified: 2018-01-08 16:18 */
+  Latest modified: 2018-01-10 15:51 */
 
 @main-orange:#f0641e;
 @light-orange:#f19149;
@@ -905,15 +905,28 @@ body.zh-cn .proportion-50 {
     height:35px;
     line-height:35px;
     color:@liveme-purple;
+    background-repeat:no-repeat;
   }
   strong.earth {
-    background:url(/dist/images/brandnew-icon-earth.png) no-repeat;
+    background-image:url(/dist/images/brandnew-icon-earth-x1.png);
+    background-image:-webkit-image-set(
+      url(/dist/images/brandnew-icon-earth-x1.png) 1x,
+      url(/dist/images/brandnew-icon-earth-x2.png) 2x
+    );
   }
   strong.tongue {
-    background:url(/dist/images/brandnew-icon-tongue.png) no-repeat;
+    background-image:url(/dist/images/brandnew-icon-tongue-x1.png);
+    background-image:-webkit-image-set(
+      url(/dist/images/brandnew-icon-tongue-x1.png) 1x,
+      url(/dist/images/brandnew-icon-tongue-x2.png) 2x
+    );
   }
   strong.award {
-    background:url(/dist/images/brandnew-icon-award.png) no-repeat;
+    background-image:url(/dist/images/brandnew-icon-award-x1.png);
+    background-image:-webkit-image-set(
+      url(/dist/images/brandnew-icon-award-x1.png) 1x,
+      url(/dist/images/brandnew-icon-award-x2.png) 2x
+    );
   }
   s.line {
     position:absolute;

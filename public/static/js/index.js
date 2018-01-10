@@ -1,7 +1,7 @@
 /*
   Script of Cheetah official website.
   Author: Alexandra
-  Latest modified: 2018-01-08 16:40
+  Latest modified: 2018-01-10 15:53
 */
 
 (function(win, doc, $) {
@@ -27,7 +27,7 @@
       me.AutoWidth();
       me.BindAllEvents();
       me.BindScrolling();
-      console.log('2018, Jan.8th 16:40, make nav lang switch highlight work!');
+      console.log('2018, Jan.10th 15:53, make liveme icons fit for Retina !');
     },
     DetectLanguage: function() {
       var me = this;
