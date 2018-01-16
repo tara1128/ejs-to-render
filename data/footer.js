@@ -38,7 +38,7 @@ exports.CMCM_PublicFooter = {
         pvyLink: 'http://www.cmcm.com/protocol/site/privacy-cn.html',
         tos: '用户协议',
         tosLink: 'http://www.cmcm.com/protocol/site/tos-cn.html',
-        cptext: '猎豹移动 © 2017 •',
+        cptext: '猎豹移动 © 2018 •',
         curLang: '简体中文',
         curHome: '/zh-cn/'
       }
@@ -83,7 +83,7 @@ exports.CMCM_PublicFooter = {
         pvyLink: 'http://www.cmcm.com/protocol/site/privacy.html',
         tos: 'TOS',
         tosLink: 'http://www.cmcm.com/protocol/site/tos.html',
-        cptext: 'Cheetah Mobile © 2017 •',
+        cptext: 'Cheetah Mobile © 2018 •',
         curLang: 'English',
         curHome: '/en-us/'
       }
@@ -128,7 +128,7 @@ exports.CMCM_PublicFooter = {
         pvyLink: 'http://www.cmcm.com/protocol/site/privacy-tw.html',
         tos: '用戶協議',
         tosLink: 'http://www.cmcm.com/protocol/site/tos-tw.html',
-        cptext: '獵豹移動 &copy; 2017 •',
+        cptext: '獵豹移動 &copy; 2018 •',
         curLang: '繁體中文',
         curHome: '/zh-tw/'
       }
